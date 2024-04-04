@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -116,7 +117,15 @@ namespace MedicineDatabaseApp
             this.Close();
             RootForm rootForm = new RootForm();
             rootForm.Show();
-            
+
+        }
+
+        private void add_info_button_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand("INSERT INTO students (surname, name, lastname, borndate, sex, faculty, groupnumber, specialty, isOffline) VALUES (@surname,@name, @lastname, @borndate,@sex,@faculty,@group,@spec,@isOffline);");
+        
+        command.Parameters.Add("surname", MySqlDbType.VarChar).Value = surname_textbox.Text;
         }
     }
 }

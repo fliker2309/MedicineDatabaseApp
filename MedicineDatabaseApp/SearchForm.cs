@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace MedicineDatabaseApp
 {
-    public partial class RootForm : Form
+    public partial class SearchForm : Form
     {
-        public RootForm()
+        public SearchForm()
         {
             InitializeComponent();
-        }
-
-        private void toAddForm_Click(object sender, EventArgs e)
-        {
-           
-            AddForm addForm = new AddForm();
-            addForm.Show();
-            this.Hide();
         }
     }
 }

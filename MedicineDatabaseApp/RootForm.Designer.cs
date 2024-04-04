@@ -42,7 +42,7 @@
             toAddForm.TabIndex = 0;
             toAddForm.Text = "Добавить студента";
             toAddForm.UseVisualStyleBackColor = true;
-   
+            toAddForm.Click += toAddForm_Click;
             // 
             // label1
             // 
@@ -73,6 +73,7 @@
             Controls.Add(label1);
             Controls.Add(toAddForm);
             Name = "RootForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "RootForm";
             ResumeLayout(false);
             PerformLayout();

@@ -299,6 +299,7 @@
             add_info_button.TabIndex = 20;
             add_info_button.Text = "Сохранить";
             add_info_button.UseVisualStyleBackColor = true;
+            add_info_button.Click += add_info_button_Click;
             // 
             // back_to_main_button
             // 
@@ -350,6 +351,7 @@
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
             Name = "AddForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AddForm";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
