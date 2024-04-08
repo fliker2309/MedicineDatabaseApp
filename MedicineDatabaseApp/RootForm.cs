@@ -19,8 +19,32 @@ namespace MedicineDatabaseApp
 
         private void toAddForm_Click(object sender, EventArgs e)
         {
-           
-            AddForm addForm = new AddForm();
+
+            AddStudentForm addForm = new AddStudentForm();
+            addForm.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toAddIllnessForm_Click(object sender, EventArgs e)
+        {
+            AddIllnessForm addIllnessForm = new AddIllnessForm();
+            addIllnessForm.Show();
+            this.Hide();
+        }
+
+        private void closeAppBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void toAddChechupForm_Click(object sender, EventArgs e)
+        {
+            AddCheckoutForm addForm = new AddCheckoutForm();
             addForm.Show();
             this.Hide();
         }

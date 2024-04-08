@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace MedicineDatabaseApp
 {
-    public partial class AddForm : Form
+    public partial class AddStudentForm : Form
     {
-        public AddForm()
+        public AddStudentForm()
         {
             InitializeComponent();
 

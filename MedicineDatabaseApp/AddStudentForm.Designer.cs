@@ -1,6 +1,6 @@
 ﻿namespace MedicineDatabaseApp
 {
-    partial class AddForm
+    partial class AddStudentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -284,7 +284,7 @@
             // 
             label_top.AutoSize = true;
             label_top.Font = new Font("Segoe UI", 20F);
-            label_top.Location = new Point(245, 9);
+            label_top.Location = new Point(246, 33);
             label_top.Margin = new Padding(4, 0, 4, 0);
             label_top.Name = "label_top";
             label_top.Size = new Size(341, 37);

@@ -312,6 +312,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.AliceBlue;
             ClientSize = new Size(979, 911);
             Controls.Add(maskedTextBox1);
             Controls.Add(back_to_main_button);
