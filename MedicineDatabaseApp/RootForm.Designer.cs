@@ -137,6 +137,7 @@
             addFaculcyBtn.TabIndex = 8;
             addFaculcyBtn.Text = "Добавить факультет";
             addFaculcyBtn.UseVisualStyleBackColor = true;
+            addFaculcyBtn.Click += addFaculcyBtn_Click;
             // 
             // addSpecialityBtn
             // 
@@ -147,6 +148,7 @@
             addSpecialityBtn.TabIndex = 9;
             addSpecialityBtn.Text = "Добавить специальность";
             addSpecialityBtn.UseVisualStyleBackColor = true;
+            addSpecialityBtn.Click += addSpecialityBtn_Click;
             // 
             // toSearchWithParameters
             // 
@@ -162,6 +164,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.AliceBlue;
             ClientSize = new Size(1158, 686);
             Controls.Add(toSearchWithParameters);
             Controls.Add(addSpecialityBtn);

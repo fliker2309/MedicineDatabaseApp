@@ -132,10 +132,10 @@ namespace MedicineDatabaseApp
             command.Parameters.Add("@borndate", MySqlDbType.Date).Value = borndate_datepicker.Value;
             command.Parameters.Add("@admissionyear", MySqlDbType.VarChar).Value = selectedYear;
 
-
-            // Проверяем, какая радиокнопка выбрана
+          
             string sex = male_radiobutton.Checked ? "Мужской" : "Женский";
             command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = sex;
+
 
             command.Parameters.Add("@faculty", MySqlDbType.VarChar).Value = facultyBox.Text;
             command.Parameters.Add("@group", MySqlDbType.VarChar).Value = group_textbox.Text;
@@ -151,10 +151,7 @@ namespace MedicineDatabaseApp
             {
                 MessageBox.Show("Студент добавлен");
 
-                // Закрытие текущей формы
-                this.Close();
-
-                // Открытие rootForm
+                this.Close();            
                 RootForm rootForm = new RootForm();
                 rootForm.Show();
             }

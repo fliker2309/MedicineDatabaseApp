@@ -64,5 +64,19 @@ namespace MedicineDatabaseApp
             overviewForm.Show();
             this.Hide();
         }
+
+        private void addSpecialityBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddSpecialityForm addForm = new AddSpecialityForm();
+            addForm.Show();
+        }
+
+        private void addFaculcyBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddFacultyForm addForm = new AddFacultyForm();
+            addForm.Show();
+        }
     }
 }
