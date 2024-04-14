@@ -36,6 +36,9 @@
             toAddIllnessForm = new Button();
             toAddCertificateForm = new Button();
             closeAppBtn = new Button();
+            addFaculcyBtn = new Button();
+            addSpecialityBtn = new Button();
+            toSearchWithParameters = new Button();
             SuspendLayout();
             // 
             // toAddForm
@@ -62,12 +65,13 @@
             // overview
             // 
             overview.Font = new Font("Trebuchet MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            overview.Location = new Point(490, 373);
+            overview.Location = new Point(486, 197);
             overview.Name = "overview";
             overview.Size = new Size(233, 99);
             overview.TabIndex = 2;
             overview.Text = "Просмотр студентов";
             overview.UseVisualStyleBackColor = true;
+            overview.Click += overview_Click;
             // 
             // toCardAddForm
             // 
@@ -78,7 +82,7 @@
             toCardAddForm.TabIndex = 3;
             toCardAddForm.Text = "Добавить медкарту";
             toCardAddForm.UseVisualStyleBackColor = true;
-            toCardAddForm.Click += button1_Click;
+            toCardAddForm.Click += toCardAddForm_Click;
             // 
             // toAddChechupForm
             // 
@@ -111,6 +115,7 @@
             toAddCertificateForm.TabIndex = 6;
             toAddCertificateForm.Text = "Добавить справку";
             toAddCertificateForm.UseVisualStyleBackColor = true;
+            toAddCertificateForm.Click += toAddCertificateForm_Click;
             // 
             // closeAppBtn
             // 
@@ -123,11 +128,44 @@
             closeAppBtn.UseVisualStyleBackColor = true;
             closeAppBtn.Click += closeAppBtn_Click;
             // 
+            // addFaculcyBtn
+            // 
+            addFaculcyBtn.Font = new Font("Trebuchet MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            addFaculcyBtn.Location = new Point(827, 373);
+            addFaculcyBtn.Name = "addFaculcyBtn";
+            addFaculcyBtn.Size = new Size(233, 99);
+            addFaculcyBtn.TabIndex = 8;
+            addFaculcyBtn.Text = "Добавить факультет";
+            addFaculcyBtn.UseVisualStyleBackColor = true;
+            // 
+            // addSpecialityBtn
+            // 
+            addSpecialityBtn.Font = new Font("Trebuchet MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            addSpecialityBtn.Location = new Point(486, 545);
+            addSpecialityBtn.Name = "addSpecialityBtn";
+            addSpecialityBtn.Size = new Size(233, 99);
+            addSpecialityBtn.TabIndex = 9;
+            addSpecialityBtn.Text = "Добавить специальность";
+            addSpecialityBtn.UseVisualStyleBackColor = true;
+            // 
+            // toSearchWithParameters
+            // 
+            toSearchWithParameters.Font = new Font("Trebuchet MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            toSearchWithParameters.Location = new Point(486, 373);
+            toSearchWithParameters.Name = "toSearchWithParameters";
+            toSearchWithParameters.Size = new Size(233, 99);
+            toSearchWithParameters.TabIndex = 10;
+            toSearchWithParameters.Text = "Поиск по параметрам";
+            toSearchWithParameters.UseVisualStyleBackColor = true;
+            // 
             // RootForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1158, 686);
+            Controls.Add(toSearchWithParameters);
+            Controls.Add(addSpecialityBtn);
+            Controls.Add(addFaculcyBtn);
             Controls.Add(closeAppBtn);
             Controls.Add(toAddCertificateForm);
             Controls.Add(toAddIllnessForm);
@@ -153,5 +191,8 @@
         private Button toAddIllnessForm;
         private Button toAddCertificateForm;
         private Button closeAppBtn;
+        private Button addFaculcyBtn;
+        private Button addSpecialityBtn;
+        private Button toSearchWithParameters;
     }
 }

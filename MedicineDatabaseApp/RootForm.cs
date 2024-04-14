@@ -25,11 +25,6 @@ namespace MedicineDatabaseApp
             this.Hide();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void toAddIllnessForm_Click(object sender, EventArgs e)
         {
             AddIllnessForm addIllnessForm = new AddIllnessForm();
@@ -46,6 +41,27 @@ namespace MedicineDatabaseApp
         {
             AddCheckoutForm addForm = new AddCheckoutForm();
             addForm.Show();
+            this.Hide();
+        }
+
+        private void toCardAddForm_Click(object sender, EventArgs e)
+        {
+            AddCardForm addForm = new AddCardForm();
+            addForm.Show();
+            this.Hide();
+        }
+
+        private void toAddCertificateForm_Click(object sender, EventArgs e)
+        {
+            AddCertificateForm addForm = new AddCertificateForm();
+            addForm.Show();
+            this.Hide();
+        }
+
+        private void overview_Click(object sender, EventArgs e)
+        {
+            ShowStudentsForm overviewForm = new ShowStudentsForm();
+            overviewForm.Show();
             this.Hide();
         }
     }

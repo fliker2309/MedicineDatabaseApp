@@ -14,6 +14,8 @@ namespace MedicineDatabaseApp
 {
     public partial class AddStudentForm : Form
     {
+
+
         public AddStudentForm()
         {
             InitializeComponent();
@@ -24,25 +26,18 @@ namespace MedicineDatabaseApp
 
             lastname_textbox.Text = "Введите отчество";
 
-            faculty_textbox.Text = "Введите факультет";
-
             group_textbox.Text = "Введите группу";
 
-            spec_textbox.Text = "Введите специальность";
+            ComboBox admissionYear = new ComboBox();
+            int startYear = 2000;
+            int endYear = DateTime.Now.Year;
 
-
-        }
-
-
-
-        private void age_textbox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char number = e.KeyChar;
-            if (!Char.IsDigit(number) && number != 8) // цифры и клавиша BackSpace
+            for (int year = startYear; year <= endYear; year++)
             {
-                e.Handled = true;
+                admissionYearBox.Items.Add(year.ToString());
             }
-        }
+
+        }    
 
         private void surname_textbox_Enter(object sender, EventArgs e)
         {
@@ -82,8 +77,8 @@ namespace MedicineDatabaseApp
 
         private void faculty_textbox_Enter(object sender, EventArgs e)
         {
-            if (faculty_textbox.Text == "Введите факультет")
-                faculty_textbox.Text = "";
+          /*  if (faculty_textbox.Text == "Введите факультет")
+                faculty_textbox.Text = "";*/
         }
 
         private void group_textbox_Enter(object sender, EventArgs e)
@@ -94,22 +89,22 @@ namespace MedicineDatabaseApp
 
         private void spec_textbox_Enter(object sender, EventArgs e)
         {
-            if (spec_textbox.Text == "Введите специальность")
-                spec_textbox.Text = "";
+           /* if (spec_textbox.Text == "Введите специальность")
+                spec_textbox.Text = "";*/
         }
 
         private void spec_textbox_Leave(object sender, EventArgs e)
         {
-            if (spec_textbox.Text == "")
-                spec_textbox.Text = "Введите специальность";
+          /*  if (spec_textbox.Text == "")
+                spec_textbox.Text = "Введите специальность";*/
         }
 
 
 
         private void faculty_textbox_Leave(object sender, EventArgs e)
         {
-            if (faculty_textbox.Text == "")
-                faculty_textbox.Text = "Введите факультет";
+     /*       if (faculty_textbox.Text == "")
+                faculty_textbox.Text = "Введите факультет";*/
         }
 
         private void back_to_main_button_Click(object sender, EventArgs e)
@@ -120,12 +115,56 @@ namespace MedicineDatabaseApp
 
         }
 
+        
+
         private void add_info_button_Click(object sender, EventArgs e)
         {
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO students (surname, name, lastname, borndate, sex, faculty, groupnumber, specialty, isOffline) VALUES (@surname,@name, @lastname, @borndate,@sex,@faculty,@group,@spec,@isOffline);");
-        
-        command.Parameters.Add("surname", MySqlDbType.VarChar).Value = surname_textbox.Text;
+
+            int selectedYear = int.Parse(admissionYearBox.SelectedItem.ToString());
+
+
+            MySqlCommand command = new MySqlCommand("INSERT INTO students (surname, name, lastname, borndate, admission_year, sex, faculty, groupnumber, specialty, isOffline) VALUES (@surname,@name, @lastname, @borndate,@admissionyear, @sex,@faculty,@group,@spec,@isOffline);", db.getConnection());
+
+            command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = surname_textbox.Text;
+            command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name_textbox.Text;
+            command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = lastname_textbox.Text;
+            command.Parameters.Add("@borndate", MySqlDbType.Date).Value = borndate_datepicker.Value;
+            command.Parameters.Add("@admissionyear", MySqlDbType.VarChar).Value = selectedYear;
+
+
+            // Проверяем, какая радиокнопка выбрана
+            string sex = male_radiobutton.Checked ? "Мужской" : "Женский";
+            command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = sex;
+
+            command.Parameters.Add("@faculty", MySqlDbType.VarChar).Value = facultyBox.Text;
+            command.Parameters.Add("@group", MySqlDbType.VarChar).Value = group_textbox.Text;
+            command.Parameters.Add("@spec", MySqlDbType.VarChar).Value = specialityBox.Text;
+
+            string isOffline = offline_radiobutton.Checked ? "Очное" : "Заочное";
+            command.Parameters.Add("@isOffline", MySqlDbType.VarChar).Value = isOffline;
+
+
+            db.openConnection();
+
+            if (command.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("Студент добавлен");
+
+                // Закрытие текущей формы
+                this.Close();
+
+                // Открытие rootForm
+                RootForm rootForm = new RootForm();
+                rootForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Студент не добавлен");
+            }
+
+            db.closeConnection();
+
         }
     }
 }

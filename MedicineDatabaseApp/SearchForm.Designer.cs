@@ -30,7 +30,7 @@
         {
             maskedTextBox1 = new MaskedTextBox();
             back_to_main_button = new Button();
-            add_info_button = new Button();
+            searchBtn = new Button();
             label_top = new Label();
             groupBox2 = new GroupBox();
             online_radiobutton = new RadioButton();
@@ -48,11 +48,11 @@
             label_sex = new Label();
             lastname_textbox = new TextBox();
             name_textbox = new TextBox();
-            surname_textbox = new TextBox();
             age_label = new Label();
             lastname_label = new Label();
             name_label = new Label();
             surname_label = new Label();
+            comboBox1 = new ComboBox();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -60,30 +60,30 @@
             // maskedTextBox1
             // 
             maskedTextBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            maskedTextBox1.Location = new Point(404, 170);
+            maskedTextBox1.Location = new Point(404, 326);
             maskedTextBox1.Mask = "00/00/0000";
             maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(147, 23);
+            maskedTextBox1.Size = new Size(90, 23);
             maskedTextBox1.TabIndex = 44;
             maskedTextBox1.ValidatingType = typeof(DateTime);
             // 
             // back_to_main_button
             // 
-            back_to_main_button.Location = new Point(56, 762);
+            back_to_main_button.Location = new Point(48, 869);
             back_to_main_button.Name = "back_to_main_button";
             back_to_main_button.Size = new Size(197, 57);
             back_to_main_button.TabIndex = 43;
             back_to_main_button.Text = "Назад";
             back_to_main_button.UseVisualStyleBackColor = true;
             // 
-            // add_info_button
+            // searchBtn
             // 
-            add_info_button.Location = new Point(647, 762);
-            add_info_button.Name = "add_info_button";
-            add_info_button.Size = new Size(197, 57);
-            add_info_button.TabIndex = 42;
-            add_info_button.Text = "Сохранить";
-            add_info_button.UseVisualStyleBackColor = true;
+            searchBtn.Location = new Point(629, 869);
+            searchBtn.Name = "searchBtn";
+            searchBtn.Size = new Size(197, 57);
+            searchBtn.TabIndex = 42;
+            searchBtn.Text = "Поиск";
+            searchBtn.UseVisualStyleBackColor = true;
             // 
             // label_top
             // 
@@ -100,7 +100,7 @@
             // 
             groupBox2.Controls.Add(online_radiobutton);
             groupBox2.Controls.Add(offline_radiobutton);
-            groupBox2.Location = new Point(404, 590);
+            groupBox2.Location = new Point(404, 734);
             groupBox2.Margin = new Padding(4);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(4);
@@ -135,7 +135,7 @@
             // learning_form_label
             // 
             learning_form_label.AutoSize = true;
-            learning_form_label.Location = new Point(215, 627);
+            learning_form_label.Location = new Point(204, 805);
             learning_form_label.Margin = new Padding(4, 0, 4, 0);
             learning_form_label.Name = "learning_form_label";
             learning_form_label.Size = new Size(101, 15);
@@ -144,7 +144,7 @@
             // 
             // spec_textbox
             // 
-            spec_textbox.Location = new Point(404, 530);
+            spec_textbox.Location = new Point(404, 686);
             spec_textbox.Margin = new Padding(4);
             spec_textbox.Name = "spec_textbox";
             spec_textbox.Size = new Size(229, 23);
@@ -152,7 +152,7 @@
             // 
             // group_textbox
             // 
-            group_textbox.Location = new Point(404, 460);
+            group_textbox.Location = new Point(404, 614);
             group_textbox.Margin = new Padding(4);
             group_textbox.Name = "group_textbox";
             group_textbox.Size = new Size(229, 23);
@@ -161,7 +161,7 @@
             // spec_label
             // 
             spec_label.AutoSize = true;
-            spec_label.Location = new Point(215, 530);
+            spec_label.Location = new Point(213, 689);
             spec_label.Margin = new Padding(4, 0, 4, 0);
             spec_label.Name = "spec_label";
             spec_label.Size = new Size(92, 15);
@@ -171,7 +171,7 @@
             // group_label
             // 
             group_label.AutoSize = true;
-            group_label.Location = new Point(215, 460);
+            group_label.Location = new Point(215, 622);
             group_label.Margin = new Padding(4, 0, 4, 0);
             group_label.Name = "group_label";
             group_label.Size = new Size(46, 15);
@@ -180,7 +180,7 @@
             // 
             // faculty_textbox
             // 
-            faculty_textbox.Location = new Point(404, 394);
+            faculty_textbox.Location = new Point(404, 555);
             faculty_textbox.Margin = new Padding(4);
             faculty_textbox.Name = "faculty_textbox";
             faculty_textbox.Size = new Size(229, 23);
@@ -189,7 +189,7 @@
             // faculcy_label
             // 
             faculcy_label.AutoSize = true;
-            faculcy_label.Location = new Point(215, 394);
+            faculcy_label.Location = new Point(215, 563);
             faculcy_label.Margin = new Padding(4, 0, 4, 0);
             faculcy_label.Name = "faculcy_label";
             faculcy_label.Size = new Size(63, 15);
@@ -200,7 +200,7 @@
             // 
             groupBox1.Controls.Add(radio_button_female);
             groupBox1.Controls.Add(radio_button_male);
-            groupBox1.Location = new Point(404, 207);
+            groupBox1.Location = new Point(404, 362);
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
@@ -235,7 +235,7 @@
             // label_sex
             // 
             label_sex.AutoSize = true;
-            label_sex.Location = new Point(215, 291);
+            label_sex.Location = new Point(215, 495);
             label_sex.Margin = new Padding(4, 0, 4, 0);
             label_sex.Name = "label_sex";
             label_sex.Size = new Size(30, 15);
@@ -258,18 +258,10 @@
             name_textbox.Size = new Size(229, 23);
             name_textbox.TabIndex = 29;
             // 
-            // surname_textbox
-            // 
-            surname_textbox.Location = new Point(404, 0);
-            surname_textbox.Margin = new Padding(4);
-            surname_textbox.Name = "surname_textbox";
-            surname_textbox.Size = new Size(229, 23);
-            surname_textbox.TabIndex = 28;
-            // 
             // age_label
             // 
             age_label.AutoSize = true;
-            age_label.Location = new Point(215, 178);
+            age_label.Location = new Point(215, 334);
             age_label.Margin = new Padding(4, 0, 4, 0);
             age_label.Name = "age_label";
             age_label.Size = new Size(90, 15);
@@ -308,15 +300,24 @@
             surname_label.TabIndex = 24;
             surname_label.Text = "Фамилия";
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(404, 34);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 45;
+            // 
             // SearchForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(979, 911);
+            ClientSize = new Size(922, 984);
+            Controls.Add(comboBox1);
             Controls.Add(maskedTextBox1);
             Controls.Add(back_to_main_button);
-            Controls.Add(add_info_button);
+            Controls.Add(searchBtn);
             Controls.Add(label_top);
             Controls.Add(groupBox2);
             Controls.Add(learning_form_label);
@@ -330,7 +331,6 @@
             Controls.Add(label_sex);
             Controls.Add(lastname_textbox);
             Controls.Add(name_textbox);
-            Controls.Add(surname_textbox);
             Controls.Add(age_label);
             Controls.Add(lastname_label);
             Controls.Add(name_label);
@@ -350,7 +350,7 @@
 
         private MaskedTextBox maskedTextBox1;
         private Button back_to_main_button;
-        private Button add_info_button;
+        private Button searchBtn;
         private Label label_top;
         private GroupBox groupBox2;
         private RadioButton online_radiobutton;
@@ -368,10 +368,10 @@
         private Label label_sex;
         private TextBox lastname_textbox;
         private TextBox name_textbox;
-        private TextBox surname_textbox;
         private Label age_label;
         private Label lastname_label;
         private Label name_label;
         private Label surname_label;
+        private ComboBox comboBox1;
     }
 }
