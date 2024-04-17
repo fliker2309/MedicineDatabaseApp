@@ -29,7 +29,7 @@ namespace MedicineDatabaseApp
             group_textbox.Text = "Введите группу";
 
             ComboBox admissionYear = new ComboBox();
-            int startYear = 2000;
+            int startYear = 2014;
             int endYear = DateTime.Now.Year;
 
             for (int year = startYear; year <= endYear; year++)
@@ -37,7 +37,47 @@ namespace MedicineDatabaseApp
                 admissionYearBox.Items.Add(year.ToString());
             }
 
+            ComboBox facultyBox = new ComboBox();
+            initialize_faculties();
+
+            ComboBox specialityBox = new ComboBox();
+            initialize_specialities();
+
         }    
+
+        private void initialize_faculties()
+        {
+            DB db = new DB();
+
+            MySqlCommand command = new MySqlCommand("SELECT faculty FROM faculties", db.getConnection());
+
+            db.openConnection();
+            MySqlDataReader reader = command.ExecuteReader();
+            List<string> faculties = new List<string>();
+            while (reader.Read())
+            {
+                faculties.Add(reader.GetString(0));
+            }
+            facultyBox.DataSource = faculties;
+
+            db.closeConnection();
+        }
+
+        private void initialize_specialities()
+        {
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand("SELECT speciality FROM specialities", db.getConnection());
+            db.openConnection();
+            MySqlDataReader reader = command.ExecuteReader();
+            List<string> specialities = new List<string>();
+            while (reader.Read())
+            {
+                specialities.Add(reader.GetString(0));
+            }
+            specialityBox.DataSource = specialities;
+            db.closeConnection();
+
+        }
 
         private void surname_textbox_Enter(object sender, EventArgs e)
         {
@@ -75,11 +115,7 @@ namespace MedicineDatabaseApp
                 lastname_textbox.Text = "Введите отчество";
         }
 
-        private void faculty_textbox_Enter(object sender, EventArgs e)
-        {
-          /*  if (faculty_textbox.Text == "Введите факультет")
-                faculty_textbox.Text = "";*/
-        }
+      
 
         private void group_textbox_Enter(object sender, EventArgs e)
         {
@@ -87,35 +123,13 @@ namespace MedicineDatabaseApp
                 group_textbox.Text = "";
         }
 
-        private void spec_textbox_Enter(object sender, EventArgs e)
-        {
-           /* if (spec_textbox.Text == "Введите специальность")
-                spec_textbox.Text = "";*/
-        }
-
-        private void spec_textbox_Leave(object sender, EventArgs e)
-        {
-          /*  if (spec_textbox.Text == "")
-                spec_textbox.Text = "Введите специальность";*/
-        }
-
-
-
-        private void faculty_textbox_Leave(object sender, EventArgs e)
-        {
-     /*       if (faculty_textbox.Text == "")
-                faculty_textbox.Text = "Введите факультет";*/
-        }
 
         private void back_to_main_button_Click(object sender, EventArgs e)
         {
             this.Close();
             RootForm rootForm = new RootForm();
             rootForm.Show();
-
-        }
-
-        
+        }        
 
         private void add_info_button_Click(object sender, EventArgs e)
         {
@@ -124,12 +138,12 @@ namespace MedicineDatabaseApp
             int selectedYear = int.Parse(admissionYearBox.SelectedItem.ToString());
 
 
-            MySqlCommand command = new MySqlCommand("INSERT INTO students (surname, name, lastname, borndate, admission_year, sex, faculty, groupnumber, specialty, isOffline) VALUES (@surname,@name, @lastname, @borndate,@admissionyear, @sex,@faculty,@group,@spec,@isOffline);", db.getConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO students (surname, name, lastname, age, admission_year, sex, faculty, groupnumber, speciality, isOffline) VALUES (@surname,@name, @lastname, @age,@admissionyear, @sex,@faculty,@group,@spec,@isOffline);", db.getConnection());
 
             command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = surname_textbox.Text;
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name_textbox.Text;
             command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = lastname_textbox.Text;
-            command.Parameters.Add("@borndate", MySqlDbType.Date).Value = borndate_datepicker.Value;
+            command.Parameters.Add("@age", MySqlDbType.Date).Value = borndate_datepicker.Value;
             command.Parameters.Add("@admissionyear", MySqlDbType.VarChar).Value = selectedYear;
 
           
@@ -137,9 +151,9 @@ namespace MedicineDatabaseApp
             command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = sex;
 
 
-            command.Parameters.Add("@faculty", MySqlDbType.VarChar).Value = facultyBox.Text;
+            command.Parameters.Add("@faculty", MySqlDbType.VarChar).Value = facultyBox.SelectedItem.ToString();
             command.Parameters.Add("@group", MySqlDbType.VarChar).Value = group_textbox.Text;
-            command.Parameters.Add("@spec", MySqlDbType.VarChar).Value = specialityBox.Text;
+            command.Parameters.Add("@spec", MySqlDbType.VarChar).Value = specialityBox.SelectedItem.ToString();
 
             string isOffline = offline_radiobutton.Checked ? "Очное" : "Заочное";
             command.Parameters.Add("@isOffline", MySqlDbType.VarChar).Value = isOffline;

@@ -57,13 +57,7 @@ namespace MedicineDatabaseApp
             addForm.Show();
             this.Hide();
         }
-
-        private void overview_Click(object sender, EventArgs e)
-        {
-            ShowStudentsForm overviewForm = new ShowStudentsForm();
-            overviewForm.Show();
-            this.Hide();
-        }
+             
 
         private void addSpecialityBtn_Click(object sender, EventArgs e)
         {
@@ -77,6 +71,13 @@ namespace MedicineDatabaseApp
             this.Hide();
             AddFacultyForm addForm = new AddFacultyForm();
             addForm.Show();
+        }
+
+        private void toSearchWithParameters_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SearchForm searchForm = new SearchForm();
+            searchForm.Show();
         }
     }
 }

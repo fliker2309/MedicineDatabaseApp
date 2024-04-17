@@ -30,7 +30,6 @@
         {
             toAddForm = new Button();
             label1 = new Label();
-            overview = new Button();
             toCardAddForm = new Button();
             toAddChechupForm = new Button();
             toAddIllnessForm = new Button();
@@ -61,17 +60,6 @@
             label1.Size = new Size(672, 61);
             label1.TabIndex = 1;
             label1.Text = "База данных студентов ПГУ";
-            // 
-            // overview
-            // 
-            overview.Font = new Font("Trebuchet MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            overview.Location = new Point(486, 197);
-            overview.Name = "overview";
-            overview.Size = new Size(233, 99);
-            overview.TabIndex = 2;
-            overview.Text = "Просмотр студентов";
-            overview.UseVisualStyleBackColor = true;
-            overview.Click += overview_Click;
             // 
             // toCardAddForm
             // 
@@ -157,8 +145,9 @@
             toSearchWithParameters.Name = "toSearchWithParameters";
             toSearchWithParameters.Size = new Size(233, 99);
             toSearchWithParameters.TabIndex = 10;
-            toSearchWithParameters.Text = "Поиск по параметрам";
+            toSearchWithParameters.Text = "Просмотр студентов";
             toSearchWithParameters.UseVisualStyleBackColor = true;
+            toSearchWithParameters.Click += toSearchWithParameters_Click;
             // 
             // RootForm
             // 
@@ -174,7 +163,6 @@
             Controls.Add(toAddIllnessForm);
             Controls.Add(toAddChechupForm);
             Controls.Add(toCardAddForm);
-            Controls.Add(overview);
             Controls.Add(label1);
             Controls.Add(toAddForm);
             Name = "RootForm";
@@ -188,7 +176,6 @@
 
         private Button toAddForm;
         private Label label1;
-        private Button overview;
         private Button toCardAddForm;
         private Button toAddChechupForm;
         private Button toAddIllnessForm;

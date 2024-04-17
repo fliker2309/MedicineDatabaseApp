@@ -313,9 +313,9 @@
             // admissionYearBox
             // 
             admissionYearBox.FormattingEnabled = true;
-            admissionYearBox.Location = new Point(386, 375);
+            admissionYearBox.Location = new Point(379, 375);
             admissionYearBox.Name = "admissionYearBox";
-            admissionYearBox.Size = new Size(222, 29);
+            admissionYearBox.Size = new Size(128, 29);
             admissionYearBox.TabIndex = 26;
             // 
             // facultyBox
@@ -323,7 +323,7 @@
             facultyBox.FormattingEnabled = true;
             facultyBox.Location = new Point(379, 585);
             facultyBox.Name = "facultyBox";
-            facultyBox.Size = new Size(229, 29);
+            facultyBox.Size = new Size(399, 29);
             facultyBox.TabIndex = 27;
             // 
             // specialityBox
@@ -331,7 +331,7 @@
             specialityBox.FormattingEnabled = true;
             specialityBox.Location = new Point(379, 720);
             specialityBox.Name = "specialityBox";
-            specialityBox.Size = new Size(229, 29);
+            specialityBox.Size = new Size(399, 29);
             specialityBox.TabIndex = 28;
             // 
             // AddStudentForm
