@@ -1,9 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MedicineDatabaseApp
 {
@@ -16,7 +11,6 @@ namespace MedicineDatabaseApp
             if (connection.State == System.Data.ConnectionState.Closed) {
             connection.Open();}
         }
-
         public void closeConnection()
         {
             if (connection.State == System.Data.ConnectionState.Open)
@@ -24,13 +18,10 @@ namespace MedicineDatabaseApp
                 connection.Close();
             }
         }
-
         public MySqlConnection getConnection()
         {
             return connection;
-        }
-    }
-
-   
+        }      
+    }   
 }
 

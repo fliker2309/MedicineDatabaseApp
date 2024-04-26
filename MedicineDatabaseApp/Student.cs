@@ -15,9 +15,12 @@ namespace MedicineDatabaseApp
         public DateTime Borndate { get; set; }
         public string Sex { get; set; }
         public string Faculty { get; set; }
-        public string Group { get; set; }
         public string Specialty { get; set; }
-        public bool IsOffline { get; set; }
+        public string Group { get; set; }    
+        public string Aducation_form { get; set; }
+        public string Start_year { get; set; }
+        public string End_year { get; set; }
+        
     }
 
 }

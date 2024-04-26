@@ -89,10 +89,10 @@
             // maskedTextBox1
             // 
             maskedTextBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            maskedTextBox1.Location = new Point(544, 342);
+            maskedTextBox1.Location = new Point(544, 109);
             maskedTextBox1.Mask = "00/00/0000";
             maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(122, 23);
+            maskedTextBox1.Size = new Size(78, 23);
             maskedTextBox1.TabIndex = 37;
             maskedTextBox1.ValidatingType = typeof(DateTime);
             // 
@@ -131,12 +131,12 @@
             textBox2.Size = new Size(356, 23);
             textBox2.TabIndex = 43;
             // 
-            // AddCertificateForm
+            // AddCardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(891, 1002);
+            ClientSize = new Size(847, 537);
             Controls.Add(textBox2);
             Controls.Add(label4);
             Controls.Add(textBox1);
@@ -147,7 +147,7 @@
             Controls.Add(label2);
             Controls.Add(comboBox1);
             Controls.Add(label1);
-            Name = "AddCertificateForm";
+            Name = "AddCardForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddCertificateForm";
             ResumeLayout(false);

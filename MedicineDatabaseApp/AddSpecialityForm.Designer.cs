@@ -54,7 +54,7 @@
             // 
             // back_to_main_button
             // 
-            back_to_main_button.Location = new Point(65, 724);
+            back_to_main_button.Location = new Point(65, 540);
             back_to_main_button.Name = "back_to_main_button";
             back_to_main_button.Size = new Size(197, 57);
             back_to_main_button.TabIndex = 47;
@@ -64,7 +64,7 @@
             // 
             // saveSpeciality
             // 
-            saveSpeciality.Location = new Point(662, 724);
+            saveSpeciality.Location = new Point(662, 540);
             saveSpeciality.Name = "saveSpeciality";
             saveSpeciality.Size = new Size(197, 57);
             saveSpeciality.TabIndex = 48;
@@ -77,7 +77,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(939, 865);
+            ClientSize = new Size(939, 749);
             Controls.Add(saveSpeciality);
             Controls.Add(back_to_main_button);
             Controls.Add(specialityTextBox);

@@ -57,7 +57,7 @@ namespace MedicineDatabaseApp
             addForm.Show();
             this.Hide();
         }
-             
+
 
         private void addSpecialityBtn_Click(object sender, EventArgs e)
         {
@@ -78,6 +78,7 @@ namespace MedicineDatabaseApp
             this.Hide();
             SearchForm searchForm = new SearchForm();
             searchForm.Show();
-        }
+        }    
+              
     }
 }
