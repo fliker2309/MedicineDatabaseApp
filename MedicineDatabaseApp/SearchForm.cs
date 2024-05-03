@@ -14,7 +14,7 @@ namespace MedicineDatabaseApp
 {
     public partial class SearchForm : Form
     {
-        
+
         public SearchForm()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace MedicineDatabaseApp
             yearComboBox.SelectedIndex = -1;
             sexComboBox.SelectedIndex = -1;
 
-       
+
 
             int startYear = 2010;
             int endYear = DateTime.Now.Year;
@@ -48,7 +48,7 @@ namespace MedicineDatabaseApp
 
 
         }
-               
+
 
         private void SearchForm_Load(object? sender, EventArgs e)
         {
@@ -70,7 +70,7 @@ namespace MedicineDatabaseApp
             db.openConnection();
             using (var reader = command.ExecuteReader())
             {
-               while(reader.Read())
+                while (reader.Read())
                 {
                     ListViewItem item = new ListViewItem(reader["surname"].ToString());
                     item.SubItems.Add(reader["name"].ToString());
@@ -87,7 +87,7 @@ namespace MedicineDatabaseApp
             }
 
             db.closeConnection();
-         
+
         }
 
         private void initialize_age()
@@ -243,23 +243,23 @@ namespace MedicineDatabaseApp
 
             using (var reader = command.ExecuteReader())
             {
-                bool hasRows = false;            
-                
-                    while (reader.Read())
-                    {
-                     hasRows = true;
-                    ListViewItem item = new ListViewItem(reader["surname"].ToString());
-                        item.SubItems.Add(reader["name"].ToString());
-                        item.SubItems.Add(reader["lastname"].ToString());
-                        item.SubItems.Add(reader["sex"].ToString());
-                        item.SubItems.Add(reader["age"].ToString());
-                        item.SubItems.Add(reader["faculty"].ToString());
-                        item.SubItems.Add(reader["speciality"].ToString());
-                        item.SubItems.Add(reader["groupnumber"].ToString());
-                        item.SubItems.Add(reader["admission_year"].ToString());
+                bool hasRows = false;
 
-                        studentsListView.Items.Add(item);
-                    }
+                while (reader.Read())
+                {
+                    hasRows = true;
+                    ListViewItem item = new ListViewItem(reader["surname"].ToString());
+                    item.SubItems.Add(reader["name"].ToString());
+                    item.SubItems.Add(reader["lastname"].ToString());
+                    item.SubItems.Add(reader["sex"].ToString());
+                    item.SubItems.Add(reader["age"].ToString());
+                    item.SubItems.Add(reader["faculty"].ToString());
+                    item.SubItems.Add(reader["speciality"].ToString());
+                    item.SubItems.Add(reader["groupnumber"].ToString());
+                    item.SubItems.Add(reader["admission_year"].ToString());
+
+                    studentsListView.Items.Add(item);
+                }
                 if (!hasRows)
                 {
                     ListViewItem item = new ListViewItem("Нет студентов");
@@ -267,10 +267,14 @@ namespace MedicineDatabaseApp
                 }
             }
 
-                db.closeConnection();
-            }
-        
+            db.closeConnection();
+        }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            RootForm rootForm = new RootForm();
+            rootForm.Show();
+        }
     }
 }

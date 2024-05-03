@@ -14,8 +14,6 @@ namespace MedicineDatabaseApp
 {
     public partial class AddStudentForm : Form
     {
-
-
         public AddStudentForm()
         {
             InitializeComponent();
@@ -28,13 +26,22 @@ namespace MedicineDatabaseApp
 
             group_textbox.Text = "Введите группу";
 
-            ComboBox admissionYear = new ComboBox();
-            int startYear = 2014;
-            int endYear = DateTime.Now.Year;
+            ComboBox startYear = new ComboBox();
+            int startYear1 = 2020;
+            int endYear1 = DateTime.Now.Year;
 
-            for (int year = startYear; year <= endYear; year++)
+            for (int year = startYear1; year <= endYear1; year++)
             {
-                admissionYearBox.Items.Add(year.ToString());
+                startYearBox.Items.Add(year.ToString());
+            }
+
+            ComboBox endYear = new ComboBox();
+            int startYear2 = DateTime.Now.Year;
+            int endYear2 = 2030;
+
+            for (int year = startYear2; year <= endYear2; year++)
+            {
+                endYearBox.Items.Add(year.ToString());
             }
 
             ComboBox facultyBox = new ComboBox();
@@ -43,7 +50,7 @@ namespace MedicineDatabaseApp
             ComboBox specialityBox = new ComboBox();
             initialize_specialities();
 
-        }    
+        }
 
         private void initialize_faculties()
         {
@@ -115,8 +122,6 @@ namespace MedicineDatabaseApp
                 lastname_textbox.Text = "Введите отчество";
         }
 
-      
-
         private void group_textbox_Enter(object sender, EventArgs e)
         {
             if (group_textbox.Text == "Введите группу")
@@ -129,34 +134,40 @@ namespace MedicineDatabaseApp
             this.Close();
             RootForm rootForm = new RootForm();
             rootForm.Show();
-        }        
+        }
 
         private void add_info_button_Click(object sender, EventArgs e)
         {
             DB db = new DB();
 
-            int selectedYear = int.Parse(admissionYearBox.SelectedItem.ToString());
+            int selectedYear = int.Parse(startYearBox.SelectedItem.ToString());
 
 
-            MySqlCommand command = new MySqlCommand("INSERT INTO students (surname, name, lastname, age, admission_year, sex, faculty, groupnumber, speciality, isOffline) VALUES (@surname,@name, @lastname, @age,@admissionyear, @sex,@faculty,@group,@spec,@isOffline);", db.getConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO students (surname, name, lastname, age, sex, faculty_id, speciality_id, groupnumber, aducation_form, start_year, end_year) VALUES (@surname,@name, @lastname, @age,@sex,@faculty, @spec, @group, @aducationform, @startyear, @endyear);", db.getConnection());
 
             command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = surname_textbox.Text;
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name_textbox.Text;
             command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = lastname_textbox.Text;
             command.Parameters.Add("@age", MySqlDbType.Date).Value = borndate_datepicker.Value;
-            command.Parameters.Add("@admissionyear", MySqlDbType.VarChar).Value = selectedYear;
-
-          
             string sex = male_radiobutton.Checked ? "Мужской" : "Женский";
             command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = sex;
 
-
             command.Parameters.Add("@faculty", MySqlDbType.VarChar).Value = facultyBox.SelectedItem.ToString();
-            command.Parameters.Add("@group", MySqlDbType.VarChar).Value = group_textbox.Text;
             command.Parameters.Add("@spec", MySqlDbType.VarChar).Value = specialityBox.SelectedItem.ToString();
-
+            command.Parameters.Add("@group", MySqlDbType.VarChar).Value = group_textbox.Text;
+          
             string isOffline = offline_radiobutton.Checked ? "Очное" : "Заочное";
             command.Parameters.Add("@isOffline", MySqlDbType.VarChar).Value = isOffline;
+
+            command.Parameters.Add("@admissionyear", MySqlDbType.VarChar).Value = selectedYear;
+
+
+       
+      
+
+
+           
+           
 
 
             db.openConnection();
@@ -165,7 +176,7 @@ namespace MedicineDatabaseApp
             {
                 MessageBox.Show("Студент добавлен");
 
-                this.Close();            
+                this.Close();
                 RootForm rootForm = new RootForm();
                 rootForm.Show();
             }
@@ -177,5 +188,12 @@ namespace MedicineDatabaseApp
             db.closeConnection();
 
         }
+
+        private void group_textbox_Leave_1(object sender, EventArgs e)
+        {
+            if (group_textbox.Text == "")
+                group_textbox.Text = "Введите группу";
+        }
+       
     }
 }

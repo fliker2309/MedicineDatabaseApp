@@ -87,7 +87,7 @@
             toAddIllnessForm.TabIndex = 5;
             toAddIllnessForm.Text = "Добавить информацию";
             toAddIllnessForm.UseVisualStyleBackColor = true;
-            toAddIllnessForm.Click += toAddIllnessForm_Click;
+            toAddIllnessForm.Click += toPastRootForm;
             // 
             // RootForm
             // 

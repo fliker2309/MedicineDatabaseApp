@@ -45,6 +45,7 @@
             specialityBox = new ComboBox();
             sexComboBox = new ComboBox();
             studentsListView = new ListView();
+            button1 = new Button();
             SuspendLayout();
             // 
             // back_to_main_button
@@ -139,7 +140,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Trebuchet MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(326, 40);
+            label1.Location = new Point(434, 26);
             label1.Name = "label1";
             label1.Size = new Size(250, 29);
             label1.TabIndex = 44;
@@ -213,18 +214,30 @@
             // studentsListView
             // 
             studentsListView.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            studentsListView.Location = new Point(101, 329);
+            studentsListView.Location = new Point(104, 320);
             studentsListView.Name = "studentsListView";
-            studentsListView.Size = new Size(1000, 494);
+            studentsListView.Size = new Size(997, 198);
             studentsListView.TabIndex = 52;
             studentsListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            button1.Location = new Point(28, 26);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 27);
+            button1.TabIndex = 53;
+            button1.Text = "Назад";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // SearchForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(1140, 970);
+            ClientSize = new Size(1132, 538);
+            Controls.Add(button1);
             Controls.Add(studentsListView);
             Controls.Add(sexComboBox);
             Controls.Add(specialityBox);
@@ -267,5 +280,6 @@
         private ComboBox specialityBox;
         private ComboBox sexComboBox;
         private ListView studentsListView;
+        private Button button1;
     }
 }

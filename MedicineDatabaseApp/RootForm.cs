@@ -25,11 +25,9 @@ namespace MedicineDatabaseApp
             this.Hide();
         }
 
-        private void toAddIllnessForm_Click(object sender, EventArgs e)
+        private void toPastRootForm(object sender, EventArgs e)
         {
-            AddIllnessForm addIllnessForm = new AddIllnessForm();
-            addIllnessForm.Show();
-            this.Hide();
+           //путь к форме наполнения данных            this.Hide();
         }
 
         private void closeAppBtn_Click(object sender, EventArgs e)
