@@ -28,58 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label4 = new Label();
+            label_top = new Label();
+            button2 = new Button();
+            button1 = new Button();
             specialityTextBox = new TextBox();
-            back_to_main_button = new Button();
-            saveSpeciality = new Button();
+            label4 = new Label();
             SuspendLayout();
             // 
-            // label4
+            // label_top
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Trebuchet MS", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label4.Location = new Point(65, 367);
-            label4.Name = "label4";
-            label4.Size = new Size(203, 35);
-            label4.TabIndex = 43;
-            label4.Text = "Специальность";
+            label_top.AutoSize = true;
+            label_top.Font = new Font("Segoe UI", 20F);
+            label_top.Location = new Point(237, 36);
+            label_top.Margin = new Padding(4, 0, 4, 0);
+            label_top.Name = "label_top";
+            label_top.Size = new Size(329, 37);
+            label_top.TabIndex = 59;
+            label_top.Text = "Добавить специальность";
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Trebuchet MS", 12F);
+            button2.Location = new Point(597, 292);
+            button2.Name = "button2";
+            button2.Size = new Size(105, 38);
+            button2.TabIndex = 55;
+            button2.Text = "Сохранить";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Trebuchet MS", 12F);
+            button1.Location = new Point(80, 292);
+            button1.Name = "button1";
+            button1.Size = new Size(105, 38);
+            button1.TabIndex = 58;
+            button1.Text = "Назад";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // specialityTextBox
             // 
             specialityTextBox.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            specialityTextBox.Location = new Point(462, 375);
+            specialityTextBox.Location = new Point(317, 163);
             specialityTextBox.Name = "specialityTextBox";
             specialityTextBox.Size = new Size(397, 26);
-            specialityTextBox.TabIndex = 44;
+            specialityTextBox.TabIndex = 57;
             // 
-            // back_to_main_button
+            // label4
             // 
-            back_to_main_button.Location = new Point(65, 540);
-            back_to_main_button.Name = "back_to_main_button";
-            back_to_main_button.Size = new Size(197, 57);
-            back_to_main_button.TabIndex = 47;
-            back_to_main_button.Text = "Назад";
-            back_to_main_button.UseVisualStyleBackColor = true;
-            back_to_main_button.Click += back_to_main_button_Click;
-            // 
-            // saveSpeciality
-            // 
-            saveSpeciality.Location = new Point(662, 540);
-            saveSpeciality.Name = "saveSpeciality";
-            saveSpeciality.Size = new Size(197, 57);
-            saveSpeciality.TabIndex = 48;
-            saveSpeciality.Text = "Сохранить";
-            saveSpeciality.UseVisualStyleBackColor = true;
-            saveSpeciality.Click += saveSpeciality_Click;
+            label4.AutoSize = true;
+            label4.Font = new Font("Trebuchet MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label4.Location = new Point(56, 163);
+            label4.Name = "label4";
+            label4.Size = new Size(158, 27);
+            label4.TabIndex = 56;
+            label4.Text = "Специальность";
             // 
             // AddSpecialityForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(939, 749);
-            Controls.Add(saveSpeciality);
-            Controls.Add(back_to_main_button);
+            ClientSize = new Size(808, 445);
+            Controls.Add(label_top);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(specialityTextBox);
             Controls.Add(label4);
             Name = "AddSpecialityForm";
@@ -91,9 +106,10 @@
 
         #endregion
 
-        private Label label4;
+        private Label label_top;
+        private Button button2;
+        private Button button1;
         private TextBox specialityTextBox;
-        private Button back_to_main_button;
-        private Button saveSpeciality;
+        private Label label4;
     }
 }

@@ -17,16 +17,7 @@ namespace MedicineDatabaseApp
         {
             InitializeComponent();
         }
-
-        private void back_to_main_button_Click(object sender, EventArgs e)
-        {
-
-            this.Close();
-            RootForm rootForm = new RootForm();
-            rootForm.Show();
-        }
-
-        private void saveSpeciality_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             DB db = new DB();
 
@@ -42,13 +33,14 @@ namespace MedicineDatabaseApp
                 {
                     MessageBox.Show("Введите специальность");
                 }
-                else {
+                else
+                {
                     MessageBox.Show("Специальность добавлена");
                     this.Close();
-                    RootForm rootForm = new RootForm();
+                    PastRootForm rootForm = new PastRootForm();
                     rootForm.Show();
-                }             
-                             
+                }
+
             }
             else
             {
@@ -56,6 +48,13 @@ namespace MedicineDatabaseApp
             }
 
             db.closeConnection();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            PastRootForm rootForm = new PastRootForm();
+            rootForm.Show();
         }
     }
 }

@@ -38,5 +38,12 @@ namespace MedicineDatabaseApp
             AddFacultyForm form = new AddFacultyForm();
             form.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AddSpecialityForm form=new AddSpecialityForm();
+            form.Show();
+        }
     }
 }
