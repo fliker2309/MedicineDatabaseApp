@@ -19,14 +19,14 @@ namespace MedicineDatabaseApp
             InitializeComponent();
         }
 
-        private void back_to_main_button_Click(object sender, EventArgs e)
+        private void backButtonClick(object sender, EventArgs e)
         {
             this.Close();
-            RootForm rootForm = new RootForm();
+            PastRootForm rootForm = new PastRootForm();
             rootForm.Show();
         }
 
-        private void saveFaculty_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             DB db = new DB();
 
@@ -46,7 +46,7 @@ namespace MedicineDatabaseApp
                 {
                     MessageBox.Show("Факультет добавлен");
                     this.Close();
-                    RootForm rootForm = new RootForm();
+                    PastRootForm rootForm = new PastRootForm();
                     rootForm.Show();
                 }
 

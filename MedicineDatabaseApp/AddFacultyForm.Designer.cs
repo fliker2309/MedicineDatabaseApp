@@ -28,38 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            saveFaculty = new Button();
-            back_to_main_button = new Button();
             facultyTextBox = new TextBox();
             label4 = new Label();
+            button1 = new Button();
+            button2 = new Button();
+            label_top = new Label();
             SuspendLayout();
-            // 
-            // saveFaculty
-            // 
-            saveFaculty.Font = new Font("Trebuchet MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            saveFaculty.Location = new Point(662, 772);
-            saveFaculty.Name = "saveFaculty";
-            saveFaculty.Size = new Size(197, 57);
-            saveFaculty.TabIndex = 52;
-            saveFaculty.Text = "Сохранить";
-            saveFaculty.UseVisualStyleBackColor = true;
-            saveFaculty.Click += saveFaculty_Click;
-            // 
-            // back_to_main_button
-            // 
-            back_to_main_button.Font = new Font("Trebuchet MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            back_to_main_button.Location = new Point(65, 772);
-            back_to_main_button.Name = "back_to_main_button";
-            back_to_main_button.Size = new Size(197, 57);
-            back_to_main_button.TabIndex = 51;
-            back_to_main_button.Text = "Назад";
-            back_to_main_button.UseVisualStyleBackColor = true;
-            back_to_main_button.Click += back_to_main_button_Click;
             // 
             // facultyTextBox
             // 
             facultyTextBox.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            facultyTextBox.Location = new Point(462, 422);
+            facultyTextBox.Location = new Point(330, 164);
             facultyTextBox.Name = "facultyTextBox";
             facultyTextBox.Size = new Size(397, 26);
             facultyTextBox.TabIndex = 50;
@@ -67,21 +46,55 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Trebuchet MS", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label4.Location = new Point(65, 414);
+            label4.Font = new Font("Trebuchet MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label4.Location = new Point(69, 164);
             label4.Name = "label4";
-            label4.Size = new Size(144, 35);
+            label4.Size = new Size(114, 27);
             label4.TabIndex = 49;
             label4.Text = "Факультет";
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Trebuchet MS", 12F);
+            button1.Location = new Point(69, 293);
+            button1.Name = "button1";
+            button1.Size = new Size(105, 38);
+            button1.TabIndex = 53;
+            button1.Text = "Назад";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += backButtonClick;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Trebuchet MS", 12F);
+            button2.Location = new Point(622, 293);
+            button2.Name = "button2";
+            button2.Size = new Size(105, 38);
+            button2.TabIndex = 0;
+            button2.Text = "Сохранить";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // label_top
+            // 
+            label_top.AutoSize = true;
+            label_top.Font = new Font("Segoe UI", 20F);
+            label_top.Location = new Point(250, 37);
+            label_top.Margin = new Padding(4, 0, 4, 0);
+            label_top.Name = "label_top";
+            label_top.Size = new Size(267, 37);
+            label_top.TabIndex = 54;
+            label_top.Text = "Добавить факультет";
             // 
             // AddFacultyForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(895, 961);
-            Controls.Add(saveFaculty);
-            Controls.Add(back_to_main_button);
+            ClientSize = new Size(809, 457);
+            Controls.Add(label_top);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(facultyTextBox);
             Controls.Add(label4);
             Name = "AddFacultyForm";
@@ -97,5 +110,8 @@
         private Button back_to_main_button;
         private TextBox facultyTextBox;
         private Label label4;
+        private Button button1;
+        private Button button2;
+        private Label label_top;
     }
 }

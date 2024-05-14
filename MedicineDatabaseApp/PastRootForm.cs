@@ -31,5 +31,12 @@ namespace MedicineDatabaseApp
             AddDoctorForm form = new AddDoctorForm();
             form.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AddFacultyForm form = new AddFacultyForm();
+            form.Show();
+        }
     }
 }
