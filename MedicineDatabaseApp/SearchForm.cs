@@ -56,8 +56,7 @@ namespace MedicineDatabaseApp
             studentsListView.Columns.Add("Факультет", 200);
             studentsListView.Columns.Add("Специальность", 250);
             studentsListView.Columns.Add("Группа", 70);
-            studentsListView.Columns.Add("Год поступления", 70);
-            studentsListView.Columns.Add("Год окончания", 70);
+            studentsListView.Columns.Add("Год поступления", 70);      
 
             string query = @"
     SELECT students.*, faculties.faculty, specialities.speciality
@@ -77,7 +76,7 @@ namespace MedicineDatabaseApp
                     item.SubItems.Add(reader["name"].ToString());
                     item.SubItems.Add(reader["lastname"].ToString());
                     item.SubItems.Add(reader["sex"].ToString());
-                    // Преобразование даты рождения в возраст
+
                     DateTime birthDate = Convert.ToDateTime(reader["age"]);
                     int age = DateTime.Now.Year - birthDate.Year;
                     if (birthDate > DateTime.Now.AddYears(-age)) age--;
@@ -86,8 +85,7 @@ namespace MedicineDatabaseApp
                     item.SubItems.Add(reader["faculty"].ToString());
                     item.SubItems.Add(reader["speciality"].ToString());
                     item.SubItems.Add(reader["groupnumber"].ToString());
-                    item.SubItems.Add(reader["start_year"].ToString());
-                    item.SubItems.Add(reader["end_year"].ToString());                   
+                    item.SubItems.Add(reader["start_year"].ToString());                                
 
                     studentsListView.Items.Add(item);
                 }
@@ -177,7 +175,14 @@ namespace MedicineDatabaseApp
             string faculty = facultyBox.Text;
             string sex = sexComboBox.Text;
 
-            string query = "SELECT * FROM students WHERE 1=1";
+            string query = @"
+    SELECT students.*, faculties.faculty, specialities.speciality
+    FROM students
+    INNER JOIN faculties ON students.faculty_id = faculties.id
+    INNER JOIN specialities ON students.speciality_id = specialities.id
+    WHERE 1=1
+";
+
 
             if (!string.IsNullOrEmpty(dateOfBirth))
             {
@@ -257,12 +262,15 @@ namespace MedicineDatabaseApp
                     item.SubItems.Add(reader["name"].ToString());
                     item.SubItems.Add(reader["lastname"].ToString());
                     item.SubItems.Add(reader["sex"].ToString());
-                    item.SubItems.Add(reader["age"].ToString());
+
+                    DateTime birthDate = Convert.ToDateTime(reader["age"]);
+                    int age = DateTime.Now.Year - birthDate.Year;
+                    if (birthDate > DateTime.Now.AddYears(-age)) age--;
+                    item.SubItems.Add(age.ToString());
                     item.SubItems.Add(reader["faculty"].ToString());
                     item.SubItems.Add(reader["speciality"].ToString());
                     item.SubItems.Add(reader["groupnumber"].ToString());
-                    item.SubItems.Add(reader["start_year"].ToString());
-                    item.SubItems.Add(reader["endyear"].ToString());
+                    item.SubItems.Add(reader["start_year"].ToString());               
 
                     studentsListView.Items.Add(item);
                 }

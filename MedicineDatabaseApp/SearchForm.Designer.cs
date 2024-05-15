@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            back_to_main_button = new Button();
             searchButton = new Button();
             label_top = new Label();
             spec_label = new Label();
@@ -48,23 +47,12 @@
             button1 = new Button();
             SuspendLayout();
             // 
-            // back_to_main_button
-            // 
-            back_to_main_button.Font = new Font("Trebuchet MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            back_to_main_button.Location = new Point(101, 880);
-            back_to_main_button.Name = "back_to_main_button";
-            back_to_main_button.Size = new Size(197, 57);
-            back_to_main_button.TabIndex = 43;
-            back_to_main_button.Text = "Назад";
-            back_to_main_button.UseVisualStyleBackColor = true;
-            back_to_main_button.Click += back_to_main_button_Click;
-            // 
             // searchButton
             // 
-            searchButton.Font = new Font("Trebuchet MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            searchButton.Location = new Point(904, 880);
+            searchButton.Font = new Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            searchButton.Location = new Point(998, 30);
             searchButton.Name = "searchButton";
-            searchButton.Size = new Size(197, 57);
+            searchButton.Size = new Size(76, 27);
             searchButton.TabIndex = 42;
             searchButton.Text = "Поиск";
             searchButton.UseVisualStyleBackColor = true;
@@ -140,7 +128,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Trebuchet MS", 11.25F);
-            label1.Location = new Point(434, 26);
+            label1.Location = new Point(489, 30);
             label1.Name = "label1";
             label1.Size = new Size(160, 20);
             label1.TabIndex = 44;
@@ -216,14 +204,14 @@
             studentsListView.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             studentsListView.Location = new Point(104, 320);
             studentsListView.Name = "studentsListView";
-            studentsListView.Size = new Size(970, 198);
+            studentsListView.Size = new Size(970, 290);
             studentsListView.TabIndex = 52;
             studentsListView.UseCompatibleStateImageBehavior = false;
             // 
             // button1
             // 
             button1.Font = new Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.Location = new Point(28, 26);
+            button1.Location = new Point(101, 30);
             button1.Name = "button1";
             button1.Size = new Size(75, 27);
             button1.TabIndex = 53;
@@ -236,7 +224,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(1132, 556);
+            ClientSize = new Size(1246, 733);
             Controls.Add(button1);
             Controls.Add(studentsListView);
             Controls.Add(sexComboBox);
@@ -247,7 +235,6 @@
             Controls.Add(label2);
             Controls.Add(ageComboBox);
             Controls.Add(label1);
-            Controls.Add(back_to_main_button);
             Controls.Add(searchButton);
             Controls.Add(label_top);
             Controls.Add(spec_label);
@@ -263,7 +250,6 @@
         }
 
         #endregion
-        private Button back_to_main_button;
         private Button searchButton;
         private Label label_top;
         private Label spec_label;
