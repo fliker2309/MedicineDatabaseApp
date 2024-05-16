@@ -36,6 +36,7 @@ namespace MedicineDatabaseApp
         {
             Application.Exit();
         }
+       
 
         private void toAddChechupForm_Click(object sender, EventArgs e)
         {
