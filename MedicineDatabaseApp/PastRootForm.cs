@@ -62,5 +62,10 @@ namespace MedicineDatabaseApp
         {
             closeAppBtn.Cursor = Cursors.Default;
         }
+
+        private void closeAppBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

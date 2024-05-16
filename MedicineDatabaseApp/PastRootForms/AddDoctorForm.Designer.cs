@@ -42,7 +42,7 @@
             qualityTB = new TextBox();
             label4 = new Label();
             borndate_datepicker = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
+            expTimePicker = new DateTimePicker();
             back_to_main_button = new Button();
             button1 = new Button();
             SuspendLayout();
@@ -176,12 +176,12 @@
             borndate_datepicker.Size = new Size(229, 23);
             borndate_datepicker.TabIndex = 34;
             // 
-            // dateTimePicker1
+            // expTimePicker
             // 
-            dateTimePicker1.Location = new Point(287, 301);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(229, 23);
-            dateTimePicker1.TabIndex = 35;
+            expTimePicker.Location = new Point(287, 301);
+            expTimePicker.Name = "expTimePicker";
+            expTimePicker.Size = new Size(229, 23);
+            expTimePicker.TabIndex = 35;
             // 
             // back_to_main_button
             // 
@@ -211,7 +211,7 @@
             ClientSize = new Size(704, 450);
             Controls.Add(button1);
             Controls.Add(back_to_main_button);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(expTimePicker);
             Controls.Add(borndate_datepicker);
             Controls.Add(label4);
             Controls.Add(qualityTB);
@@ -248,7 +248,7 @@
         private TextBox qualityTB;
         private Label label4;
         private DateTimePicker borndate_datepicker;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker expTimePicker;
         private Button back_to_main_button;
         private Button button1;
     }

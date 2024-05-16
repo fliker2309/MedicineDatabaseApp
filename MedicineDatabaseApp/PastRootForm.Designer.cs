@@ -179,6 +179,7 @@
             closeAppBtn.TabIndex = 12;
             closeAppBtn.Text = "X";
             closeAppBtn.UseVisualStyleBackColor = false;
+            closeAppBtn.Click += closeAppBtn_Click;
             closeAppBtn.MouseLeave += closeAppBtn_MouseLeave;
             closeAppBtn.MouseHover += closeAppBtn_MouseHover;
             // 
