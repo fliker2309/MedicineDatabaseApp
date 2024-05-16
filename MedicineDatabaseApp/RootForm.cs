@@ -27,7 +27,9 @@ namespace MedicineDatabaseApp
 
         private void toPastRootForm(object sender, EventArgs e)
         {
-           //путь к форме наполнения данных            this.Hide();
+            PastRootForm pastRootForm = new PastRootForm(); 
+            pastRootForm.Show();
+            this.Hide();          
         }
 
         private void closeAppBtn_Click(object sender, EventArgs e)

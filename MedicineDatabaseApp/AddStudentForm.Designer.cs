@@ -56,9 +56,9 @@
             panel1 = new Panel();
             offline_radiobutton = new RadioButton();
             online_radiobutton = new RadioButton();
-            panel2 = new Panel();
+            isOfflinePanel = new Panel();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            isOfflinePanel.SuspendLayout();
             SuspendLayout();
             // 
             // surname_label
@@ -224,9 +224,9 @@
             label_top.Location = new Point(253, 9);
             label_top.Margin = new Padding(4, 0, 4, 0);
             label_top.Name = "label_top";
-            label_top.Size = new Size(341, 37);
+            label_top.Size = new Size(330, 37);
             label_top.TabIndex = 19;
-            label_top.Text = "Введите данные пациента";
+            label_top.Text = "Введите данные студента";
             // 
             // add_info_button
             // 
@@ -279,7 +279,7 @@
             facultyBox.Location = new Point(379, 325);
             facultyBox.Name = "facultyBox";
             facultyBox.Size = new Size(399, 29);
-            facultyBox.TabIndex = 27;
+            facultyBox.TabIndex = 27;  
             // 
             // specialityBox
             // 
@@ -340,14 +340,14 @@
             online_radiobutton.Text = "Заочная";
             online_radiobutton.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // isOfflinePanel
             // 
-            panel2.Controls.Add(offline_radiobutton);
-            panel2.Controls.Add(online_radiobutton);
-            panel2.Location = new Point(379, 432);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(215, 25);
-            panel2.TabIndex = 32;
+            isOfflinePanel.Controls.Add(offline_radiobutton);
+            isOfflinePanel.Controls.Add(online_radiobutton);
+            isOfflinePanel.Location = new Point(379, 432);
+            isOfflinePanel.Name = "isOfflinePanel";
+            isOfflinePanel.Size = new Size(215, 25);
+            isOfflinePanel.TabIndex = 32;
             // 
             // AddStudentForm
             // 
@@ -355,7 +355,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(913, 663);
-            Controls.Add(panel2);
+            Controls.Add(isOfflinePanel);
             Controls.Add(panel1);
             Controls.Add(endYearBox);
             Controls.Add(label2);
@@ -387,8 +387,8 @@
             Text = "AddForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            isOfflinePanel.ResumeLayout(false);
+            isOfflinePanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -423,6 +423,6 @@
         private Panel panel1;
         private RadioButton offline_radiobutton;
         private RadioButton online_radiobutton;
-        private Panel panel2;
+        private Panel isOfflinePanel;
     }
 }

@@ -34,21 +34,15 @@ namespace MedicineDatabaseApp
             yearComboBox.SelectedIndex = -1;
             sexComboBox.SelectedIndex = -1;
 
-
-
-            int startYear = 2010;
+            int startYear = 2020;
             int endYear = DateTime.Now.Year;
 
             for (int year = startYear; year <= endYear; year++)
             {
                 yearComboBox.Items.Add(year.ToString());
             }
-
             sexComboBox.Items.AddRange(new object[] { "Мужской", "Женский" });
-
-
         }
-
 
         private void SearchForm_Load(object? sender, EventArgs e)
         {
@@ -62,9 +56,15 @@ namespace MedicineDatabaseApp
             studentsListView.Columns.Add("Факультет", 200);
             studentsListView.Columns.Add("Специальность", 250);
             studentsListView.Columns.Add("Группа", 70);
-            studentsListView.Columns.Add("Год поступления", 70);
+            studentsListView.Columns.Add("Год поступления", 70);      
 
-            string query = "SELECT * FROM students";
+            string query = @"
+    SELECT students.*, faculties.faculty, specialities.speciality
+    FROM students
+    INNER JOIN faculties ON students.faculty_id = faculties.id
+    INNER JOIN specialities ON students.speciality_id = specialities.id
+";
+
             DB db = new DB();
             MySqlCommand command = new MySqlCommand(query, db.getConnection());
             db.openConnection();
@@ -76,18 +76,21 @@ namespace MedicineDatabaseApp
                     item.SubItems.Add(reader["name"].ToString());
                     item.SubItems.Add(reader["lastname"].ToString());
                     item.SubItems.Add(reader["sex"].ToString());
-                    item.SubItems.Add(reader["age"].ToString());
+
+                    DateTime birthDate = Convert.ToDateTime(reader["age"]);
+                    int age = DateTime.Now.Year - birthDate.Year;
+                    if (birthDate > DateTime.Now.AddYears(-age)) age--;
+
+                    item.SubItems.Add(age.ToString());
                     item.SubItems.Add(reader["faculty"].ToString());
                     item.SubItems.Add(reader["speciality"].ToString());
                     item.SubItems.Add(reader["groupnumber"].ToString());
-                    item.SubItems.Add(reader["admission_year"].ToString());
+                    item.SubItems.Add(reader["start_year"].ToString());                                
 
                     studentsListView.Items.Add(item);
                 }
             }
-
             db.closeConnection();
-
         }
 
         private void initialize_age()
@@ -165,23 +168,30 @@ namespace MedicineDatabaseApp
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            string admissionYear = yearComboBox.Text;
+            string startYear = yearComboBox.Text;
             string speciality = specialityBox.Text;
             string dateOfBirth = ageComboBox.Text;
             string group = groupBox.Text;
             string faculty = facultyBox.Text;
             string sex = sexComboBox.Text;
 
-            string query = "SELECT * FROM students WHERE 1=1";
+            string query = @"
+    SELECT students.*, faculties.faculty, specialities.speciality
+    FROM students
+    INNER JOIN faculties ON students.faculty_id = faculties.id
+    INNER JOIN specialities ON students.speciality_id = specialities.id
+    WHERE 1=1
+";
+
 
             if (!string.IsNullOrEmpty(dateOfBirth))
             {
                 query += " AND YEAR(age) = @dateOfBirth";
             }
 
-            if (!string.IsNullOrEmpty(admissionYear))
+            if (!string.IsNullOrEmpty(startYear))
             {
-                query += " AND admission_year = @admissionYear";
+                query += " AND start_year = @start_year";
             }
 
             if (!string.IsNullOrEmpty(speciality))
@@ -212,9 +222,9 @@ namespace MedicineDatabaseApp
                 command.Parameters.AddWithValue("@dateOfBirth", dateOfBirth);
             }
 
-            if (!string.IsNullOrEmpty(admissionYear))
+            if (!string.IsNullOrEmpty(startYear))
             {
-                command.Parameters.AddWithValue("@admissionYear", admissionYear);
+                command.Parameters.AddWithValue("@start_year", startYear);
             }
 
             if (!string.IsNullOrEmpty(speciality))
@@ -252,11 +262,15 @@ namespace MedicineDatabaseApp
                     item.SubItems.Add(reader["name"].ToString());
                     item.SubItems.Add(reader["lastname"].ToString());
                     item.SubItems.Add(reader["sex"].ToString());
-                    item.SubItems.Add(reader["age"].ToString());
+
+                    DateTime birthDate = Convert.ToDateTime(reader["age"]);
+                    int age = DateTime.Now.Year - birthDate.Year;
+                    if (birthDate > DateTime.Now.AddYears(-age)) age--;
+                    item.SubItems.Add(age.ToString());
                     item.SubItems.Add(reader["faculty"].ToString());
                     item.SubItems.Add(reader["speciality"].ToString());
                     item.SubItems.Add(reader["groupnumber"].ToString());
-                    item.SubItems.Add(reader["admission_year"].ToString());
+                    item.SubItems.Add(reader["start_year"].ToString());               
 
                     studentsListView.Items.Add(item);
                 }

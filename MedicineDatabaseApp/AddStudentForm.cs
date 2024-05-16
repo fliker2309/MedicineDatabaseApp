@@ -43,11 +43,9 @@ namespace MedicineDatabaseApp
             {
                 endYearBox.Items.Add(year.ToString());
             }
-
-            ComboBox facultyBox = new ComboBox();
+                      
             initialize_faculties();
-
-            ComboBox specialityBox = new ComboBox();
+       
             initialize_specialities();
 
         }
@@ -56,34 +54,33 @@ namespace MedicineDatabaseApp
         {
             DB db = new DB();
 
-            MySqlCommand command = new MySqlCommand("SELECT faculty FROM faculties", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT id, faculty FROM faculties", db.getConnection());
 
             db.openConnection();
             MySqlDataReader reader = command.ExecuteReader();
-            List<string> faculties = new List<string>();
-            while (reader.Read())
-            {
-                faculties.Add(reader.GetString(0));
-            }
-            facultyBox.DataSource = faculties;
+            DataTable faculties = new DataTable();
+            faculties.Load(reader); 
+            facultyBox.DataSource = faculties; 
+            facultyBox.DisplayMember = "faculty"; 
+            facultyBox.ValueMember = "id"; 
 
             db.closeConnection();
         }
-
         private void initialize_specialities()
         {
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand("SELECT speciality FROM specialities", db.getConnection());
+
+            MySqlCommand command = new MySqlCommand("SELECT id, speciality FROM specialities", db.getConnection());
+
             db.openConnection();
             MySqlDataReader reader = command.ExecuteReader();
-            List<string> specialities = new List<string>();
-            while (reader.Read())
-            {
-                specialities.Add(reader.GetString(0));
-            }
-            specialityBox.DataSource = specialities;
-            db.closeConnection();
+            DataTable specialities = new DataTable();
+            specialities.Load(reader); 
+            specialityBox.DataSource = specialities; 
+            specialityBox.DisplayMember = "speciality"; 
+            specialityBox.ValueMember = "id";
 
+            db.closeConnection();
         }
 
         private void surname_textbox_Enter(object sender, EventArgs e)
@@ -128,6 +125,11 @@ namespace MedicineDatabaseApp
                 group_textbox.Text = "";
         }
 
+        private void group_textbox_Leave_1(object sender, EventArgs e)
+        {
+            if (group_textbox.Text == "")
+                group_textbox.Text = "Введите группу";
+        }
 
         private void back_to_main_button_Click(object sender, EventArgs e)
         {
@@ -152,23 +154,15 @@ namespace MedicineDatabaseApp
             string sex = male_radiobutton.Checked ? "Мужской" : "Женский";
             command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = sex;
 
-            command.Parameters.Add("@faculty", MySqlDbType.VarChar).Value = facultyBox.SelectedItem.ToString();
-            command.Parameters.Add("@spec", MySqlDbType.VarChar).Value = specialityBox.SelectedItem.ToString();
+            command.Parameters.Add("@faculty", MySqlDbType.Int32).Value = (int)facultyBox.SelectedValue;
+
+            command.Parameters.Add("@spec", MySqlDbType.Int32).Value = (int)specialityBox.SelectedValue;
             command.Parameters.Add("@group", MySqlDbType.VarChar).Value = group_textbox.Text;
-          
-            string isOffline = offline_radiobutton.Checked ? "Очное" : "Заочное";
-            command.Parameters.Add("@isOffline", MySqlDbType.VarChar).Value = isOffline;
 
-            command.Parameters.Add("@admissionyear", MySqlDbType.VarChar).Value = selectedYear;
-
-
-       
-      
-
-
-           
-           
-
+            string aducationform = offline_radiobutton.Checked ? "Очное" : "Заочное";
+            command.Parameters.Add("@aducationform", MySqlDbType.VarChar).Value = aducationform;
+            command.Parameters.Add("@startyear", MySqlDbType.VarChar).Value = startYearBox.Text;
+            command.Parameters.Add("@endyear", MySqlDbType.VarChar).Value = endYearBox.Text;
 
             db.openConnection();
 
@@ -189,11 +183,8 @@ namespace MedicineDatabaseApp
 
         }
 
-        private void group_textbox_Leave_1(object sender, EventArgs e)
-        {
-            if (group_textbox.Text == "")
-                group_textbox.Text = "Введите группу";
-        }
-       
+     
+
+     
     }
 }
