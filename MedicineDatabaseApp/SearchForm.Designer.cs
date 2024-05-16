@@ -49,8 +49,8 @@
             // 
             // searchButton
             // 
-            searchButton.Font = new Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            searchButton.Location = new Point(998, 30);
+            searchButton.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            searchButton.Location = new Point(998, 649);
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(76, 27);
             searchButton.TabIndex = 42;
@@ -210,8 +210,8 @@
             // 
             // button1
             // 
-            button1.Font = new Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.Location = new Point(101, 30);
+            button1.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            button1.Location = new Point(104, 649);
             button1.Name = "button1";
             button1.Size = new Size(75, 27);
             button1.TabIndex = 53;
