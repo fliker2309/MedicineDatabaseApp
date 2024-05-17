@@ -58,6 +58,7 @@ namespace MedicineDatabaseApp.PastRootForms
                 {
                     MessageBox.Show("Врач не добавлен");
                 }
+                db.closeConnection();
             }
         }
     }

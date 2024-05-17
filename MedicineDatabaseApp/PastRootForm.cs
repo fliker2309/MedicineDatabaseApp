@@ -67,5 +67,12 @@ namespace MedicineDatabaseApp
         {
             Application.Exit();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AddVaccinationForm form = new AddVaccinationForm();
+            form.Show();
+        }
     }
 }
