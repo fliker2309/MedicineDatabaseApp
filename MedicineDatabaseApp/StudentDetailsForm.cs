@@ -23,7 +23,13 @@ namespace MedicineDatabaseApp
 
         private void StudentDetailsForm_Load(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM students WHERE id = @id";
+            string query = @"
+SELECT students.*, faculties.faculty, specialities.speciality
+FROM students
+INNER JOIN faculties ON students.faculty_id = faculties.id
+INNER JOIN specialities ON students.speciality_id = specialities.id
+WHERE students.id = @id";
+
             DB db = new DB();
             MySqlCommand command = new MySqlCommand(query, db.getConnection());
             command.Parameters.AddWithValue("@id", studentId);
@@ -40,6 +46,15 @@ namespace MedicineDatabaseApp
                     age_label.Text = birthDate.ToString("dd.MM.yyyy");
 
                     label_sex.Text = reader["sex"].ToString();
+
+                    faculcy_label.Text = reader["faculty"].ToString();
+                    spec_label.Text = reader["speciality"].ToString() ;
+
+                    group_label.Text = reader["groupnumber"].ToString();
+
+                    learning_form_label.Text = reader["aducation_form"].ToString();
+                    start_label.Text = reader["start_year"].ToString();
+                    end_label.Text = reader["end_year"].ToString();
 
                 }
             }
