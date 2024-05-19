@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             surname_label = new Label();
-            name_label = new Label();
             lastname_label = new Label();
             age_label = new Label();
             surname_textbox = new TextBox();
@@ -57,6 +56,7 @@
             offline_radiobutton = new RadioButton();
             online_radiobutton = new RadioButton();
             isOfflinePanel = new Panel();
+            name_label = new Label();
             panel1.SuspendLayout();
             isOfflinePanel.SuspendLayout();
             SuspendLayout();
@@ -71,17 +71,6 @@
             surname_label.Size = new Size(75, 21);
             surname_label.TabIndex = 0;
             surname_label.Text = "Фамилия";
-            // 
-            // name_label
-            // 
-            name_label.AutoSize = true;
-            name_label.Font = new Font("Segoe UI", 12F);
-            name_label.Location = new Point(190, 117);
-            name_label.Margin = new Padding(4, 0, 4, 0);
-            name_label.Name = "name_label";
-            name_label.Size = new Size(41, 21);
-            name_label.TabIndex = 1;
-            name_label.Text = "Имя";
             // 
             // lastname_label
             // 
@@ -279,7 +268,7 @@
             facultyBox.Location = new Point(379, 325);
             facultyBox.Name = "facultyBox";
             facultyBox.Size = new Size(399, 29);
-            facultyBox.TabIndex = 27;  
+            facultyBox.TabIndex = 27;
             // 
             // specialityBox
             // 
@@ -349,6 +338,17 @@
             isOfflinePanel.Size = new Size(215, 25);
             isOfflinePanel.TabIndex = 32;
             // 
+            // name_label
+            // 
+            name_label.AutoSize = true;
+            name_label.Font = new Font("Segoe UI", 12F);
+            name_label.Location = new Point(190, 117);
+            name_label.Margin = new Padding(4, 0, 4, 0);
+            name_label.Name = "name_label";
+            name_label.Size = new Size(41, 21);
+            name_label.TabIndex = 1;
+            name_label.Text = "Имя";
+            // 
             // AddStudentForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -396,7 +396,6 @@
         #endregion
 
         private Label surname_label;
-        private Label name_label;
         private Label lastname_label;
         private Label age_label;
         private TextBox surname_textbox;
@@ -424,5 +423,6 @@
         private RadioButton offline_radiobutton;
         private RadioButton online_radiobutton;
         private Panel isOfflinePanel;
+        private Label name_label;
     }
 }
