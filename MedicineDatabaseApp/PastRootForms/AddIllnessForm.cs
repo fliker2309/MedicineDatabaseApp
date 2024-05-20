@@ -1,4 +1,5 @@
 ﻿using System;
+using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,13 +16,30 @@ namespace MedicineDatabaseApp
         public AddIllnessForm()
         {
             InitializeComponent();
-        }
 
-        private void back_to_main_button_Click(object sender, EventArgs e)
+            initialize_students();
+        }    
+
+        private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
-            RootForm rootForm = new RootForm();
+            PastRootForm rootForm = new PastRootForm();
             rootForm.Show();
+        }
+
+        private void initialize_students()
+        {
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand("SELECT  card_id, CONCAT(surname, ' ', name, ' ', lastname) as fullname FROM students INNER JOIN medicalcards ON students.id = medicalcards.student_id", db.getConnection());
+
+            db.openConnection();
+            MySqlDataReader reader = command.ExecuteReader();
+            DataTable students = new DataTable();
+            students.Load(reader);
+            studentBox.DataSource = students;
+            studentBox.DisplayMember = "fullname";
+            studentBox.ValueMember = "card_id";
+            db.closeConnection();
         }
     }
 }

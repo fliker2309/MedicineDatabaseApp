@@ -146,6 +146,7 @@
             button9.TabIndex = 9;
             button9.Text = "Болезнь";
             button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
             // 
             // button10
             // 
