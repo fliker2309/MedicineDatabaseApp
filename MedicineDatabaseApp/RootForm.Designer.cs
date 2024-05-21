@@ -51,7 +51,7 @@
             closeAppBtn.Cursor = Cursors.Hand;
             closeAppBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             closeAppBtn.ForeColor = SystemColors.ButtonHighlight;
-            closeAppBtn.Location = new Point(858, 30);
+            closeAppBtn.Location = new Point(894, 3);
             closeAppBtn.Name = "closeAppBtn";
             closeAppBtn.Size = new Size(33, 32);
             closeAppBtn.TabIndex = 7;
@@ -98,6 +98,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(929, 512);
+            ControlBox = false;
             Controls.Add(toSearchWithParameters);
             Controls.Add(closeAppBtn);
             Controls.Add(toAddIllnessForm);

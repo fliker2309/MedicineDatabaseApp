@@ -44,7 +44,7 @@
             learning_form_label = new Label();
             label_top = new Label();
             add_info_button = new Button();
-            back_to_main_button = new Button();
+            backBtn = new Button();
             borndate_datepicker = new DateTimePicker();
             label1 = new Label();
             startYearBox = new ComboBox();
@@ -227,15 +227,15 @@
             add_info_button.UseVisualStyleBackColor = true;
             add_info_button.Click += add_info_button_Click;
             // 
-            // back_to_main_button
+            // backBtn
             // 
-            back_to_main_button.Location = new Point(113, 564);
-            back_to_main_button.Name = "back_to_main_button";
-            back_to_main_button.Size = new Size(197, 57);
-            back_to_main_button.TabIndex = 21;
-            back_to_main_button.Text = "Назад";
-            back_to_main_button.UseVisualStyleBackColor = true;
-            back_to_main_button.Click += back_to_main_button_Click;
+            backBtn.Location = new Point(113, 564);
+            backBtn.Name = "backBtn";
+            backBtn.Size = new Size(197, 57);
+            backBtn.TabIndex = 21;
+            backBtn.Text = "Назад";
+            backBtn.UseVisualStyleBackColor = true;
+            backBtn.Click += back_to_main_button_Click;
             // 
             // borndate_datepicker
             // 
@@ -364,7 +364,7 @@
             Controls.Add(startYearBox);
             Controls.Add(label1);
             Controls.Add(borndate_datepicker);
-            Controls.Add(back_to_main_button);
+            Controls.Add(backBtn);
             Controls.Add(add_info_button);
             Controls.Add(label_top);
             Controls.Add(learning_form_label);
@@ -411,7 +411,7 @@
         private Label learning_form_label;
         private Label label_top;
         private Button add_info_button;
-        private Button back_to_main_button;
+        private Button backBtn;
         private DateTimePicker borndate_datepicker;
         private Label label1;
         private ComboBox startYearBox;

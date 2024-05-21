@@ -46,6 +46,7 @@
             studentsListView = new ListView();
             button1 = new Button();
             deleteBtn = new Button();
+            EditBtn = new Button();
             SuspendLayout();
             // 
             // searchButton
@@ -225,13 +226,24 @@
             // 
             deleteBtn.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             deleteBtn.ForeColor = Color.Tomato;
-            deleteBtn.Location = new Point(469, 649);
+            deleteBtn.Location = new Point(1065, 45);
             deleteBtn.Name = "deleteBtn";
-            deleteBtn.Size = new Size(215, 32);
+            deleteBtn.Size = new Size(149, 33);
             deleteBtn.TabIndex = 54;
             deleteBtn.Text = "Удалить студента";
             deleteBtn.UseVisualStyleBackColor = true;
             deleteBtn.Click += deleteBtn_Click;
+            // 
+            // EditBtn
+            // 
+            EditBtn.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            EditBtn.Location = new Point(489, 649);
+            EditBtn.Name = "EditBtn";
+            EditBtn.Size = new Size(165, 53);
+            EditBtn.TabIndex = 55;
+            EditBtn.Text = "Редактирование";
+            EditBtn.UseVisualStyleBackColor = true;
+            EditBtn.Click += EditBtn_Click;
             // 
             // SearchForm
             // 
@@ -239,6 +251,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1246, 733);
+            ControlBox = false;
+            Controls.Add(EditBtn);
             Controls.Add(deleteBtn);
             Controls.Add(button1);
             Controls.Add(studentsListView);
@@ -283,5 +297,6 @@
         private ListView studentsListView;
         private Button button1;
         private Button deleteBtn;
+        private Button EditBtn;
     }
 }

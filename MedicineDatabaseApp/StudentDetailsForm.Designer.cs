@@ -190,6 +190,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1056, 724);
+            ControlBox = false;
             Controls.Add(showCardBtn);
             Controls.Add(back_to_main_button);
             Controls.Add(end_label);
