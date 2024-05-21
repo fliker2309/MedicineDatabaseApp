@@ -49,8 +49,37 @@ namespace MedicineDatabaseApp
         private void toCardBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-            AddCardForm form = new AddCardForm();  
+            AddCardForm form = new AddCardForm();
             form.ShowDialog();
+        }
+
+        private void closeAppBtn_MouseHover(object sender, EventArgs e)
+        {
+            closeAppBtn.Cursor = Cursors.Hand;
+        }
+
+        private void closeAppBtn_MouseLeave(object sender, EventArgs e)
+        {
+            closeAppBtn.Cursor = Cursors.Default;
+        }
+
+        private void closeAppBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AddVaccinationForm form = new AddVaccinationForm();
+            form.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AddIllnessForm form = new AddIllnessForm();
+            form.Show();
         }
     }
 }

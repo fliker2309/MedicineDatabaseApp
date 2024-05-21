@@ -36,13 +36,13 @@
             label2 = new Label();
             label3 = new Label();
             surname_textbox = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            nameTB = new TextBox();
+            lastnameTB = new TextBox();
+            jobtitleTB = new TextBox();
+            qualityTB = new TextBox();
             label4 = new Label();
             borndate_datepicker = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
+            expTimePicker = new DateTimePicker();
             back_to_main_button = new Button();
             button1 = new Button();
             SuspendLayout();
@@ -126,37 +126,37 @@
             surname_textbox.Size = new Size(229, 23);
             surname_textbox.TabIndex = 28;
             // 
-            // textBox1
+            // nameTB
             // 
-            textBox1.Location = new Point(287, 125);
-            textBox1.Margin = new Padding(4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(229, 23);
-            textBox1.TabIndex = 29;
+            nameTB.Location = new Point(287, 125);
+            nameTB.Margin = new Padding(4);
+            nameTB.Name = "nameTB";
+            nameTB.Size = new Size(229, 23);
+            nameTB.TabIndex = 29;
             // 
-            // textBox2
+            // lastnameTB
             // 
-            textBox2.Location = new Point(287, 156);
-            textBox2.Margin = new Padding(4);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(229, 23);
-            textBox2.TabIndex = 30;
+            lastnameTB.Location = new Point(287, 156);
+            lastnameTB.Margin = new Padding(4);
+            lastnameTB.Name = "lastnameTB";
+            lastnameTB.Size = new Size(229, 23);
+            lastnameTB.TabIndex = 30;
             // 
-            // textBox3
+            // jobtitleTB
             // 
-            textBox3.Location = new Point(287, 234);
-            textBox3.Margin = new Padding(4);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(229, 23);
-            textBox3.TabIndex = 31;
+            jobtitleTB.Location = new Point(287, 234);
+            jobtitleTB.Margin = new Padding(4);
+            jobtitleTB.Name = "jobtitleTB";
+            jobtitleTB.Size = new Size(229, 23);
+            jobtitleTB.TabIndex = 31;
             // 
-            // textBox4
+            // qualityTB
             // 
-            textBox4.Location = new Point(287, 265);
-            textBox4.Margin = new Padding(4);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(229, 23);
-            textBox4.TabIndex = 32;
+            qualityTB.Location = new Point(287, 265);
+            qualityTB.Margin = new Padding(4);
+            qualityTB.Name = "qualityTB";
+            qualityTB.Size = new Size(229, 23);
+            qualityTB.TabIndex = 32;
             // 
             // label4
             // 
@@ -176,12 +176,12 @@
             borndate_datepicker.Size = new Size(229, 23);
             borndate_datepicker.TabIndex = 34;
             // 
-            // dateTimePicker1
+            // expTimePicker
             // 
-            dateTimePicker1.Location = new Point(287, 301);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(229, 23);
-            dateTimePicker1.TabIndex = 35;
+            expTimePicker.Location = new Point(287, 301);
+            expTimePicker.Name = "expTimePicker";
+            expTimePicker.Size = new Size(229, 23);
+            expTimePicker.TabIndex = 35;
             // 
             // back_to_main_button
             // 
@@ -201,6 +201,7 @@
             button1.TabIndex = 37;
             button1.Text = "Сохранить";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // AddDoctorForm
             // 
@@ -210,13 +211,13 @@
             ClientSize = new Size(704, 450);
             Controls.Add(button1);
             Controls.Add(back_to_main_button);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(expTimePicker);
             Controls.Add(borndate_datepicker);
             Controls.Add(label4);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(qualityTB);
+            Controls.Add(jobtitleTB);
+            Controls.Add(lastnameTB);
+            Controls.Add(nameTB);
             Controls.Add(surname_textbox);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -241,13 +242,13 @@
         private Label label2;
         private Label label3;
         private TextBox surname_textbox;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox nameTB;
+        private TextBox lastnameTB;
+        private TextBox jobtitleTB;
+        private TextBox qualityTB;
         private Label label4;
         private DateTimePicker borndate_datepicker;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker expTimePicker;
         private Button back_to_main_button;
         private Button button1;
     }

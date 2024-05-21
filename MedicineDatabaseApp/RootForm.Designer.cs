@@ -47,13 +47,16 @@
             // 
             // closeAppBtn
             // 
+            closeAppBtn.BackColor = Color.Salmon;
+            closeAppBtn.Cursor = Cursors.Hand;
             closeAppBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            closeAppBtn.Location = new Point(816, 468);
+            closeAppBtn.ForeColor = SystemColors.ButtonHighlight;
+            closeAppBtn.Location = new Point(894, 3);
             closeAppBtn.Name = "closeAppBtn";
-            closeAppBtn.Size = new Size(75, 32);
+            closeAppBtn.Size = new Size(33, 32);
             closeAppBtn.TabIndex = 7;
-            closeAppBtn.Text = "Выход";
-            closeAppBtn.UseVisualStyleBackColor = true;
+            closeAppBtn.Text = "X";
+            closeAppBtn.UseVisualStyleBackColor = false;
             closeAppBtn.Click += closeAppBtn_Click;
             // 
             // toSearchWithParameters
@@ -95,6 +98,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(929, 512);
+            ControlBox = false;
             Controls.Add(toSearchWithParameters);
             Controls.Add(closeAppBtn);
             Controls.Add(toAddIllnessForm);

@@ -52,7 +52,7 @@ namespace MedicineDatabaseApp
             string updateQuery = "UPDATE students SET hasmedicalcard = 1 WHERE id = @id";
 
             // Создайте SQL-запрос для вставки новой записи в таблицу medicalcard
-            string insertQuery = "INSERT INTO medicalcard (student_id) VALUES (@id)";
+            string insertQuery = "INSERT INTO medicalcards (student_id) VALUES (@id)";
 
             // Выполните запросы
             DB db = new DB();

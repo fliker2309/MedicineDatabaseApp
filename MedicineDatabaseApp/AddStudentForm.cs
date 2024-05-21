@@ -14,6 +14,9 @@ namespace MedicineDatabaseApp
 {
     public partial class AddStudentForm : Form
     {
+
+        private int? _studentId = null;
+        private SearchForm _searchForm;
         public AddStudentForm()
         {
             InitializeComponent();
@@ -24,8 +27,18 @@ namespace MedicineDatabaseApp
 
             lastname_textbox.Text = "Введите отчество";
 
-            group_textbox.Text = "Введите группу";
+            group_textbox.Text = "Введите группу";           
+                      
+            initialize_faculties();
+       
+            initialize_specialities();
 
+            initialize_ages();
+
+        }
+
+    private void initialize_ages()
+        {
             ComboBox startYear = new ComboBox();
             int startYear1 = 2020;
             int endYear1 = DateTime.Now.Year;
@@ -43,11 +56,81 @@ namespace MedicineDatabaseApp
             {
                 endYearBox.Items.Add(year.ToString());
             }
-                      
+        }
+
+    public AddStudentForm(int studentId, SearchForm searchForm)
+        {
+            _studentId = studentId;
+            _searchForm = searchForm;
+            this.Load += new EventHandler(StudentEditLoad);
+            this.FormClosed += new FormClosedEventHandler(AddStudentForm_FormClosed);
+            InitializeComponent();
+
             initialize_faculties();
-       
+
             initialize_specialities();
 
+            initialize_ages();
+         
+        }
+
+        private void AddStudentForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _searchForm.updateListView();
+        }
+
+        private void StudentEditLoad(object sender, EventArgs e)
+        {
+            string query = @"
+SELECT students.*, faculties.faculty, specialities.speciality
+FROM students
+INNER JOIN faculties ON students.faculty_id = faculties.id
+INNER JOIN specialities ON students.speciality_id = specialities.id
+WHERE students.id = @id";
+
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand(query, db.getConnection());
+            command.Parameters.AddWithValue("@id", _studentId);
+            db.openConnection();
+            using (var reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    surname_textbox.Text = reader["surname"].ToString();
+                    name_textbox.Text = reader["name"].ToString();
+                    lastname_textbox.Text = reader["lastname"].ToString();
+
+                    DateTime dateOfBirth = Convert.ToDateTime(reader["age"]);                  
+                    borndate_datepicker.Value = dateOfBirth;
+
+                    string sex = reader["sex"].ToString();
+                    if(sex == "Мужской")
+                    {
+                        male_radiobutton.Checked = true;
+                    }
+                    else if (sex =="Женский")
+                    {
+                        radio_button_female.Checked = true;
+                    }
+
+                    facultyBox.Text = reader["faculty"].ToString();
+                    specialityBox.Text = reader["speciality"].ToString();
+                    group_textbox.Text = reader["groupnumber"].ToString();
+
+                    string aducation = reader["aducation_form"].ToString();
+                    if(aducation == "Очное")
+                    {
+                        offline_radiobutton.Checked = true ;
+                    } else if (aducation == "Заочное")
+                    {
+                        online_radiobutton.Checked = true;
+                    }
+
+                    startYearBox.Text = reader["start_year"].ToString();
+                    endYearBox.Text = reader["end_year"].ToString();
+                }
+            }
+            db.closeConnection();
         }
 
         private void initialize_faculties()
@@ -133,53 +216,102 @@ namespace MedicineDatabaseApp
 
         private void back_to_main_button_Click(object sender, EventArgs e)
         {
-            this.Close();
-            RootForm rootForm = new RootForm();
-            rootForm.Show();
+            if (_studentId.HasValue)
+            {
+                this.Close();
+            }else
+            {
+                this.Close();
+                RootForm rootForm = new RootForm();
+                rootForm.Show();
+            }
+
+            
         }
 
         private void add_info_button_Click(object sender, EventArgs e)
         {
             DB db = new DB();
-
-            int selectedYear = int.Parse(startYearBox.SelectedItem.ToString());
-
-
-            MySqlCommand command = new MySqlCommand("INSERT INTO students (surname, name, lastname, age, sex, faculty_id, speciality_id, groupnumber, aducation_form, start_year, end_year) VALUES (@surname,@name, @lastname, @age,@sex,@faculty, @spec, @group, @aducationform, @startyear, @endyear);", db.getConnection());
-
-            command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = surname_textbox.Text;
-            command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name_textbox.Text;
-            command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = lastname_textbox.Text;
-            command.Parameters.Add("@age", MySqlDbType.Date).Value = borndate_datepicker.Value;
-            string sex = male_radiobutton.Checked ? "Мужской" : "Женский";
-            command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = sex;
-
-            command.Parameters.Add("@faculty", MySqlDbType.Int32).Value = (int)facultyBox.SelectedValue;
-
-            command.Parameters.Add("@spec", MySqlDbType.Int32).Value = (int)specialityBox.SelectedValue;
-            command.Parameters.Add("@group", MySqlDbType.VarChar).Value = group_textbox.Text;
-
-            string aducationform = offline_radiobutton.Checked ? "Очное" : "Заочное";
-            command.Parameters.Add("@aducationform", MySqlDbType.VarChar).Value = aducationform;
-            command.Parameters.Add("@startyear", MySqlDbType.VarChar).Value = startYearBox.Text;
-            command.Parameters.Add("@endyear", MySqlDbType.VarChar).Value = endYearBox.Text;
-
-            db.openConnection();
-
-            if (command.ExecuteNonQuery() == 1)
+            MySqlCommand command;
+            if (_studentId.HasValue)
             {
-                MessageBox.Show("Студент добавлен");
+                command = new MySqlCommand("UPDATE students SET surname = @surname, name = @name, lastname = @lastname, age = @age, sex = @sex, faculty_id = @faculty, speciality_id = @spec, groupnumber = @group, aducation_form = @aducationform, start_year = @startyear, end_year = @endyear WHERE id = @id;", db.getConnection());
+                command.Parameters.Add("@id", MySqlDbType.Int32).Value = _studentId.Value;
 
-                this.Close();
-                RootForm rootForm = new RootForm();
-                rootForm.Show();
+                command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = surname_textbox.Text;
+                command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name_textbox.Text;
+                command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = lastname_textbox.Text;
+                command.Parameters.Add("@age", MySqlDbType.Date).Value = borndate_datepicker.Value;
+                string sex = male_radiobutton.Checked ? "Мужской" : "Женский";
+                command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = sex;
+
+                command.Parameters.Add("@faculty", MySqlDbType.Int32).Value = (int)facultyBox.SelectedValue;
+
+                command.Parameters.Add("@spec", MySqlDbType.Int32).Value = (int)specialityBox.SelectedValue;
+                command.Parameters.Add("@group", MySqlDbType.VarChar).Value = group_textbox.Text;
+
+                string aducationform = offline_radiobutton.Checked ? "Очное" : "Заочное";
+                command.Parameters.Add("@aducationform", MySqlDbType.VarChar).Value = aducationform;
+                command.Parameters.Add("@startyear", MySqlDbType.VarChar).Value = startYearBox.Text;
+                command.Parameters.Add("@endyear", MySqlDbType.VarChar).Value = endYearBox.Text;
+
+
+                db.openConnection();
+
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Правки внесены");
+
+                    this.Close();                   
+                }
+                else
+                {
+                    MessageBox.Show("Правки не внесены");
+                }
+
+                db.closeConnection();
             }
             else
             {
-                MessageBox.Show("Студент не добавлен");
-            }
+                int selectedYear = int.Parse(startYearBox.SelectedItem.ToString());
 
-            db.closeConnection();
+
+                command = new MySqlCommand("INSERT INTO students (surname, name, lastname, age, sex, faculty_id, speciality_id, groupnumber, aducation_form, start_year, end_year) VALUES (@surname,@name, @lastname, @age,@sex,@faculty, @spec, @group, @aducationform, @startyear, @endyear);", db.getConnection());
+
+                command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = surname_textbox.Text;
+                command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name_textbox.Text;
+                command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = lastname_textbox.Text;
+                command.Parameters.Add("@age", MySqlDbType.Date).Value = borndate_datepicker.Value;
+                string sex = male_radiobutton.Checked ? "Мужской" : "Женский";
+                command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = sex;
+
+                command.Parameters.Add("@faculty", MySqlDbType.Int32).Value = (int)facultyBox.SelectedValue;
+
+                command.Parameters.Add("@spec", MySqlDbType.Int32).Value = (int)specialityBox.SelectedValue;
+                command.Parameters.Add("@group", MySqlDbType.VarChar).Value = group_textbox.Text;
+
+                string aducationform = offline_radiobutton.Checked ? "Очное" : "Заочное";
+                command.Parameters.Add("@aducationform", MySqlDbType.VarChar).Value = aducationform;
+                command.Parameters.Add("@startyear", MySqlDbType.VarChar).Value = startYearBox.Text;
+                command.Parameters.Add("@endyear", MySqlDbType.VarChar).Value = endYearBox.Text;
+                db.openConnection();
+
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Студент добавлен");
+
+                    this.Close();
+                    RootForm rootForm = new RootForm();
+                    rootForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Студент не добавлен");
+                }
+
+                db.closeConnection();
+            }          
+
 
         }
 

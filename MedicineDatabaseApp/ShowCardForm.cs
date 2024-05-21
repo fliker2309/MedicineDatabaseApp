@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace MedicineDatabaseApp
 {
-    public partial class AddIllnessForm : Form
+    public partial class ShowCardForm : Form
     {
-        public AddIllnessForm()
+        public ShowCardForm()
         {
             InitializeComponent();
-        }
-
-        private void back_to_main_button_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            RootForm rootForm = new RootForm();
-            rootForm.Show();
         }
     }
 }

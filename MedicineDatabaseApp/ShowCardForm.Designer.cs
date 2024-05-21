@@ -1,6 +1,6 @@
 ﻿namespace MedicineDatabaseApp
 {
-    partial class AddIllnessForm
+    partial class ShowCardForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,45 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            back_to_main_button = new Button();
-            button1 = new Button();
             SuspendLayout();
             // 
-            // back_to_main_button
-            // 
-            back_to_main_button.Location = new Point(84, 793);
-            back_to_main_button.Name = "back_to_main_button";
-            back_to_main_button.Size = new Size(197, 57);
-            back_to_main_button.TabIndex = 22;
-            back_to_main_button.Text = "Назад";
-            back_to_main_button.UseVisualStyleBackColor = true;
-            back_to_main_button.Click += back_to_main_button_Click;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(566, 793);
-            button1.Name = "button1";
-            button1.Size = new Size(197, 57);
-            button1.TabIndex = 23;
-            button1.Text = "Добавить";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // AddIllnessForm
+            // ShowCardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(939, 545);
-            Controls.Add(button1);
-            Controls.Add(back_to_main_button);
-            Name = "AddIllnessForm";
+            ClientSize = new Size(970, 758);
+            Name = "ShowCardForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AddIllnessForm";
+            Text = "ShowCardForm";
             ResumeLayout(false);
         }
 
         #endregion
-        private Button back_to_main_button;
-        private Button button1;
     }
 }

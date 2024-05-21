@@ -40,6 +40,7 @@
             button9 = new Button();
             button10 = new Button();
             toCardBtn = new Button();
+            closeAppBtn = new Button();
             SuspendLayout();
             // 
             // button1
@@ -83,6 +84,7 @@
             button3.TabIndex = 3;
             button3.Text = "Прививку";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -144,13 +146,14 @@
             button9.TabIndex = 9;
             button9.Text = "Болезнь";
             button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
             // 
             // button10
             // 
             button10.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button10.Location = new Point(12, 12);
+            button10.Location = new Point(49, 383);
             button10.Name = "button10";
-            button10.Size = new Size(75, 23);
+            button10.Size = new Size(104, 43);
             button10.TabIndex = 10;
             button10.Text = "Назад";
             button10.UseVisualStyleBackColor = true;
@@ -167,12 +170,28 @@
             toCardBtn.UseVisualStyleBackColor = true;
             toCardBtn.Click += toCardBtn_Click;
             // 
+            // closeAppBtn
+            // 
+            closeAppBtn.BackColor = Color.Salmon;
+            closeAppBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            closeAppBtn.ForeColor = SystemColors.ButtonHighlight;
+            closeAppBtn.Location = new Point(741, 23);
+            closeAppBtn.Name = "closeAppBtn";
+            closeAppBtn.Size = new Size(33, 32);
+            closeAppBtn.TabIndex = 12;
+            closeAppBtn.Text = "X";
+            closeAppBtn.UseVisualStyleBackColor = false;
+            closeAppBtn.Click += closeAppBtn_Click;
+            closeAppBtn.MouseLeave += closeAppBtn_MouseLeave;
+            closeAppBtn.MouseHover += closeAppBtn_MouseHover;
+            // 
             // PastRootForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(797, 459);
+            Controls.Add(closeAppBtn);
             Controls.Add(toCardBtn);
             Controls.Add(button10);
             Controls.Add(button9);
@@ -206,5 +225,6 @@
         private Button button9;
         private Button button10;
         private Button toCardBtn;
+        private Button closeAppBtn;
     }
 }

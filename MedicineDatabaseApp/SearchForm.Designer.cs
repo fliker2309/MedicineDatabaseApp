@@ -45,6 +45,8 @@
             sexComboBox = new ComboBox();
             studentsListView = new ListView();
             button1 = new Button();
+            deleteBtn = new Button();
+            EditBtn = new Button();
             SuspendLayout();
             // 
             // searchButton
@@ -52,7 +54,7 @@
             searchButton.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             searchButton.Location = new Point(998, 649);
             searchButton.Name = "searchButton";
-            searchButton.Size = new Size(76, 27);
+            searchButton.Size = new Size(130, 53);
             searchButton.TabIndex = 42;
             searchButton.Text = "Поиск";
             searchButton.UseVisualStyleBackColor = true;
@@ -202,22 +204,46 @@
             // studentsListView
             // 
             studentsListView.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            studentsListView.Location = new Point(104, 320);
+            studentsListView.FullRowSelect = true;
+            studentsListView.Location = new Point(182, 342);
             studentsListView.Name = "studentsListView";
-            studentsListView.Size = new Size(970, 290);
+            studentsListView.Size = new Size(779, 243);
             studentsListView.TabIndex = 52;
             studentsListView.UseCompatibleStateImageBehavior = false;
             // 
             // button1
             // 
             button1.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.Location = new Point(104, 649);
+            button1.Location = new Point(79, 649);
             button1.Name = "button1";
-            button1.Size = new Size(75, 27);
+            button1.Size = new Size(130, 53);
             button1.TabIndex = 53;
             button1.Text = "Назад";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // deleteBtn
+            // 
+            deleteBtn.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            deleteBtn.ForeColor = Color.Tomato;
+            deleteBtn.Location = new Point(1065, 45);
+            deleteBtn.Name = "deleteBtn";
+            deleteBtn.Size = new Size(149, 33);
+            deleteBtn.TabIndex = 54;
+            deleteBtn.Text = "Удалить студента";
+            deleteBtn.UseVisualStyleBackColor = true;
+            deleteBtn.Click += deleteBtn_Click;
+            // 
+            // EditBtn
+            // 
+            EditBtn.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            EditBtn.Location = new Point(489, 649);
+            EditBtn.Name = "EditBtn";
+            EditBtn.Size = new Size(165, 53);
+            EditBtn.TabIndex = 55;
+            EditBtn.Text = "Редактирование";
+            EditBtn.UseVisualStyleBackColor = true;
+            EditBtn.Click += EditBtn_Click;
             // 
             // SearchForm
             // 
@@ -225,6 +251,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1246, 733);
+            ControlBox = false;
+            Controls.Add(EditBtn);
+            Controls.Add(deleteBtn);
             Controls.Add(button1);
             Controls.Add(studentsListView);
             Controls.Add(sexComboBox);
@@ -267,5 +296,7 @@
         private ComboBox sexComboBox;
         private ListView studentsListView;
         private Button button1;
+        private Button deleteBtn;
+        private Button EditBtn;
     }
 }
