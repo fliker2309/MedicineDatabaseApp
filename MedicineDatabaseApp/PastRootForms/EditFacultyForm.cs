@@ -82,7 +82,9 @@ namespace MedicineDatabaseApp
                     {
                         MessageBox.Show("Факультет изменен");
                         LoadData();
+                        
                     }
+                    facultyTextBox.Text = "";
                 }
                 else
                 {
@@ -118,6 +120,7 @@ namespace MedicineDatabaseApp
             db.openConnection();
             deleteCommand.ExecuteNonQuery();
             db.closeConnection();
+            facultyTextBox.Text = "";
         }
     }
 }
