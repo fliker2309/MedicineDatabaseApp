@@ -222,8 +222,8 @@ WHERE students.id = @id";
             }else
             {
                 this.Close();
-                RootForm rootForm = new RootForm();
-                rootForm.Show();
+                SearchForm form = new SearchForm();
+                form.Show();
             }
 
             

@@ -55,32 +55,6 @@ namespace MedicineDatabaseApp
 
             LoadData();
 
-          /*  string query = @"
-SELECT students.*, faculties.faculty, specialities.speciality
-FROM students
-INNER JOIN faculties ON students.faculty_id = faculties.id
-INNER JOIN specialities ON students.speciality_id = specialities.id
-";
-
-            DB db = new DB();
-            MySqlCommand command = new MySqlCommand(query, db.getConnection());
-            db.openConnection();
-            using (var reader = command.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    ListViewItem item = new ListViewItem(reader["surname"].ToString());
-                    item.SubItems.Add(reader["name"].ToString());
-                    item.SubItems.Add(reader["lastname"].ToString());
-                    item.SubItems.Add(reader["sex"].ToString());
-
-                    item.Tag = reader["id"];
-
-                    studentsListView.Items.Add(item);
-                }
-            }
-            db.closeConnection();*/
-
             studentsListView.ItemActivate += (s, e) =>
             {
                 if (studentsListView.SelectedItems.Count > 0)
@@ -377,10 +351,17 @@ INNER JOIN specialities ON students.speciality_id = specialities.id
                 ListViewItem item = studentsListView.SelectedItems[0];
                 int studentId = (int)item.Tag;
 
-                AddStudentForm form = new AddStudentForm(studentId,this);
+                AddStudentForm form = new AddStudentForm(studentId, this);
                 form.ShowDialog();
                 form.BringToFront();
             }
+        }
+
+        private void addStudentBtn_Click(object sender, EventArgs e)
+        {
+            AddStudentForm addForm = new AddStudentForm();
+            addForm.Show();
+            this.Hide();
         }
     }
 }

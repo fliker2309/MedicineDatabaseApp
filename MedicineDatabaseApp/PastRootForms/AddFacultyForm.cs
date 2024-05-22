@@ -1,16 +1,15 @@
-﻿
-using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MedicineDatabaseApp
+namespace MedicineDatabaseApp.PastRootForms
 {
     public partial class AddFacultyForm : Form
     {
@@ -19,14 +18,21 @@ namespace MedicineDatabaseApp
             InitializeComponent();
         }
 
-        private void backButtonClick(object sender, EventArgs e)
+        private void EditBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            PastRootForm rootForm = new PastRootForm();
-            rootForm.Show();
+            EditFacultyForm form = new EditFacultyForm();
+            form.ShowDialog();
+            form.BringToFront();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            PastRootForm form = new PastRootForm();
+            form.Show();
+        }
+
+        private void addFacultyBtn_Click(object sender, EventArgs e)
         {
             DB db = new DB();
 
@@ -46,8 +52,8 @@ namespace MedicineDatabaseApp
                 {
                     MessageBox.Show("Факультет добавлен");
                     this.Close();
-                    PastRootForm rootForm = new PastRootForm();
-                    rootForm.Show();
+                    PastRootForm form = new PastRootForm();
+                    form.Show();
                 }
 
             }
