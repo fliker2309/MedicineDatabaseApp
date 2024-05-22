@@ -20,9 +20,7 @@ namespace MedicineDatabaseApp
         private void toAddForm_Click(object sender, EventArgs e)
         {
 
-            AddStudentForm addForm = new AddStudentForm();
-            addForm.Show();
-            this.Hide();
+           
         }
 
         private void toPastRootForm(object sender, EventArgs e)
@@ -70,7 +68,7 @@ namespace MedicineDatabaseApp
         private void addFaculcyBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            AddFacultyForm addForm = new AddFacultyForm();
+            EditFacultyForm addForm = new EditFacultyForm();
             addForm.Show();
         }
 

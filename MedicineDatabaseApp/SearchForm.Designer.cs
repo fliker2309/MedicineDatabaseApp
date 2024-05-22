@@ -47,6 +47,7 @@
             button1 = new Button();
             deleteBtn = new Button();
             EditBtn = new Button();
+            addStudentBtn = new Button();
             SuspendLayout();
             // 
             // searchButton
@@ -237,13 +238,24 @@
             // EditBtn
             // 
             EditBtn.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            EditBtn.Location = new Point(489, 649);
+            EditBtn.Location = new Point(685, 649);
             EditBtn.Name = "EditBtn";
             EditBtn.Size = new Size(165, 53);
             EditBtn.TabIndex = 55;
             EditBtn.Text = "Редактирование";
             EditBtn.UseVisualStyleBackColor = true;
             EditBtn.Click += EditBtn_Click;
+            // 
+            // addStudentBtn
+            // 
+            addStudentBtn.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            addStudentBtn.Location = new Point(339, 649);
+            addStudentBtn.Name = "addStudentBtn";
+            addStudentBtn.Size = new Size(165, 53);
+            addStudentBtn.TabIndex = 56;
+            addStudentBtn.Text = "Добавить студента";
+            addStudentBtn.UseVisualStyleBackColor = true;
+            addStudentBtn.Click += addStudentBtn_Click;
             // 
             // SearchForm
             // 
@@ -252,6 +264,7 @@
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1246, 733);
             ControlBox = false;
+            Controls.Add(addStudentBtn);
             Controls.Add(EditBtn);
             Controls.Add(deleteBtn);
             Controls.Add(button1);
@@ -298,5 +311,6 @@
         private Button button1;
         private Button deleteBtn;
         private Button EditBtn;
+        private Button addStudentBtn;
     }
 }
