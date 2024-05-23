@@ -39,7 +39,6 @@
             button8 = new Button();
             button9 = new Button();
             button10 = new Button();
-            toCardBtn = new Button();
             closeAppBtn = new Button();
             SuspendLayout();
             // 
@@ -159,17 +158,6 @@
             button10.UseVisualStyleBackColor = true;
             button10.Click += button10_Click;
             // 
-            // toCardBtn
-            // 
-            toCardBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            toCardBtn.Location = new Point(310, 339);
-            toCardBtn.Name = "toCardBtn";
-            toCardBtn.Size = new Size(141, 51);
-            toCardBtn.TabIndex = 11;
-            toCardBtn.Text = "Карту";
-            toCardBtn.UseVisualStyleBackColor = true;
-            toCardBtn.Click += toCardBtn_Click;
-            // 
             // closeAppBtn
             // 
             closeAppBtn.BackColor = Color.Salmon;
@@ -192,7 +180,6 @@
             BackColor = Color.AliceBlue;
             ClientSize = new Size(797, 459);
             Controls.Add(closeAppBtn);
-            Controls.Add(toCardBtn);
             Controls.Add(button10);
             Controls.Add(button9);
             Controls.Add(button8);
@@ -224,7 +211,6 @@
         private Button button8;
         private Button button9;
         private Button button10;
-        private Button toCardBtn;
         private Button closeAppBtn;
     }
 }

@@ -359,9 +359,10 @@ INNER JOIN specialities ON students.speciality_id = specialities.id
 
         private void addStudentBtn_Click(object sender, EventArgs e)
         {
+            this.Close();
             AddStudentForm addForm = new AddStudentForm();
             addForm.Show();
-            this.Hide();
+           
         }
     }
 }

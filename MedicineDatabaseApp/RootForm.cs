@@ -41,14 +41,7 @@ namespace MedicineDatabaseApp
             AddCheckoutForm addForm = new AddCheckoutForm();
             addForm.Show();
             this.Hide();
-        }
-
-        private void toCardAddForm_Click(object sender, EventArgs e)
-        {
-            AddCardForm addForm = new AddCardForm();
-            addForm.Show();
-            this.Hide();
-        }
+        }     
 
         private void toAddCertificateForm_Click(object sender, EventArgs e)
         {

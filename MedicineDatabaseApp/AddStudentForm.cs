@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,7 @@ namespace MedicineDatabaseApp
 
         private int? _studentId = null;
         private SearchForm _searchForm;
-        public AddStudentForm()
+        public AddStudentForm() // конструктор добавления студента
         {
             InitializeComponent();
 
@@ -27,10 +28,11 @@ namespace MedicineDatabaseApp
 
             lastname_textbox.Text = "Введите отчество";
 
-            group_textbox.Text = "Введите группу";           
+            group_textbox.Text = "Введите группу";      
+            
                       
             initialize_faculties();
-       
+           
             initialize_specialities();
 
             initialize_ages();
@@ -58,7 +60,7 @@ namespace MedicineDatabaseApp
             }
         }
 
-    public AddStudentForm(int studentId, SearchForm searchForm)
+    public AddStudentForm(int studentId, SearchForm searchForm) //конструктор редактирования студента
         {
             _studentId = studentId;
             _searchForm = searchForm;
@@ -216,17 +218,9 @@ WHERE students.id = @id";
 
         private void back_to_main_button_Click(object sender, EventArgs e)
         {
-            if (_studentId.HasValue)
-            {
-                this.Close();
-            }else
-            {
-                this.Close();
-                SearchForm form = new SearchForm();
-                form.Show();
-            }
-
-            
+            this.Close();
+            SearchForm form = new SearchForm();
+            form.Show();
         }
 
         private void add_info_button_Click(object sender, EventArgs e)
@@ -269,12 +263,11 @@ WHERE students.id = @id";
                     MessageBox.Show("Правки не внесены");
                 }
 
-                db.closeConnection();
-            }
+                db.closeConnection();           
+                            }
             else
             {
                 int selectedYear = int.Parse(startYearBox.SelectedItem.ToString());
-
 
                 command = new MySqlCommand("INSERT INTO students (surname, name, lastname, age, sex, faculty_id, speciality_id, groupnumber, aducation_form, start_year, end_year) VALUES (@surname,@name, @lastname, @age,@sex,@faculty, @spec, @group, @aducationform, @startyear, @endyear);", db.getConnection());
 
@@ -294,15 +287,14 @@ WHERE students.id = @id";
                 command.Parameters.Add("@aducationform", MySqlDbType.VarChar).Value = aducationform;
                 command.Parameters.Add("@startyear", MySqlDbType.VarChar).Value = startYearBox.Text;
                 command.Parameters.Add("@endyear", MySqlDbType.VarChar).Value = endYearBox.Text;
+             
                 db.openConnection();
 
                 if (command.ExecuteNonQuery() == 1)
                 {
                     MessageBox.Show("Студент добавлен");
 
-                    this.Close();
-                    RootForm rootForm = new RootForm();
-                    rootForm.Show();
+                    this.Close();                      
                 }
                 else
                 {
@@ -310,13 +302,33 @@ WHERE students.id = @id";
                 }
 
                 db.closeConnection();
-            }          
 
-
+                addCardQuery();
+            }           
         }
 
-     
+        private void addCardQuery()
+        {
+            DB db = new DB();
+            string cardAddQuery = @"
+START TRANSACTION;
+INSERT INTO medicalcards (student_id) SELECT MAX(id) FROM students;
+COMMIT;";
+            MySqlCommand addCardCommand = new MySqlCommand(cardAddQuery, db.getConnection());
 
-     
+            db.openConnection();
+            if (addCardCommand.ExecuteNonQuery() > 0)
+            {              
+                this.Close();
+                SearchForm form = new SearchForm();
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("карта не добавлена");
+            }
+
+            db.closeConnection();
+        }
     }
 }

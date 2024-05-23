@@ -53,11 +53,11 @@
             // searchButton
             // 
             searchButton.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            searchButton.Location = new Point(998, 649);
+            searchButton.Location = new Point(1069, 94);
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(130, 53);
             searchButton.TabIndex = 42;
-            searchButton.Text = "Поиск";
+            searchButton.Text = "Применить фильтр";
             searchButton.UseVisualStyleBackColor = true;
             searchButton.Click += searchButton_Click;
             // 
@@ -227,9 +227,9 @@
             // 
             deleteBtn.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             deleteBtn.ForeColor = Color.Tomato;
-            deleteBtn.Location = new Point(1065, 45);
+            deleteBtn.Location = new Point(525, 649);
             deleteBtn.Name = "deleteBtn";
-            deleteBtn.Size = new Size(149, 33);
+            deleteBtn.Size = new Size(167, 53);
             deleteBtn.TabIndex = 54;
             deleteBtn.Text = "Удалить студента";
             deleteBtn.UseVisualStyleBackColor = true;
@@ -238,7 +238,7 @@
             // EditBtn
             // 
             EditBtn.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            EditBtn.Location = new Point(685, 649);
+            EditBtn.Location = new Point(710, 649);
             EditBtn.Name = "EditBtn";
             EditBtn.Size = new Size(165, 53);
             EditBtn.TabIndex = 55;
