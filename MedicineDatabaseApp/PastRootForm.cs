@@ -44,14 +44,7 @@ namespace MedicineDatabaseApp
             this.Close();
             AddSpecialityForm form = new AddSpecialityForm();
             form.Show();
-        }
-
-        private void toCardBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            AddCardForm form = new AddCardForm();
-            form.ShowDialog();
-        }
+        }      
 
         private void closeAppBtn_MouseHover(object sender, EventArgs e)
         {

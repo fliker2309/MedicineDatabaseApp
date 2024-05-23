@@ -23,5 +23,10 @@ namespace MedicineDatabaseApp
             RootForm rootForm = new RootForm();
             rootForm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
