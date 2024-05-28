@@ -31,11 +31,12 @@
             listView1 = new ListView();
             label1 = new Label();
             backBtn = new Button();
+            studentName = new Label();
             SuspendLayout();
             // 
             // listView1
             // 
-            listView1.Location = new Point(109, 122);
+            listView1.Location = new Point(124, 144);
             listView1.Name = "listView1";
             listView1.Size = new Size(590, 278);
             listView1.TabIndex = 0;
@@ -62,16 +63,29 @@
             backBtn.UseVisualStyleBackColor = true;
             backBtn.Click += backBtn_Click;
             // 
+            // studentName
+            // 
+            studentName.AutoSize = true;
+            studentName.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            studentName.Location = new Point(283, 72);
+            studentName.Name = "studentName";
+            studentName.Size = new Size(59, 24);
+            studentName.TabIndex = 23;
+            studentName.Text = "ФИО";
+            studentName.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // ShowVaccinationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(843, 616);
+            Controls.Add(studentName);
             Controls.Add(backBtn);
             Controls.Add(label1);
             Controls.Add(listView1);
             Name = "ShowVaccinationForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ShowVaccinationForm";
             ResumeLayout(false);
             PerformLayout();
@@ -82,5 +96,6 @@
         private ListView listView1;
         private Label label1;
         private Button backBtn;
+        private Label studentName;
     }
 }

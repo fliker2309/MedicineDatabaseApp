@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MedicineDatabaseApp.ShowForms;
 
 namespace MedicineDatabaseApp
 {
@@ -63,7 +64,8 @@ WHERE students.id = @id";
 
         private void showVaccinationbtnClick(object sender, EventArgs e)
         {
-            
+            ShowVaccinationForm form = new ShowVaccinationForm(studentId);
+            form.ShowDialog();
         }
 
         private void back_to_main_button_Click(object sender, EventArgs e)

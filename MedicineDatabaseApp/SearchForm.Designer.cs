@@ -48,6 +48,7 @@
             deleteBtn = new Button();
             EditBtn = new Button();
             addStudentBtn = new Button();
+            closeAppBtn = new Button();
             SuspendLayout();
             // 
             // filterBtn
@@ -210,7 +211,7 @@
             studentsListView.Name = "studentsListView";
             studentsListView.Size = new Size(1177, 243);
             studentsListView.TabIndex = 52;
-            studentsListView.UseCompatibleStateImageBehavior = false;      
+            studentsListView.UseCompatibleStateImageBehavior = false;
             // 
             // backBtn
             // 
@@ -257,6 +258,20 @@
             addStudentBtn.UseVisualStyleBackColor = true;
             addStudentBtn.Click += addStudentBtn_Click;
             // 
+            // closeAppBtn
+            // 
+            closeAppBtn.BackColor = Color.Salmon;
+            closeAppBtn.Cursor = Cursors.Hand;
+            closeAppBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            closeAppBtn.ForeColor = SystemColors.ButtonHighlight;
+            closeAppBtn.Location = new Point(1196, 20);
+            closeAppBtn.Name = "closeAppBtn";
+            closeAppBtn.Size = new Size(38, 40);
+            closeAppBtn.TabIndex = 57;
+            closeAppBtn.Text = "X";
+            closeAppBtn.UseVisualStyleBackColor = false;
+            closeAppBtn.Click += closeAppBtn_Click;
+            // 
             // SearchForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -264,6 +279,7 @@
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1246, 733);
             ControlBox = false;
+            Controls.Add(closeAppBtn);
             Controls.Add(addStudentBtn);
             Controls.Add(EditBtn);
             Controls.Add(deleteBtn);
@@ -312,5 +328,6 @@
         private Button deleteBtn;
         private Button EditBtn;
         private Button addStudentBtn;
+        private Button closeAppBtn;
     }
 }

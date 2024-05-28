@@ -76,33 +76,33 @@
             // age_label
             // 
             age_label.AutoSize = true;
-            age_label.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            age_label.Font = new Font("Times New Roman", 11.25F);
             age_label.Location = new Point(116, 168);
             age_label.Margin = new Padding(4, 0, 4, 0);
             age_label.Name = "age_label";
-            age_label.Size = new Size(114, 20);
+            age_label.Size = new Size(99, 17);
             age_label.TabIndex = 41;
             age_label.Text = "Дата прививки";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label1.Font = new Font("Times New Roman", 11.25F);
             label1.Location = new Point(116, 120);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(107, 20);
+            label1.Size = new Size(91, 17);
             label1.TabIndex = 42;
             label1.Text = "Тип прививки";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label2.Font = new Font("Times New Roman", 11.25F);
             label2.Location = new Point(116, 64);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(127, 20);
+            label2.Size = new Size(113, 17);
             label2.TabIndex = 43;
             label2.Text = "Ф.И.О. пациента";
             // 

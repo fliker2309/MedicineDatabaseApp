@@ -77,7 +77,7 @@
             button3.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
             button3.Location = new Point(877, 572);
             button3.Name = "button3";
-            button3.Size = new Size(113, 42);
+            button3.Size = new Size(135, 42);
             button3.TabIndex = 2;
             button3.Text = "Сохранить";
             button3.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             VexpTimePicker.Font = new Font("Times New Roman", 14.25F);
             VexpTimePicker.Location = new Point(254, 510);
             VexpTimePicker.Name = "VexpTimePicker";
-            VexpTimePicker.Size = new Size(229, 29);
+            VexpTimePicker.Size = new Size(321, 29);
             VexpTimePicker.TabIndex = 49;
             // 
             // Vborndate_datepicker
@@ -116,7 +116,7 @@
             Vborndate_datepicker.Font = new Font("Times New Roman", 14.25F);
             Vborndate_datepicker.Location = new Point(761, 397);
             Vborndate_datepicker.Name = "Vborndate_datepicker";
-            Vborndate_datepicker.Size = new Size(229, 29);
+            Vborndate_datepicker.Size = new Size(323, 29);
             Vborndate_datepicker.TabIndex = 48;
             // 
             // label4
@@ -136,7 +136,7 @@
             VqualityTB.Location = new Point(761, 455);
             VqualityTB.Margin = new Padding(4);
             VqualityTB.Name = "VqualityTB";
-            VqualityTB.Size = new Size(229, 29);
+            VqualityTB.Size = new Size(323, 29);
             VqualityTB.TabIndex = 46;
             // 
             // VjobtitleTB
@@ -145,7 +145,7 @@
             VjobtitleTB.Location = new Point(254, 455);
             VjobtitleTB.Margin = new Padding(4);
             VjobtitleTB.Name = "VjobtitleTB";
-            VjobtitleTB.Size = new Size(229, 29);
+            VjobtitleTB.Size = new Size(321, 29);
             VjobtitleTB.TabIndex = 45;
             // 
             // VlastnameTB
@@ -154,7 +154,7 @@
             VlastnameTB.Location = new Point(254, 405);
             VlastnameTB.Margin = new Padding(4);
             VlastnameTB.Name = "VlastnameTB";
-            VlastnameTB.Size = new Size(229, 29);
+            VlastnameTB.Size = new Size(321, 29);
             VlastnameTB.TabIndex = 44;
             // 
             // VnameTB
@@ -163,7 +163,7 @@
             VnameTB.Location = new Point(761, 357);
             VnameTB.Margin = new Padding(4);
             VnameTB.Name = "VnameTB";
-            VnameTB.Size = new Size(229, 29);
+            VnameTB.Size = new Size(323, 29);
             VnameTB.TabIndex = 43;
             // 
             // Vsurname_textbox
@@ -172,7 +172,7 @@
             Vsurname_textbox.Location = new Point(254, 357);
             Vsurname_textbox.Margin = new Padding(4);
             Vsurname_textbox.Name = "Vsurname_textbox";
-            Vsurname_textbox.Size = new Size(229, 29);
+            Vsurname_textbox.Size = new Size(321, 29);
             Vsurname_textbox.TabIndex = 42;
             // 
             // label3
@@ -234,7 +234,7 @@
             // 
             lastname_label.AutoSize = true;
             lastname_label.Font = new Font("Times New Roman", 14.25F, FontStyle.Italic);
-            lastname_label.Location = new Point(79, 416);
+            lastname_label.Location = new Point(82, 413);
             lastname_label.Margin = new Padding(4, 0, 4, 0);
             lastname_label.Name = "lastname_label";
             lastname_label.Size = new Size(94, 21);
@@ -267,6 +267,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "EditVrachForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "EditVrach";
             ResumeLayout(false);
             PerformLayout();
