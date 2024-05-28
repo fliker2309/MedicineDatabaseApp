@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listView1 = new ListView();
+            vaccinationsListView = new ListView();
             label1 = new Label();
             backBtn = new Button();
             studentName = new Label();
             SuspendLayout();
             // 
-            // listView1
+            // vaccinationsListView
             // 
-            listView1.Location = new Point(124, 144);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(590, 278);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
+            vaccinationsListView.Location = new Point(124, 144);
+            vaccinationsListView.Name = "vaccinationsListView";
+            vaccinationsListView.Size = new Size(590, 278);
+            vaccinationsListView.TabIndex = 0;
+            vaccinationsListView.UseCompatibleStateImageBehavior = false;
             // 
             // label1
             // 
@@ -83,7 +83,7 @@
             Controls.Add(studentName);
             Controls.Add(backBtn);
             Controls.Add(label1);
-            Controls.Add(listView1);
+            Controls.Add(vaccinationsListView);
             Name = "ShowVaccinationForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ShowVaccinationForm";
@@ -93,7 +93,7 @@
 
         #endregion
 
-        private ListView listView1;
+        private ListView vaccinationsListView;
         private Label label1;
         private Button backBtn;
         private Label studentName;

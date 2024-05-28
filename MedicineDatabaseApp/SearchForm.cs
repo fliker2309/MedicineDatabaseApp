@@ -15,7 +15,6 @@ namespace MedicineDatabaseApp
 {
     public partial class SearchForm : Form
     {
-
         public SearchForm()
         {
             InitializeComponent();
@@ -215,7 +214,6 @@ INNER JOIN specialities ON students.speciality_id = specialities.id
     WHERE 1=1
 ";
 
-
             if (!string.IsNullOrEmpty(dateOfBirth))
             {
                 query += " AND YEAR(age) = @dateOfBirth";
@@ -299,16 +297,7 @@ INNER JOIN specialities ON students.speciality_id = specialities.id
                     item.SubItems.Add(reader["groupnumber"].ToString());
                     item.SubItems.Add(reader["start_year"].ToString());
                     item.SubItems.Add(reader["faculty"].ToString());
-                    item.SubItems.Add(reader["speciality"].ToString());
-
-                    //    DateTime birthDate = Convert.ToDateTime(reader["age"]);
-                    // int age = DateTime.Now.Year - birthDate.Year;
-                    //  if (birthDate > DateTime.Now.AddYears(-age)) age--;
-                    //  item.SubItems.Add(age.ToString());
-                    // item.SubItems.Add(reader["faculty"].ToString());
-                    //  item.SubItems.Add(reader["speciality"].ToString());
-                    //  item.SubItems.Add(reader["groupnumber"].ToString());
-                    //  item.SubItems.Add(reader["start_year"].ToString());
+                    item.SubItems.Add(reader["speciality"].ToString());                 
 
                     studentsListView.Items.Add(item);
                     item.Tag = reader["id"];
@@ -322,7 +311,6 @@ INNER JOIN specialities ON students.speciality_id = specialities.id
 
                 db.closeConnection();
             }
-
         }
 
         public void updateListView()
