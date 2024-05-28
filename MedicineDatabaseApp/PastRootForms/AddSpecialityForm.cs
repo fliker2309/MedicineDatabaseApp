@@ -56,5 +56,12 @@ namespace MedicineDatabaseApp
             PastRootForm rootForm = new PastRootForm();
             rootForm.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            EditSpecialityForm form = new EditSpecialityForm();
+            form.ShowDialog();
+            form.BringToFront();
+        }
     }
 }

@@ -61,11 +61,9 @@ WHERE students.id = @id";
             db.closeConnection();
         }
 
-        private void showCardBtn_Click(object sender, EventArgs e)
+        private void showVaccinationbtnClick(object sender, EventArgs e)
         {
-            this.Close();
-            ShowCardForm form = new ShowCardForm();
-            form.ShowDialog();
+            
         }
 
         private void back_to_main_button_Click(object sender, EventArgs e)

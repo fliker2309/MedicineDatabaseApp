@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            searchButton = new Button();
+            filterBtn = new Button();
             label_top = new Label();
             spec_label = new Label();
             group_label = new Label();
@@ -44,22 +44,22 @@
             specialityBox = new ComboBox();
             sexComboBox = new ComboBox();
             studentsListView = new ListView();
-            button1 = new Button();
+            backBtn = new Button();
             deleteBtn = new Button();
             EditBtn = new Button();
             addStudentBtn = new Button();
             SuspendLayout();
             // 
-            // searchButton
+            // filterBtn
             // 
-            searchButton.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            searchButton.Location = new Point(1069, 94);
-            searchButton.Name = "searchButton";
-            searchButton.Size = new Size(130, 53);
-            searchButton.TabIndex = 42;
-            searchButton.Text = "Применить фильтр";
-            searchButton.UseVisualStyleBackColor = true;
-            searchButton.Click += searchButton_Click;
+            filterBtn.Font = new Font("Times New Roman", 14.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            filterBtn.Location = new Point(892, 80);
+            filterBtn.Name = "filterBtn";
+            filterBtn.Size = new Size(182, 56);
+            filterBtn.TabIndex = 42;
+            filterBtn.Text = "Применить / Очистить фильтр";
+            filterBtn.UseVisualStyleBackColor = true;
+            filterBtn.Click += searchButton_Click;
             // 
             // label_top
             // 
@@ -75,67 +75,67 @@
             // spec_label
             // 
             spec_label.AutoSize = true;
-            spec_label.Font = new Font("Trebuchet MS", 11.25F);
-            spec_label.Location = new Point(469, 263);
+            spec_label.Font = new Font("Times New Roman", 14.25F, FontStyle.Italic);
+            spec_label.Location = new Point(525, 266);
             spec_label.Margin = new Padding(4, 0, 4, 0);
             spec_label.Name = "spec_label";
-            spec_label.Size = new Size(113, 20);
+            spec_label.Size = new Size(137, 21);
             spec_label.TabIndex = 36;
             spec_label.Text = "Специальность";
             // 
             // group_label
             // 
             group_label.AutoSize = true;
-            group_label.Font = new Font("Trebuchet MS", 11.25F);
+            group_label.Font = new Font("Times New Roman", 14.25F, FontStyle.Italic);
             group_label.Location = new Point(104, 269);
             group_label.Margin = new Padding(4, 0, 4, 0);
             group_label.Name = "group_label";
-            group_label.Size = new Size(56, 20);
+            group_label.Size = new Size(68, 21);
             group_label.TabIndex = 35;
             group_label.Text = "Группа";
             // 
             // faculcy_label
             // 
             faculcy_label.AutoSize = true;
-            faculcy_label.Font = new Font("Trebuchet MS", 11.25F);
-            faculcy_label.Location = new Point(469, 192);
+            faculcy_label.Font = new Font("Times New Roman", 14.25F, FontStyle.Italic);
+            faculcy_label.Location = new Point(525, 191);
             faculcy_label.Margin = new Padding(4, 0, 4, 0);
             faculcy_label.Name = "faculcy_label";
-            faculcy_label.Size = new Size(81, 20);
+            faculcy_label.Size = new Size(104, 21);
             faculcy_label.TabIndex = 33;
             faculcy_label.Text = "Факультет";
             // 
             // label_sex
             // 
             label_sex.AutoSize = true;
-            label_sex.Font = new Font("Trebuchet MS", 11.25F);
+            label_sex.Font = new Font("Times New Roman", 14.25F, FontStyle.Italic);
             label_sex.Location = new Point(104, 189);
             label_sex.Margin = new Padding(4, 0, 4, 0);
             label_sex.Name = "label_sex";
-            label_sex.Size = new Size(35, 20);
+            label_sex.Size = new Size(41, 21);
             label_sex.TabIndex = 31;
             label_sex.Text = "Пол";
             // 
             // age_label
             // 
             age_label.AutoSize = true;
-            age_label.Font = new Font("Trebuchet MS", 11.25F);
+            age_label.Font = new Font("Times New Roman", 14.25F, FontStyle.Italic);
             age_label.Location = new Point(101, 109);
             age_label.Margin = new Padding(4, 0, 4, 0);
             age_label.Name = "age_label";
-            age_label.Size = new Size(108, 20);
+            age_label.Size = new Size(127, 21);
             age_label.TabIndex = 27;
             age_label.Text = "Год рождения";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Trebuchet MS", 11.25F);
-            label1.Location = new Point(489, 30);
+            label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label1.Location = new Point(379, 20);
             label1.Name = "label1";
-            label1.Size = new Size(160, 20);
+            label1.Size = new Size(359, 36);
             label1.TabIndex = 44;
-            label1.Text = "Поиск по параметрам";
+            label1.Text = "Фильтр по параметрам";
             // 
             // ageComboBox
             // 
@@ -149,11 +149,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Trebuchet MS", 11.25F);
-            label2.Location = new Point(469, 104);
+            label2.Font = new Font("Times New Roman", 14.25F, FontStyle.Italic);
+            label2.Location = new Point(525, 108);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(125, 20);
+            label2.Size = new Size(147, 21);
             label2.TabIndex = 46;
             label2.Text = "Год поступления";
             // 
@@ -204,32 +204,32 @@
             // 
             // studentsListView
             // 
-            studentsListView.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            studentsListView.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             studentsListView.FullRowSelect = true;
-            studentsListView.Location = new Point(182, 342);
+            studentsListView.Location = new Point(24, 342);
             studentsListView.Name = "studentsListView";
-            studentsListView.Size = new Size(779, 243);
+            studentsListView.Size = new Size(1177, 243);
             studentsListView.TabIndex = 52;
-            studentsListView.UseCompatibleStateImageBehavior = false;
+            studentsListView.UseCompatibleStateImageBehavior = false;      
             // 
-            // button1
+            // backBtn
             // 
-            button1.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.Location = new Point(79, 649);
-            button1.Name = "button1";
-            button1.Size = new Size(130, 53);
-            button1.TabIndex = 53;
-            button1.Text = "Назад";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            backBtn.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
+            backBtn.Location = new Point(12, 668);
+            backBtn.Name = "backBtn";
+            backBtn.Size = new Size(130, 53);
+            backBtn.TabIndex = 53;
+            backBtn.Text = "Назад";
+            backBtn.UseVisualStyleBackColor = true;
+            backBtn.Click += button1_Click;
             // 
             // deleteBtn
             // 
-            deleteBtn.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            deleteBtn.ForeColor = Color.Tomato;
-            deleteBtn.Location = new Point(525, 649);
+            deleteBtn.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
+            deleteBtn.ForeColor = Color.Red;
+            deleteBtn.Location = new Point(550, 649);
             deleteBtn.Name = "deleteBtn";
-            deleteBtn.Size = new Size(167, 53);
+            deleteBtn.Size = new Size(186, 53);
             deleteBtn.TabIndex = 54;
             deleteBtn.Text = "Удалить студента";
             deleteBtn.UseVisualStyleBackColor = true;
@@ -237,8 +237,8 @@
             // 
             // EditBtn
             // 
-            EditBtn.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            EditBtn.Location = new Point(710, 649);
+            EditBtn.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
+            EditBtn.Location = new Point(769, 649);
             EditBtn.Name = "EditBtn";
             EditBtn.Size = new Size(165, 53);
             EditBtn.TabIndex = 55;
@@ -248,10 +248,10 @@
             // 
             // addStudentBtn
             // 
-            addStudentBtn.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            addStudentBtn.Location = new Point(339, 649);
+            addStudentBtn.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
+            addStudentBtn.Location = new Point(325, 649);
             addStudentBtn.Name = "addStudentBtn";
-            addStudentBtn.Size = new Size(165, 53);
+            addStudentBtn.Size = new Size(194, 53);
             addStudentBtn.TabIndex = 56;
             addStudentBtn.Text = "Добавить студента";
             addStudentBtn.UseVisualStyleBackColor = true;
@@ -267,7 +267,7 @@
             Controls.Add(addStudentBtn);
             Controls.Add(EditBtn);
             Controls.Add(deleteBtn);
-            Controls.Add(button1);
+            Controls.Add(backBtn);
             Controls.Add(studentsListView);
             Controls.Add(sexComboBox);
             Controls.Add(specialityBox);
@@ -277,7 +277,7 @@
             Controls.Add(label2);
             Controls.Add(ageComboBox);
             Controls.Add(label1);
-            Controls.Add(searchButton);
+            Controls.Add(filterBtn);
             Controls.Add(label_top);
             Controls.Add(spec_label);
             Controls.Add(group_label);
@@ -292,7 +292,7 @@
         }
 
         #endregion
-        private Button searchButton;
+        private Button filterBtn;
         private Label label_top;
         private Label spec_label;
         private Label group_label;
@@ -308,7 +308,7 @@
         private ComboBox specialityBox;
         private ComboBox sexComboBox;
         private ListView studentsListView;
-        private Button button1;
+        private Button backBtn;
         private Button deleteBtn;
         private Button EditBtn;
         private Button addStudentBtn;

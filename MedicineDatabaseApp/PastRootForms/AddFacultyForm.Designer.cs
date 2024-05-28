@@ -38,37 +38,37 @@
             // 
             // facultyTextBox
             // 
-            facultyTextBox.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            facultyTextBox.Location = new Point(330, 189);
+            facultyTextBox.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
+            facultyTextBox.Location = new Point(354, 105);
             facultyTextBox.Name = "facultyTextBox";
-            facultyTextBox.Size = new Size(397, 26);
+            facultyTextBox.Size = new Size(403, 29);
             facultyTextBox.TabIndex = 52;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Trebuchet MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label4.Location = new Point(69, 189);
+            label4.Font = new Font("Times New Roman", 20.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            label4.Location = new Point(3, 105);
             label4.Name = "label4";
-            label4.Size = new Size(114, 27);
+            label4.Size = new Size(341, 31);
             label4.TabIndex = 51;
-            label4.Text = "Факультет";
+            label4.Text = "Введите новый факультет:";
             // 
             // addFacultyBtn
             // 
-            addFacultyBtn.Font = new Font("Trebuchet MS", 12F);
-            addFacultyBtn.Location = new Point(622, 365);
+            addFacultyBtn.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
+            addFacultyBtn.Location = new Point(769, 90);
             addFacultyBtn.Name = "addFacultyBtn";
-            addFacultyBtn.Size = new Size(105, 45);
+            addFacultyBtn.Size = new Size(185, 58);
             addFacultyBtn.TabIndex = 53;
-            addFacultyBtn.Text = "Сохранить";
+            addFacultyBtn.Text = "Добавить факультет";
             addFacultyBtn.UseVisualStyleBackColor = true;
             addFacultyBtn.Click += addFacultyBtn_Click;
             // 
             // backBtn
             // 
-            backBtn.Font = new Font("Trebuchet MS", 12F);
-            backBtn.Location = new Point(69, 365);
+            backBtn.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
+            backBtn.Location = new Point(33, 365);
             backBtn.Name = "backBtn";
             backBtn.Size = new Size(114, 45);
             backBtn.TabIndex = 54;
@@ -78,32 +78,32 @@
             // 
             // editBtn
             // 
-            editBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            editBtn.Location = new Point(330, 365);
+            editBtn.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
+            editBtn.Location = new Point(769, 355);
             editBtn.Name = "editBtn";
-            editBtn.Size = new Size(134, 45);
+            editBtn.Size = new Size(155, 55);
             editBtn.TabIndex = 57;
-            editBtn.Text = "Редактирование";
+            editBtn.Text = "Просмотр факультетов";
             editBtn.UseVisualStyleBackColor = true;
             editBtn.Click += EditBtn_Click;
             // 
             // label_top
             // 
             label_top.AutoSize = true;
-            label_top.Font = new Font("Segoe UI", 20F);
-            label_top.Location = new Point(271, 46);
+            label_top.Font = new Font("Times New Roman", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label_top.Location = new Point(303, 28);
             label_top.Margin = new Padding(4, 0, 4, 0);
             label_top.Name = "label_top";
-            label_top.Size = new Size(267, 37);
+            label_top.Size = new Size(366, 36);
             label_top.TabIndex = 58;
-            label_top.Text = "Добавить факультет";
+            label_top.Text = "Добавления факультета";
             // 
             // AddFacultyForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(966, 442);
             Controls.Add(label_top);
             Controls.Add(editBtn);
             Controls.Add(backBtn);

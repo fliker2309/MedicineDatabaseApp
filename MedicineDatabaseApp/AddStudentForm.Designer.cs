@@ -64,36 +64,39 @@
             // surname_label
             // 
             surname_label.AutoSize = true;
-            surname_label.Font = new Font("Segoe UI", 12F);
+            surname_label.Font = new Font("Times New Roman", 14.25F);
             surname_label.Location = new Point(190, 58);
             surname_label.Margin = new Padding(4, 0, 4, 0);
             surname_label.Name = "surname_label";
-            surname_label.Size = new Size(75, 21);
+            surname_label.Size = new Size(82, 21);
             surname_label.TabIndex = 0;
             surname_label.Text = "Фамилия";
             // 
             // lastname_label
             // 
             lastname_label.AutoSize = true;
+            lastname_label.Font = new Font("Times New Roman", 14.25F);
             lastname_label.Location = new Point(190, 165);
             lastname_label.Margin = new Padding(4, 0, 4, 0);
             lastname_label.Name = "lastname_label";
-            lastname_label.Size = new Size(77, 21);
+            lastname_label.Size = new Size(86, 21);
             lastname_label.TabIndex = 2;
             lastname_label.Text = "Отчество";
             // 
             // age_label
             // 
             age_label.AutoSize = true;
+            age_label.Font = new Font("Times New Roman", 14.25F);
             age_label.Location = new Point(190, 218);
             age_label.Margin = new Padding(4, 0, 4, 0);
             age_label.Name = "age_label";
-            age_label.Size = new Size(121, 21);
+            age_label.Size = new Size(132, 21);
             age_label.TabIndex = 3;
             age_label.Text = "Дата рождения";
             // 
             // surname_textbox
             // 
+            surname_textbox.Font = new Font("Times New Roman", 14.25F);
             surname_textbox.Location = new Point(379, 58);
             surname_textbox.Margin = new Padding(4);
             surname_textbox.Name = "surname_textbox";
@@ -104,6 +107,7 @@
             // 
             // name_textbox
             // 
+            name_textbox.Font = new Font("Times New Roman", 14.25F);
             name_textbox.Location = new Point(379, 117);
             name_textbox.Margin = new Padding(4);
             name_textbox.Name = "name_textbox";
@@ -114,6 +118,7 @@
             // 
             // lastname_textbox
             // 
+            lastname_textbox.Font = new Font("Times New Roman", 14.25F);
             lastname_textbox.Location = new Point(379, 165);
             lastname_textbox.Margin = new Padding(4);
             lastname_textbox.Name = "lastname_textbox";
@@ -125,20 +130,22 @@
             // label_sex
             // 
             label_sex.AutoSize = true;
+            label_sex.Font = new Font("Times New Roman", 14.25F);
             label_sex.Location = new Point(190, 266);
             label_sex.Margin = new Padding(4, 0, 4, 0);
             label_sex.Name = "label_sex";
-            label_sex.Size = new Size(38, 21);
+            label_sex.Size = new Size(42, 21);
             label_sex.TabIndex = 8;
             label_sex.Text = "Пол";
             // 
             // radio_button_female
             // 
             radio_button_female.AutoSize = true;
+            radio_button_female.Font = new Font("Times New Roman", 14.25F);
             radio_button_female.Location = new Point(102, 8);
             radio_button_female.Margin = new Padding(4);
             radio_button_female.Name = "radio_button_female";
-            radio_button_female.Size = new Size(92, 25);
+            radio_button_female.Size = new Size(100, 25);
             radio_button_female.TabIndex = 1;
             radio_button_female.TabStop = true;
             radio_button_female.Text = "Женский";
@@ -147,10 +154,11 @@
             // male_radiobutton
             // 
             male_radiobutton.AutoSize = true;
+            male_radiobutton.Font = new Font("Times New Roman", 14.25F);
             male_radiobutton.Location = new Point(4, 8);
             male_radiobutton.Margin = new Padding(4);
             male_radiobutton.Name = "male_radiobutton";
-            male_radiobutton.Size = new Size(95, 25);
+            male_radiobutton.Size = new Size(103, 25);
             male_radiobutton.TabIndex = 0;
             male_radiobutton.TabStop = true;
             male_radiobutton.Text = "Мужской";
@@ -159,35 +167,39 @@
             // faculcy_label
             // 
             faculcy_label.AutoSize = true;
+            faculcy_label.Font = new Font("Times New Roman", 14.25F);
             faculcy_label.Location = new Point(190, 328);
             faculcy_label.Margin = new Padding(4, 0, 4, 0);
             faculcy_label.Name = "faculcy_label";
-            faculcy_label.Size = new Size(84, 21);
+            faculcy_label.Size = new Size(90, 21);
             faculcy_label.TabIndex = 11;
             faculcy_label.Text = "Факультет";
             // 
             // group_label
             // 
             group_label.AutoSize = true;
+            group_label.Font = new Font("Times New Roman", 14.25F);
             group_label.Location = new Point(190, 404);
             group_label.Margin = new Padding(4, 0, 4, 0);
             group_label.Name = "group_label";
-            group_label.Size = new Size(61, 21);
+            group_label.Size = new Size(67, 21);
             group_label.TabIndex = 13;
             group_label.Text = "Группа";
             // 
             // spec_label
             // 
             spec_label.AutoSize = true;
+            spec_label.Font = new Font("Times New Roman", 14.25F);
             spec_label.Location = new Point(190, 368);
             spec_label.Margin = new Padding(4, 0, 4, 0);
             spec_label.Name = "spec_label";
-            spec_label.Size = new Size(120, 21);
+            spec_label.Size = new Size(133, 21);
             spec_label.TabIndex = 14;
             spec_label.Text = "Специальность";
             // 
             // group_textbox
             // 
+            group_textbox.Font = new Font("Times New Roman", 14.25F);
             group_textbox.Location = new Point(379, 396);
             group_textbox.Margin = new Padding(4);
             group_textbox.Name = "group_textbox";
@@ -199,26 +211,28 @@
             // learning_form_label
             // 
             learning_form_label.AutoSize = true;
+            learning_form_label.Font = new Font("Times New Roman", 14.25F);
             learning_form_label.Location = new Point(190, 436);
             learning_form_label.Margin = new Padding(4, 0, 4, 0);
             learning_form_label.Name = "learning_form_label";
-            learning_form_label.Size = new Size(132, 21);
+            learning_form_label.Size = new Size(144, 21);
             learning_form_label.TabIndex = 17;
             learning_form_label.Text = "Форма обучения";
             // 
             // label_top
             // 
             label_top.AutoSize = true;
-            label_top.Font = new Font("Segoe UI", 20F);
-            label_top.Location = new Point(253, 9);
+            label_top.Font = new Font("Times New Roman", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label_top.Location = new Point(263, 9);
             label_top.Margin = new Padding(4, 0, 4, 0);
             label_top.Name = "label_top";
-            label_top.Size = new Size(330, 37);
+            label_top.Size = new Size(394, 36);
             label_top.TabIndex = 19;
             label_top.Text = "Введите данные студента";
             // 
             // add_info_button
             // 
+            add_info_button.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold | FontStyle.Italic);
             add_info_button.Location = new Point(581, 564);
             add_info_button.Name = "add_info_button";
             add_info_button.Size = new Size(197, 57);
@@ -229,6 +243,7 @@
             // 
             // backBtn
             // 
+            backBtn.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold | FontStyle.Italic);
             backBtn.Location = new Point(113, 564);
             backBtn.Name = "backBtn";
             backBtn.Size = new Size(197, 57);
@@ -239,6 +254,7 @@
             // 
             // borndate_datepicker
             // 
+            borndate_datepicker.CalendarFont = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             borndate_datepicker.Location = new Point(379, 218);
             borndate_datepicker.Name = "borndate_datepicker";
             borndate_datepicker.Size = new Size(296, 29);
@@ -247,15 +263,17 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Times New Roman", 14.25F);
             label1.Location = new Point(190, 471);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(131, 21);
+            label1.Size = new Size(145, 21);
             label1.TabIndex = 25;
             label1.Text = "Год поступления";
             // 
             // startYearBox
             // 
+            startYearBox.Font = new Font("Times New Roman", 14.25F);
             startYearBox.FormattingEnabled = true;
             startYearBox.Location = new Point(379, 463);
             startYearBox.Name = "startYearBox";
@@ -264,6 +282,7 @@
             // 
             // facultyBox
             // 
+            facultyBox.Font = new Font("Times New Roman", 14.25F);
             facultyBox.FormattingEnabled = true;
             facultyBox.Location = new Point(379, 325);
             facultyBox.Name = "facultyBox";
@@ -272,6 +291,7 @@
             // 
             // specialityBox
             // 
+            specialityBox.Font = new Font("Times New Roman", 14.25F);
             specialityBox.FormattingEnabled = true;
             specialityBox.Location = new Point(379, 360);
             specialityBox.Name = "specialityBox";
@@ -281,15 +301,17 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Times New Roman", 14.25F);
             label2.Location = new Point(190, 506);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(99, 21);
+            label2.Size = new Size(110, 21);
             label2.TabIndex = 29;
             label2.Text = "Год выпуска";
             // 
             // endYearBox
             // 
+            endYearBox.Font = new Font("Times New Roman", 14.25F);
             endYearBox.FormattingEnabled = true;
             endYearBox.Location = new Point(379, 498);
             endYearBox.Name = "endYearBox";
@@ -308,10 +330,11 @@
             // offline_radiobutton
             // 
             offline_radiobutton.AutoSize = true;
+            offline_radiobutton.Font = new Font("Times New Roman", 14.25F);
             offline_radiobutton.Location = new Point(0, 0);
             offline_radiobutton.Margin = new Padding(4);
             offline_radiobutton.Name = "offline_radiobutton";
-            offline_radiobutton.Size = new Size(74, 25);
+            offline_radiobutton.Size = new Size(79, 25);
             offline_radiobutton.TabIndex = 0;
             offline_radiobutton.TabStop = true;
             offline_radiobutton.Text = "Очная";
@@ -320,10 +343,11 @@
             // online_radiobutton
             // 
             online_radiobutton.AutoSize = true;
+            online_radiobutton.Font = new Font("Times New Roman", 14.25F);
             online_radiobutton.Location = new Point(102, 0);
             online_radiobutton.Margin = new Padding(4);
             online_radiobutton.Name = "online_radiobutton";
-            online_radiobutton.Size = new Size(88, 25);
+            online_radiobutton.Size = new Size(93, 25);
             online_radiobutton.TabIndex = 1;
             online_radiobutton.TabStop = true;
             online_radiobutton.Text = "Заочная";
@@ -341,11 +365,11 @@
             // name_label
             // 
             name_label.AutoSize = true;
-            name_label.Font = new Font("Segoe UI", 12F);
+            name_label.Font = new Font("Times New Roman", 14.25F);
             name_label.Location = new Point(190, 117);
             name_label.Margin = new Padding(4, 0, 4, 0);
             name_label.Name = "name_label";
-            name_label.Size = new Size(41, 21);
+            name_label.Size = new Size(44, 21);
             name_label.TabIndex = 1;
             name_label.Text = "Имя";
             // 

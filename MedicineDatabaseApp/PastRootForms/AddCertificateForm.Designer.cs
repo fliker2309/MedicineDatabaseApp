@@ -75,6 +75,7 @@
             button1.TabIndex = 49;
             button1.Text = "Добавить";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // back_to_main_button
             // 
@@ -89,10 +90,10 @@
             // maskedTextBox1
             // 
             maskedTextBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            maskedTextBox1.Location = new Point(661, 340);
+            maskedTextBox1.Location = new Point(600, 352);
             maskedTextBox1.Mask = "00/00/0000";
             maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(55, 23);
+            maskedTextBox1.Size = new Size(194, 23);
             maskedTextBox1.TabIndex = 47;
             maskedTextBox1.ValidatingType = typeof(DateTime);
             // 
@@ -127,10 +128,10 @@
             // maskedTextBox2
             // 
             maskedTextBox2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            maskedTextBox2.Location = new Point(661, 603);
+            maskedTextBox2.Location = new Point(661, 525);
             maskedTextBox2.Mask = "00/00/0000";
             maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(55, 23);
+            maskedTextBox2.Size = new Size(194, 23);
             maskedTextBox2.TabIndex = 53;
             maskedTextBox2.ValidatingType = typeof(DateTime);
             // 
@@ -139,7 +140,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(986, 1057);
+            ClientSize = new Size(1125, 901);
             Controls.Add(maskedTextBox2);
             Controls.Add(label4);
             Controls.Add(textBox1);

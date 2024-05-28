@@ -44,7 +44,7 @@
             // 
             // button1
             // 
-            button1.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            button1.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold);
             button1.Location = new Point(77, 114);
             button1.Name = "button1";
             button1.Size = new Size(141, 51);
@@ -55,10 +55,10 @@
             // 
             // button2
             // 
-            button2.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button2.Location = new Point(77, 193);
+            button2.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold);
+            button2.Location = new Point(539, 114);
             button2.Name = "button2";
-            button2.Size = new Size(141, 51);
+            button2.Size = new Size(161, 51);
             button2.TabIndex = 1;
             button2.Text = "Специальность";
             button2.UseVisualStyleBackColor = true;
@@ -67,10 +67,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Trebuchet MS", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             label1.Location = new Point(310, 26);
             label1.Name = "label1";
-            label1.Size = new Size(134, 29);
+            label1.Size = new Size(156, 36);
             label1.TabIndex = 2;
             label1.Text = "Добавить";
             // 
@@ -107,7 +107,7 @@
             // 
             // button6
             // 
-            button6.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            button6.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold);
             button6.Location = new Point(310, 114);
             button6.Name = "button6";
             button6.Size = new Size(141, 51);
@@ -119,7 +119,7 @@
             // button7
             // 
             button7.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button7.Location = new Point(539, 114);
+            button7.Location = new Point(77, 193);
             button7.Name = "button7";
             button7.Size = new Size(141, 51);
             button7.TabIndex = 7;
@@ -149,7 +149,7 @@
             // 
             // button10
             // 
-            button10.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            button10.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             button10.Location = new Point(49, 383);
             button10.Name = "button10";
             button10.Size = new Size(104, 43);

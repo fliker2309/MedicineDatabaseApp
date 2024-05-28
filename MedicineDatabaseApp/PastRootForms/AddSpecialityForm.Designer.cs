@@ -33,34 +33,35 @@
             button1 = new Button();
             specialityTextBox = new TextBox();
             label4 = new Label();
+            button3 = new Button();
             SuspendLayout();
             // 
             // label_top
             // 
             label_top.AutoSize = true;
-            label_top.Font = new Font("Segoe UI", 20F);
-            label_top.Location = new Point(237, 36);
+            label_top.Font = new Font("Times New Roman", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label_top.Location = new Point(209, 30);
             label_top.Margin = new Padding(4, 0, 4, 0);
             label_top.Name = "label_top";
-            label_top.Size = new Size(329, 37);
+            label_top.Size = new Size(405, 36);
             label_top.TabIndex = 59;
-            label_top.Text = "Добавить специальность";
+            label_top.Text = "Добавление специальности";
             // 
             // button2
             // 
-            button2.Font = new Font("Trebuchet MS", 12F);
-            button2.Location = new Point(597, 292);
+            button2.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
+            button2.Location = new Point(646, 147);
             button2.Name = "button2";
-            button2.Size = new Size(105, 38);
+            button2.Size = new Size(156, 53);
             button2.TabIndex = 55;
-            button2.Text = "Сохранить";
+            button2.Text = "Добавить специальность";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
             // button1
             // 
-            button1.Font = new Font("Trebuchet MS", 12F);
-            button1.Location = new Point(80, 292);
+            button1.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
+            button1.Location = new Point(12, 379);
             button1.Name = "button1";
             button1.Size = new Size(105, 38);
             button1.TabIndex = 58;
@@ -70,21 +71,32 @@
             // 
             // specialityTextBox
             // 
-            specialityTextBox.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            specialityTextBox.Location = new Point(317, 163);
+            specialityTextBox.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            specialityTextBox.Location = new Point(243, 157);
             specialityTextBox.Name = "specialityTextBox";
-            specialityTextBox.Size = new Size(397, 26);
+            specialityTextBox.Size = new Size(397, 29);
             specialityTextBox.TabIndex = 57;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Trebuchet MS", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label4.Location = new Point(56, 163);
+            label4.Font = new Font("Times New Roman", 14.25F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            label4.Location = new Point(12, 162);
             label4.Name = "label4";
-            label4.Size = new Size(158, 27);
+            label4.Size = new Size(213, 21);
             label4.TabIndex = 56;
-            label4.Text = "Специальность";
+            label4.Text = "Введите специальность:";
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
+            button3.Location = new Point(603, 339);
+            button3.Name = "button3";
+            button3.Size = new Size(184, 78);
+            button3.TabIndex = 60;
+            button3.Text = "Просмотреть список специальностей";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // AddSpecialityForm
             // 
@@ -92,6 +104,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(808, 445);
+            Controls.Add(button3);
             Controls.Add(label_top);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -111,5 +124,6 @@
         private Button button1;
         private TextBox specialityTextBox;
         private Label label4;
+        private Button button3;
     }
 }

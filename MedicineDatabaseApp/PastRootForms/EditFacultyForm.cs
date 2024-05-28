@@ -30,7 +30,7 @@ namespace MedicineDatabaseApp
         }
         private void facultyForm_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if(facultyForm.SelectedItems.Count > 0)
+            if (facultyForm.SelectedItems.Count > 0)
             {
                 ListViewItem item = facultyForm.SelectedItems[0];
                 facultyTextBox.Text = item.SubItems[0].Text;
@@ -58,7 +58,7 @@ namespace MedicineDatabaseApp
         }
         private void backButtonClick(object sender, EventArgs e)
         {
-            this.Close();           
+            this.Close();
         }
         private void editBtn_Click(object sender, EventArgs e)
         {
@@ -82,7 +82,7 @@ namespace MedicineDatabaseApp
                     {
                         MessageBox.Show("Факультет изменен");
                         LoadData();
-                        
+
                     }
                     facultyTextBox.Text = "";
                 }
@@ -98,7 +98,7 @@ namespace MedicineDatabaseApp
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(facultyForm.SelectedItems.Count > 0)
+            if (facultyForm.SelectedItems.Count > 0)
             {
                 ListViewItem item = facultyForm.SelectedItems[0];
                 int facultyId = (int)item.Tag;
@@ -121,6 +121,11 @@ namespace MedicineDatabaseApp
             deleteCommand.ExecuteNonQuery();
             db.closeConnection();
             facultyTextBox.Text = "";
+        }
+
+        private void facultyForm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

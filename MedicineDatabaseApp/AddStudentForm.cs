@@ -28,9 +28,8 @@ namespace MedicineDatabaseApp
 
             lastname_textbox.Text = "Введите отчество";
 
-            group_textbox.Text = "Введите группу";      
-            
-                      
+            group_textbox.Text = "Введите группу";         
+
             initialize_faculties();
            
             initialize_specialities();
@@ -218,9 +217,17 @@ WHERE students.id = @id";
 
         private void back_to_main_button_Click(object sender, EventArgs e)
         {
-            this.Close();
-            SearchForm form = new SearchForm();
-            form.Show();
+            if (_studentId.HasValue)
+            {
+                this.Close();
+            }
+            else
+            {
+                this.Close();
+                SearchForm searchForm = new SearchForm();
+                searchForm.Show();
+            }
+           
         }
 
         private void add_info_button_Click(object sender, EventArgs e)
@@ -294,7 +301,9 @@ WHERE students.id = @id";
                 {
                     MessageBox.Show("Студент добавлен");
 
-                    this.Close();                      
+                    this.Close(); 
+                    SearchForm form = new SearchForm();
+                    form.Show();
                 }
                 else
                 {
@@ -319,13 +328,11 @@ COMMIT;";
             db.openConnection();
             if (addCardCommand.ExecuteNonQuery() > 0)
             {              
-                this.Close();
-                SearchForm form = new SearchForm();
-                form.Show();
+                this.Close();            
             }
             else
             {
-                MessageBox.Show("карта не добавлена");
+                MessageBox.Show("Карта не добавлена");
             }
 
             db.closeConnection();

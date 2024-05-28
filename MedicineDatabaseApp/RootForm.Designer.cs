@@ -37,10 +37,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Trebuchet MS", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(126, 95);
+            label1.Font = new Font("Times New Roman", 36F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label1.Location = new Point(146, 92);
             label1.Name = "label1";
-            label1.Size = new Size(672, 61);
+            label1.Size = new Size(650, 54);
             label1.TabIndex = 1;
             label1.Text = "База данных студентов ПГУ";
             // 
@@ -60,21 +60,21 @@
             // 
             // toSearchWithParameters
             // 
-            toSearchWithParameters.Font = new Font("Trebuchet MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            toSearchWithParameters.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold | FontStyle.Italic);
             toSearchWithParameters.Location = new Point(126, 241);
             toSearchWithParameters.Name = "toSearchWithParameters";
-            toSearchWithParameters.Size = new Size(233, 99);
+            toSearchWithParameters.Size = new Size(256, 99);
             toSearchWithParameters.TabIndex = 10;
-            toSearchWithParameters.Text = "Просмотр студентов";
+            toSearchWithParameters.Text = "Просмотреть список студентов";
             toSearchWithParameters.UseVisualStyleBackColor = true;
             toSearchWithParameters.Click += toSearchWithParameters_Click;
             // 
             // toAddIllnessForm
             // 
-            toAddIllnessForm.Font = new Font("Trebuchet MS", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            toAddIllnessForm.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold | FontStyle.Italic);
             toAddIllnessForm.Location = new Point(574, 241);
             toAddIllnessForm.Name = "toAddIllnessForm";
-            toAddIllnessForm.Size = new Size(233, 99);
+            toAddIllnessForm.Size = new Size(256, 99);
             toAddIllnessForm.TabIndex = 5;
             toAddIllnessForm.Text = "Добавить информацию";
             toAddIllnessForm.UseVisualStyleBackColor = true;
