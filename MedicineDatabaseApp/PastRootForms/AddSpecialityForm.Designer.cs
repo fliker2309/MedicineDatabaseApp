@@ -34,6 +34,7 @@
             specialityTextBox = new TextBox();
             label4 = new Label();
             button3 = new Button();
+            closeAppBtn = new Button();
             SuspendLayout();
             // 
             // label_top
@@ -98,12 +99,28 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // closeAppBtn
+            // 
+            closeAppBtn.BackColor = Color.Salmon;
+            closeAppBtn.Cursor = Cursors.Hand;
+            closeAppBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            closeAppBtn.ForeColor = SystemColors.ButtonHighlight;
+            closeAppBtn.Location = new Point(774, -3);
+            closeAppBtn.Name = "closeAppBtn";
+            closeAppBtn.Size = new Size(38, 40);
+            closeAppBtn.TabIndex = 61;
+            closeAppBtn.Text = "X";
+            closeAppBtn.UseVisualStyleBackColor = false;
+            closeAppBtn.Click += closeAppBtn_Click;
+            // 
             // AddSpecialityForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(808, 445);
+            ControlBox = false;
+            Controls.Add(closeAppBtn);
             Controls.Add(button3);
             Controls.Add(label_top);
             Controls.Add(button2);
@@ -112,7 +129,7 @@
             Controls.Add(label4);
             Name = "AddSpecialityForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AddSpecialityForm";
+            Text = "Добавление специальности";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -125,5 +142,6 @@
         private TextBox specialityTextBox;
         private Label label4;
         private Button button3;
+        private Button closeAppBtn;
     }
 }

@@ -57,6 +57,7 @@
             online_radiobutton = new RadioButton();
             isOfflinePanel = new Panel();
             name_label = new Label();
+            closeAppBtn = new Button();
             panel1.SuspendLayout();
             isOfflinePanel.SuspendLayout();
             SuspendLayout();
@@ -373,12 +374,28 @@
             name_label.TabIndex = 1;
             name_label.Text = "Имя";
             // 
+            // closeAppBtn
+            // 
+            closeAppBtn.BackColor = Color.Salmon;
+            closeAppBtn.Cursor = Cursors.Hand;
+            closeAppBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            closeAppBtn.ForeColor = SystemColors.ButtonHighlight;
+            closeAppBtn.Location = new Point(876, -5);
+            closeAppBtn.Name = "closeAppBtn";
+            closeAppBtn.Size = new Size(38, 40);
+            closeAppBtn.TabIndex = 33;
+            closeAppBtn.Text = "X";
+            closeAppBtn.UseVisualStyleBackColor = false;
+            closeAppBtn.Click += closeAppBtn_Click;
+            // 
             // AddStudentForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(913, 663);
+            ControlBox = false;
+            Controls.Add(closeAppBtn);
             Controls.Add(isOfflinePanel);
             Controls.Add(panel1);
             Controls.Add(endYearBox);
@@ -408,7 +425,7 @@
             Margin = new Padding(4);
             Name = "AddStudentForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AddForm";
+            Text = "Добавление студента";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             isOfflinePanel.ResumeLayout(false);
@@ -448,5 +465,6 @@
         private RadioButton online_radiobutton;
         private Panel isOfflinePanel;
         private Label name_label;
+        private Button closeAppBtn;
     }
 }

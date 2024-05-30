@@ -64,5 +64,10 @@ namespace MedicineDatabaseApp.PastRootForms
 
             db.closeConnection();
         }
+
+        private void closeAppBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

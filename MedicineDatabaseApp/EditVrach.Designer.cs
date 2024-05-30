@@ -47,6 +47,7 @@
             faculcy_label = new Label();
             age_label = new Label();
             lastname_label = new Label();
+            closeAppBtn = new Button();
             SuspendLayout();
             // 
             // button1
@@ -126,9 +127,9 @@
             label4.Location = new Point(81, 518);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(135, 21);
+            label4.Size = new Size(160, 21);
             label4.TabIndex = 47;
-            label4.Text = "Стаж работы";
+            label4.Text = "Дата устройства";
             // 
             // VqualityTB
             // 
@@ -241,12 +242,28 @@
             lastname_label.TabIndex = 36;
             lastname_label.Text = "Отчество";
             // 
+            // closeAppBtn
+            // 
+            closeAppBtn.BackColor = Color.Salmon;
+            closeAppBtn.Cursor = Cursors.Hand;
+            closeAppBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            closeAppBtn.ForeColor = SystemColors.ButtonHighlight;
+            closeAppBtn.Location = new Point(1098, -5);
+            closeAppBtn.Name = "closeAppBtn";
+            closeAppBtn.Size = new Size(38, 40);
+            closeAppBtn.TabIndex = 50;
+            closeAppBtn.Text = "X";
+            closeAppBtn.UseVisualStyleBackColor = false;
+            closeAppBtn.Click += closeAppBtn_Click;
+            // 
             // EditVrachForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(1136, 639);
+            ControlBox = false;
+            Controls.Add(closeAppBtn);
             Controls.Add(VexpTimePicker);
             Controls.Add(Vborndate_datepicker);
             Controls.Add(label4);
@@ -268,7 +285,7 @@
             Controls.Add(button1);
             Name = "EditVrachForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "EditVrach";
+            Text = "Список врачей";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -294,5 +311,6 @@
         private Label faculcy_label;
         private Label age_label;
         private Label lastname_label;
+        private Button closeAppBtn;
     }
 }

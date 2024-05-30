@@ -127,5 +127,10 @@ namespace MedicineDatabaseApp
         {
 
         }
+
+        private void closeAppBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

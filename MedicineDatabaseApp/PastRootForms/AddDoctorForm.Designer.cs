@@ -46,6 +46,7 @@
             back_to_main_button = new Button();
             button1 = new Button();
             button2 = new Button();
+            closeAppBtn = new Button();
             SuspendLayout();
             // 
             // label_top
@@ -177,9 +178,9 @@
             label4.Location = new Point(114, 309);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(135, 21);
+            label4.Size = new Size(160, 21);
             label4.TabIndex = 33;
-            label4.Text = "Стаж работы";
+            label4.Text = "Дата устройства";
             label4.Click += label4_Click;
             // 
             // borndate_datepicker
@@ -231,12 +232,28 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // closeAppBtn
+            // 
+            closeAppBtn.BackColor = Color.Salmon;
+            closeAppBtn.Cursor = Cursors.Hand;
+            closeAppBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            closeAppBtn.ForeColor = SystemColors.ButtonHighlight;
+            closeAppBtn.Location = new Point(665, -1);
+            closeAppBtn.Name = "closeAppBtn";
+            closeAppBtn.Size = new Size(38, 40);
+            closeAppBtn.TabIndex = 39;
+            closeAppBtn.Text = "X";
+            closeAppBtn.UseVisualStyleBackColor = false;
+            closeAppBtn.Click += closeAppBtn_Click;
+            // 
             // AddDoctorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(704, 450);
+            ControlBox = false;
+            Controls.Add(closeAppBtn);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(back_to_main_button);
@@ -257,7 +274,7 @@
             Controls.Add(label_top);
             Name = "AddDoctorForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AddDoctorForm";
+            Text = "Добавление врача";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -281,5 +298,6 @@
         private Button back_to_main_button;
         private Button button1;
         private Button button2;
+        private Button closeAppBtn;
     }
 }

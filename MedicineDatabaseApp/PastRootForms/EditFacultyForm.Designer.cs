@@ -35,6 +35,7 @@
             label_top = new Label();
             facultyForm = new ListView();
             deleteBtn = new Button();
+            closeAppBtn = new Button();
             SuspendLayout();
             // 
             // facultyTextBox
@@ -92,7 +93,7 @@
             // 
             facultyForm.Location = new Point(69, 118);
             facultyForm.Name = "facultyForm";
-            facultyForm.Size = new Size(658, 134);
+            facultyForm.Size = new Size(669, 246);
             facultyForm.TabIndex = 55;
             facultyForm.UseCompatibleStateImageBehavior = false;
             facultyForm.SelectedIndexChanged += facultyForm_SelectedIndexChanged;
@@ -101,7 +102,7 @@
             // 
             deleteBtn.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
             deleteBtn.ForeColor = Color.Red;
-            deleteBtn.Location = new Point(311, 348);
+            deleteBtn.Location = new Point(310, 370);
             deleteBtn.Name = "deleteBtn";
             deleteBtn.Size = new Size(175, 60);
             deleteBtn.TabIndex = 56;
@@ -109,12 +110,28 @@
             deleteBtn.UseVisualStyleBackColor = true;
             deleteBtn.Click += button3_Click;
             // 
+            // closeAppBtn
+            // 
+            closeAppBtn.BackColor = Color.Salmon;
+            closeAppBtn.Cursor = Cursors.Hand;
+            closeAppBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            closeAppBtn.ForeColor = SystemColors.ButtonHighlight;
+            closeAppBtn.Location = new Point(774, -3);
+            closeAppBtn.Name = "closeAppBtn";
+            closeAppBtn.Size = new Size(38, 40);
+            closeAppBtn.TabIndex = 57;
+            closeAppBtn.Text = "X";
+            closeAppBtn.UseVisualStyleBackColor = false;
+            closeAppBtn.Click += closeAppBtn_Click;
+            // 
             // EditFacultyForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(809, 444);
+            ControlBox = false;
+            Controls.Add(closeAppBtn);
             Controls.Add(deleteBtn);
             Controls.Add(facultyForm);
             Controls.Add(label_top);
@@ -140,5 +157,6 @@
         private Label label_top;
         private ListView facultyForm;
         private Button deleteBtn;
+        private Button closeAppBtn;
     }
 }

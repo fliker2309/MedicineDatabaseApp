@@ -34,6 +34,7 @@
             backBtn = new Button();
             editBtn = new Button();
             label_top = new Label();
+            closeAppBtn = new Button();
             SuspendLayout();
             // 
             // facultyTextBox
@@ -98,12 +99,28 @@
             label_top.TabIndex = 58;
             label_top.Text = "Добавления факультета";
             // 
+            // closeAppBtn
+            // 
+            closeAppBtn.BackColor = Color.Salmon;
+            closeAppBtn.Cursor = Cursors.Hand;
+            closeAppBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            closeAppBtn.ForeColor = SystemColors.ButtonHighlight;
+            closeAppBtn.Location = new Point(931, -2);
+            closeAppBtn.Name = "closeAppBtn";
+            closeAppBtn.Size = new Size(38, 40);
+            closeAppBtn.TabIndex = 59;
+            closeAppBtn.Text = "X";
+            closeAppBtn.UseVisualStyleBackColor = false;
+            closeAppBtn.Click += closeAppBtn_Click;
+            // 
             // AddFacultyForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(966, 442);
+            ControlBox = false;
+            Controls.Add(closeAppBtn);
             Controls.Add(label_top);
             Controls.Add(editBtn);
             Controls.Add(backBtn);
@@ -112,7 +129,7 @@
             Controls.Add(label4);
             Name = "AddFacultyForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AddFacultyForm";
+            Text = "Добавление факультета";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -125,5 +142,6 @@
         private Button backBtn;
         private Button editBtn;
         private Label label_top;
+        private Button closeAppBtn;
     }
 }

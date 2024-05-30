@@ -212,6 +212,7 @@
             studentsListView.Size = new Size(1177, 243);
             studentsListView.TabIndex = 52;
             studentsListView.UseCompatibleStateImageBehavior = false;
+            studentsListView.SelectedIndexChanged += studentsListView_SelectedIndexChanged;
             // 
             // backBtn
             // 
@@ -264,7 +265,7 @@
             closeAppBtn.Cursor = Cursors.Hand;
             closeAppBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             closeAppBtn.ForeColor = SystemColors.ButtonHighlight;
-            closeAppBtn.Location = new Point(1196, 20);
+            closeAppBtn.Location = new Point(1209, -2);
             closeAppBtn.Name = "closeAppBtn";
             closeAppBtn.Size = new Size(38, 40);
             closeAppBtn.TabIndex = 57;
@@ -302,7 +303,7 @@
             Controls.Add(age_label);
             Name = "SearchForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "SearchForm";
+            Text = "Студенты";
             ResumeLayout(false);
             PerformLayout();
         }

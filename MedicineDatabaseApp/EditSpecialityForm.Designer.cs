@@ -35,12 +35,13 @@
             SpecialityForm = new ListView();
             SpecialityTextBox = new TextBox();
             label2 = new Label();
+            closeAppBtn = new Button();
             SuspendLayout();
             // 
             // button1
             // 
             button1.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
-            button1.Location = new Point(55, 368);
+            button1.Location = new Point(55, 388);
             button1.Name = "button1";
             button1.Size = new Size(119, 50);
             button1.TabIndex = 0;
@@ -51,7 +52,7 @@
             // button2
             // 
             button2.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
-            button2.Location = new Point(631, 368);
+            button2.Location = new Point(631, 388);
             button2.Name = "button2";
             button2.Size = new Size(123, 50);
             button2.TabIndex = 1;
@@ -63,7 +64,7 @@
             // 
             button3.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold | FontStyle.Italic);
             button3.ForeColor = Color.Red;
-            button3.Location = new Point(344, 368);
+            button3.Location = new Point(340, 388);
             button3.Name = "button3";
             button3.Size = new Size(123, 50);
             button3.TabIndex = 2;
@@ -84,9 +85,9 @@
             // SpecialityForm
             // 
             SpecialityForm.Font = new Font("Times New Roman", 14.25F);
-            SpecialityForm.Location = new Point(55, 139);
+            SpecialityForm.Location = new Point(55, 126);
             SpecialityForm.Name = "SpecialityForm";
-            SpecialityForm.Size = new Size(699, 223);
+            SpecialityForm.Size = new Size(699, 246);
             SpecialityForm.TabIndex = 4;
             SpecialityForm.UseCompatibleStateImageBehavior = false;
             // 
@@ -102,11 +103,25 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            label2.Location = new Point(33, 26);
+            label2.Location = new Point(83, 25);
             label2.Name = "label2";
-            label2.Size = new Size(753, 36);
+            label2.Size = new Size(653, 36);
             label2.TabIndex = 6;
-            label2.Text = "Форма редактирования и удаления специальностей";
+            label2.Text = "Редактирования и удаления специальностей";
+            // 
+            // closeAppBtn
+            // 
+            closeAppBtn.BackColor = Color.Salmon;
+            closeAppBtn.Cursor = Cursors.Hand;
+            closeAppBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            closeAppBtn.ForeColor = SystemColors.ButtonHighlight;
+            closeAppBtn.Location = new Point(764, 0);
+            closeAppBtn.Name = "closeAppBtn";
+            closeAppBtn.Size = new Size(38, 40);
+            closeAppBtn.TabIndex = 8;
+            closeAppBtn.Text = "X";
+            closeAppBtn.UseVisualStyleBackColor = false;
+            closeAppBtn.Click += closeAppBtn_Click;
             // 
             // EditSpecialityForm
             // 
@@ -114,6 +129,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(800, 450);
+            ControlBox = false;
+            Controls.Add(closeAppBtn);
             Controls.Add(label2);
             Controls.Add(SpecialityTextBox);
             Controls.Add(SpecialityForm);
@@ -122,7 +139,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "EditSpecialityForm";
-            Text = "EditSpecialityForm";
+            Text = "Редактирование и удаление специальностей";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -136,5 +153,6 @@
         private ListView SpecialityForm;
         private TextBox SpecialityTextBox;
         private Label label2;
+        private Button closeAppBtn;
     }
 }

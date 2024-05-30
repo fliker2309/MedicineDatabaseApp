@@ -93,7 +93,7 @@
             Controls.Add(label1);
             Name = "RootForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "RootForm";
+            Text = "База данных студентов ПГУ";
             ResumeLayout(false);
             PerformLayout();
         }

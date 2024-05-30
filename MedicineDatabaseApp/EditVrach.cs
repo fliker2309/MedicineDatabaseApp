@@ -33,7 +33,7 @@ namespace MedicineDatabaseApp
             VrachlistView.Columns.Add("Дата Рождения").Width = 150;
             VrachlistView.Columns.Add("Должность").Width = 150;
             VrachlistView.Columns.Add("Квалификация").Width = 150;
-            VrachlistView.Columns.Add("Стаж работы", -2, HorizontalAlignment.Left).Width = 100;
+            VrachlistView.Columns.Add("Дата устройства", -2, HorizontalAlignment.Left).Width = 100;
 
             LoadData();
         }
@@ -118,8 +118,15 @@ namespace MedicineDatabaseApp
                 int idValue = (int)item.Tag; // Получаем id из свойства Tag выбранного элемента
 
                 DB db = new DB();
-                MySqlCommand command = new MySqlCommand("UPDATE doctors SET surname = @surname WHERE id = @id;", db.getConnection());
-                command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = Vsurname_textbox.Text;
+                MySqlCommand command = new MySqlCommand("UPDATE doctors SET surname = @surnameR, name = @nameR, lastname = @lastnameR, age = @ageR, job_title = @job_titleR, qualification = @qualificationR, work_experience = @work_experienceR WHERE id = @id;", db.getConnection());
+                command.Parameters.Add("@surnameR", MySqlDbType.VarChar).Value = Vsurname_textbox.Text;
+                command.Parameters.Add("@nameR", MySqlDbType.VarChar).Value = VnameTB.Text;
+                command.Parameters.Add("@lastnameR", MySqlDbType.VarChar).Value = VlastnameTB.Text;
+                command.Parameters.Add("@ageR", MySqlDbType.Date).Value = Vborndate_datepicker.Value;
+                command.Parameters.Add("@job_titleR", MySqlDbType.VarChar).Value = VjobtitleTB.Text;
+                command.Parameters.Add("@qualificationR", MySqlDbType.VarChar).Value = VqualityTB.Text;
+                command.Parameters.Add("@work_experienceR", MySqlDbType.Date).Value = VexpTimePicker.Value;
+
                 command.Parameters.Add("@id", MySqlDbType.Int32).Value = idValue; // Используем полученное id
                 db.openConnection();
                 if (command.ExecuteNonQuery() == 1)
@@ -143,6 +150,11 @@ namespace MedicineDatabaseApp
 
                 db.closeConnection();
             }
+        }
+
+        private void closeAppBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -8,6 +8,9 @@ using MySql.Data.MySqlClient;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using MedicineDatabaseApp.PastRootForms;
+using MySql.Data.MySqlClient;
 
 namespace MedicineDatabaseApp.ShowForms
 {
@@ -18,16 +21,27 @@ namespace MedicineDatabaseApp.ShowForms
         public ShowVaccinationForm(int studentId)
         {
             this.studentId = studentId;
+            InitializeComponent();
+            vaccinationsListView.MouseDoubleClick += Vaccination_MouseDoubleClick;
             this.Load += new EventHandler(ShowVaccinationForm_load);
             this.Load += new EventHandler(VaccinationForm_load);
-            InitializeComponent();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        private void Vaccination_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (vaccinationsListView.SelectedItems.Count > 0)
+            {
+                ListViewItem item = vaccinationsListView.SelectedItems[0];
+                dateTimePicker1.Text = item.SubItems[0].Text;
+                textBox1.Text = item.SubItems[1].Text;
 
+
+            }
+        }
         private void VaccinationForm_load(object sender, EventArgs e)
         {
 
@@ -75,8 +89,8 @@ namespace MedicineDatabaseApp.ShowForms
                         // Создание нового элемента для ListView
                         ListViewItem item = new ListViewItem(formattedDate);
                         item.SubItems.Add(reader["vaccination_type"].ToString());
-
                         // Добавление элемента в ListView
+                        item.Tag = reader["id"];
                         vaccinationsListView.Items.Add(item);
                     }
                 }
@@ -119,6 +133,82 @@ namespace MedicineDatabaseApp.ShowForms
             }
             db.closeConnection();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (vaccinationsListView.SelectedItems.Count > 0)
+            {
+                ListViewItem item = vaccinationsListView.SelectedItems[0];
+                int idValue = (int)item.Tag; // Получаем id из свойства Tag выбранного элемента
+
+                DB db = new DB();
+                MySqlCommand command = new MySqlCommand("UPDATE vaccination SET vaccination_type = @vaccination_typeR, vaccination_date = @vaccination_dateR WHERE id = @id;", db.getConnection());
+                command.Parameters.Add("@vaccination_typeR", MySqlDbType.VarChar).Value = textBox1.Text;
+                command.Parameters.Add("@vaccination_dateR", MySqlDbType.Date).Value = dateTimePicker1.Value;
+                command.Parameters.Add("@id", MySqlDbType.Int32).Value = idValue; // Используем полученное id
+                db.openConnection();
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    if (dateTimePicker1.Text == "")
+                    {
+                        MessageBox.Show("Введите дату");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Прививка изменена");
+                        this.Close();
+                    }
+                    textBox1.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Введите тип прививки");
+                }
+
+                db.closeConnection();
+            }
+        }
+        private void DeletePrivivka(int surnameId)
+        {
+            DB db = new DB();
+            string deleteQuery = "DELETE FROM vaccination WHERE id = @id";
+            MySqlCommand deleteCommand = new MySqlCommand(deleteQuery, db.getConnection());
+            deleteCommand.Parameters.AddWithValue("@id", surnameId);
+            db.openConnection();
+            deleteCommand.ExecuteNonQuery();
+            db.closeConnection();
+            textBox1.Text = "";
+            dateTimePicker1.Text = "";
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (vaccinationsListView.SelectedItems.Count > 0)
+            {
+                ListViewItem item = vaccinationsListView.SelectedItems[0];
+                int surnameId = (int)item.Tag;
+
+                DialogResult dialogResult = MessageBox.Show("Вы точно хотите удалить справку", "Подтверждение удаления", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    DeletePrivivka(surnameId);
+                    vaccinationsListView.Items.Remove(item);
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AddVaccinationForm form = new AddVaccinationForm();
+            form.Show();
+        }
+
+        private void closeAppBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+            
+        }
     }
-}
+
 

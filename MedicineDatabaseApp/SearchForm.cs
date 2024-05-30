@@ -297,7 +297,7 @@ INNER JOIN specialities ON students.speciality_id = specialities.id
                     item.SubItems.Add(reader["groupnumber"].ToString());
                     item.SubItems.Add(reader["start_year"].ToString());
                     item.SubItems.Add(reader["faculty"].ToString());
-                    item.SubItems.Add(reader["speciality"].ToString());                 
+                    item.SubItems.Add(reader["speciality"].ToString());
 
                     studentsListView.Items.Add(item);
                     item.Tag = reader["id"];
@@ -382,6 +382,11 @@ INNER JOIN specialities ON students.speciality_id = specialities.id
         private void closeAppBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void studentsListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
