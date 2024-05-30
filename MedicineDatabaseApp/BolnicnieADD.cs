@@ -7,27 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using MedicineDatabaseApp.PastRootForms;
 using MySql.Data.MySqlClient;
-
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MedicineDatabaseApp
 {
-    public partial class AddCertificateForm : Form
+    public partial class BolnicnieADD : Form
     {
         private Form StudentDetailsForm;
-        public AddCertificateForm()
+        public BolnicnieADD()
         {
             InitializeComponent();
             initialize_students();
             initialize_vrach();
             this.StudentDetailsForm = StudentDetailsForm;
-        }
-
-        private void back_to_main_button_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
         private void initialize_students()
         {
@@ -38,9 +31,9 @@ namespace MedicineDatabaseApp
             MySqlDataReader reader = command.ExecuteReader();
             DataTable students = new DataTable();
             students.Load(reader);
-            comboBox2.DataSource = students;
-            comboBox2.DisplayMember = "fullname";
-            comboBox2.ValueMember = "card_id";
+            comboBox1.DataSource = students;
+            comboBox1.DisplayMember = "fullname";
+            comboBox1.ValueMember = "card_id";
             db.closeConnection();
         }
         private void initialize_vrach()
@@ -53,24 +46,17 @@ namespace MedicineDatabaseApp
             MySqlDataReader reader = command.ExecuteReader();
             DataTable surname = new DataTable();
             surname.Load(reader);
-            comboBox1.DataSource = surname;
-            comboBox1.DisplayMember = "fullname";
-            comboBox1.ValueMember = "id";
+            comboBox2.DataSource = surname;
+            comboBox2.DisplayMember = "fullname";
+            comboBox2.ValueMember = "id";
 
             db.closeConnection();
         }
-
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            int cardId = (int)comboBox2.SelectedValue;
+            int cardId = (int)comboBox1.SelectedValue;
 
-            if (string.IsNullOrWhiteSpace(comboBox2.Text))
+            if (string.IsNullOrWhiteSpace(comboBox1.Text))
             {
                 MessageBox.Show("Заполните все поля!");
 
@@ -78,24 +64,24 @@ namespace MedicineDatabaseApp
             else
             {
                 DB db = new DB();
-                MySqlCommand command = new MySqlCommand("INSERT INTO certificates (card_id, date_of_issue, illness, doctor_id, health_status, conclusion) VALUES(@id, @date_of_issueD, @illnessD, @doctorD, @health_statusD, @conclusionD);", db.getConnection());
+                MySqlCommand command = new MySqlCommand("INSERT INTO sick_leave (sick_number, sick_type, sick_start, sick_end, card_id, doctor_id) VALUES(@sick_numberD, @sick_typeD, @sick_startD, @sick_endD, @id, @doctorD);", db.getConnection());
+                command.Parameters.Add("@sick_numberD", MySqlDbType.VarChar).Value = textBox1.Text;
+                command.Parameters.Add("@sick_typeD", MySqlDbType.VarChar).Value = textBox1.Text;
+                command.Parameters.Add("@sick_startD", MySqlDbType.Date).Value = dateTimePicker1.Value;
+                command.Parameters.Add("@sick_endD", MySqlDbType.Date).Value = dateTimePicker2.Value;
                 command.Parameters.AddWithValue("@id", cardId);
-                command.Parameters.Add("@date_of_issueD", MySqlDbType.Date).Value = dateTimePicker1.Value;
-                command.Parameters.Add("@illnessD", MySqlDbType.VarChar).Value = textBox1.Text;
-                command.Parameters.Add("@doctorD", MySqlDbType.Int32).Value = (int)comboBox1.SelectedValue;
-                command.Parameters.Add("@health_statusD", MySqlDbType.VarChar).Value = textBox3.Text;
-                command.Parameters.Add("@conclusionD", MySqlDbType.VarChar).Value = textBox4.Text;
+                command.Parameters.Add("@doctorD", MySqlDbType.Int32).Value = (int)comboBox2.SelectedValue;
                 db.openConnection();
 
                 if (command.ExecuteNonQuery() == 1)
                 {
-                    MessageBox.Show("Справка добавлена");
+                    MessageBox.Show("Больничный добавлен");
 
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Справка не добавлена");
+                    MessageBox.Show("Больничный не добавлен");
                 }
                 db.closeConnection();
 
@@ -106,6 +92,10 @@ namespace MedicineDatabaseApp
         {
             Application.Exit();
         }
-    }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
 }

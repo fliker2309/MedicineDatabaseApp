@@ -31,21 +31,15 @@
             button1 = new Button();
             button2 = new Button();
             label1 = new Label();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
             button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
             button10 = new Button();
             closeAppBtn = new Button();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.Location = new Point(77, 114);
+            button1.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold);
+            button1.Location = new Point(74, 116);
             button1.Name = "button1";
             button1.Size = new Size(141, 51);
             button1.TabIndex = 0;
@@ -55,10 +49,10 @@
             // 
             // button2
             // 
-            button2.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button2.Location = new Point(77, 193);
+            button2.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold);
+            button2.Location = new Point(523, 116);
             button2.Name = "button2";
-            button2.Size = new Size(141, 51);
+            button2.Size = new Size(161, 51);
             button2.TabIndex = 1;
             button2.Text = "Специальность";
             button2.UseVisualStyleBackColor = true;
@@ -67,48 +61,17 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Trebuchet MS", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label1.Font = new Font("Times New Roman", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             label1.Location = new Point(310, 26);
             label1.Name = "label1";
-            label1.Size = new Size(134, 29);
+            label1.Size = new Size(156, 36);
             label1.TabIndex = 2;
             label1.Text = "Добавить";
             // 
-            // button3
-            // 
-            button3.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button3.Location = new Point(77, 271);
-            button3.Name = "button3";
-            button3.Size = new Size(141, 51);
-            button3.TabIndex = 3;
-            button3.Text = "Прививку";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
-            // button4
-            // 
-            button4.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button4.Location = new Point(310, 271);
-            button4.Name = "button4";
-            button4.Size = new Size(141, 51);
-            button4.TabIndex = 4;
-            button4.Text = "Больничный";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button5.Location = new Point(310, 193);
-            button5.Name = "button5";
-            button5.Size = new Size(141, 51);
-            button5.TabIndex = 5;
-            button5.Text = "Обращение в здравпункт";
-            button5.UseVisualStyleBackColor = true;
-            // 
             // button6
             // 
-            button6.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button6.Location = new Point(310, 114);
+            button6.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold);
+            button6.Location = new Point(310, 116);
             button6.Name = "button6";
             button6.Size = new Size(141, 51);
             button6.TabIndex = 6;
@@ -116,43 +79,12 @@
             button6.UseVisualStyleBackColor = true;
             button6.Click += toAddDoctorForm;
             // 
-            // button7
-            // 
-            button7.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button7.Location = new Point(539, 114);
-            button7.Name = "button7";
-            button7.Size = new Size(141, 51);
-            button7.TabIndex = 7;
-            button7.Text = "Медосмотр";
-            button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            button8.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button8.Location = new Point(539, 193);
-            button8.Name = "button8";
-            button8.Size = new Size(141, 51);
-            button8.TabIndex = 8;
-            button8.Text = "Справку";
-            button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            button9.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button9.Location = new Point(539, 271);
-            button9.Name = "button9";
-            button9.Size = new Size(141, 51);
-            button9.TabIndex = 9;
-            button9.Text = "Болезнь";
-            button9.UseVisualStyleBackColor = true;
-            button9.Click += button9_Click;
-            // 
             // button10
             // 
-            button10.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button10.Location = new Point(49, 383);
+            button10.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            button10.Location = new Point(310, 233);
             button10.Name = "button10";
-            button10.Size = new Size(104, 43);
+            button10.Size = new Size(141, 53);
             button10.TabIndex = 10;
             button10.Text = "Назад";
             button10.UseVisualStyleBackColor = true;
@@ -163,9 +95,9 @@
             closeAppBtn.BackColor = Color.Salmon;
             closeAppBtn.Font = new Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             closeAppBtn.ForeColor = SystemColors.ButtonHighlight;
-            closeAppBtn.Location = new Point(741, 23);
+            closeAppBtn.Location = new Point(760, -2);
             closeAppBtn.Name = "closeAppBtn";
-            closeAppBtn.Size = new Size(33, 32);
+            closeAppBtn.Size = new Size(38, 43);
             closeAppBtn.TabIndex = 12;
             closeAppBtn.Text = "X";
             closeAppBtn.UseVisualStyleBackColor = false;
@@ -178,22 +110,17 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(797, 459);
+            ClientSize = new Size(797, 333);
+            ControlBox = false;
             Controls.Add(closeAppBtn);
             Controls.Add(button10);
-            Controls.Add(button9);
-            Controls.Add(button8);
-            Controls.Add(button7);
             Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "PastRootForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "PastRootForm";
+            Text = "Добавление информации";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -203,13 +130,7 @@
         private Button button1;
         private Button button2;
         private Label label1;
-        private Button button3;
-        private Button button4;
-        private Button button5;
         private Button button6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
         private Button button10;
         private Button closeAppBtn;
     }

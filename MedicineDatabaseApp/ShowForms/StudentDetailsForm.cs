@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MedicineDatabaseApp.ShowForms;
+using MedicineDatabaseApp;
 
 namespace MedicineDatabaseApp
 {
@@ -19,6 +21,10 @@ namespace MedicineDatabaseApp
             this.studentId = studentId;
             this.Load += new EventHandler(StudentDetailsForm_Load);
             InitializeComponent();
+        }
+
+        public StudentDetailsForm()
+        {
         }
 
         private void StudentDetailsForm_Load(object sender, EventArgs e)
@@ -48,7 +54,7 @@ WHERE students.id = @id";
                     label_sex.Text = reader["sex"].ToString();
 
                     faculcy_label.Text = reader["faculty"].ToString();
-                    spec_label.Text = reader["speciality"].ToString() ;
+                    spec_label.Text = reader["speciality"].ToString();
 
                     group_label.Text = reader["groupnumber"].ToString();
 
@@ -61,10 +67,9 @@ WHERE students.id = @id";
             db.closeConnection();
         }
 
-        private void showCardBtn_Click(object sender, EventArgs e)
+        private void showVaccinationbtnClick(object sender, EventArgs e)
         {
-            this.Close();
-            ShowCardForm form = new ShowCardForm();
+            ShowVaccinationForm form = new ShowVaccinationForm(studentId);
             form.ShowDialog();
         }
 
@@ -72,5 +77,35 @@ WHERE students.id = @id";
         {
             this.Close();
         }
+
+        private void showSertificateBtn_Click(object sender, EventArgs e)
+        {
+            spravkiform form = new spravkiform(studentId);
+            form.ShowDialog();
+        }
+
+        private void ShowCheckoutBtn_Click(object sender, EventArgs e)
+        {
+            Medosmotr form = new Medosmotr(studentId);
+            form.ShowDialog();
+        }
+
+        private void showAppealsBtn_Click(object sender, EventArgs e)
+        {
+            Spisokspravok form = new Spisokspravok(studentId);
+            form.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Bolnicnie form = new Bolnicnie(studentId);
+            form.ShowDialog();
+        }
+
+        private void closeAppBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
+

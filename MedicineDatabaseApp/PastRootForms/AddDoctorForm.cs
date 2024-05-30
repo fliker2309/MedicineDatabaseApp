@@ -28,10 +28,12 @@ namespace MedicineDatabaseApp.PastRootForms
                 string.IsNullOrWhiteSpace(lastnameTB.Text) &&
                 string.IsNullOrWhiteSpace(jobtitleTB.Text) &&
                 string.IsNullOrWhiteSpace(qualityTB.Text)
-                ) { MessageBox.Show("Заполните все поля!"); 
-            }           
-                         
-                else
+                )
+            {
+                MessageBox.Show("Заполните все поля!");
+            }
+
+            else
             {
                 DB db = new DB();
 
@@ -60,6 +62,18 @@ namespace MedicineDatabaseApp.PastRootForms
                 }
                 db.closeConnection();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            EditVrachForm form = new EditVrachForm();
+            form.ShowDialog();
+            form.BringToFront();
+        }
+
+        private void closeAppBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

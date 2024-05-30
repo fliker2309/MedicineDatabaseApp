@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,6 @@ namespace MedicineDatabaseApp
 {
     public partial class SearchForm : Form
     {
-
         public SearchForm()
         {
             InitializeComponent();
@@ -50,7 +50,13 @@ namespace MedicineDatabaseApp
             studentsListView.Columns.Add("Фамилия");
             studentsListView.Columns.Add("Имя");
             studentsListView.Columns.Add("Отчество");
+            studentsListView.Columns.Add("Год рождения");
             studentsListView.Columns.Add("Пол");
+
+            studentsListView.Columns.Add("Группа");
+            studentsListView.Columns.Add("Год поступления");
+            studentsListView.Columns.Add("Факультет");
+            studentsListView.Columns.Add("Специальность");
             ResizeListViewColumns(studentsListView);
 
             LoadData();
@@ -91,8 +97,13 @@ INNER JOIN specialities ON students.speciality_id = specialities.id
                     ListViewItem item = new ListViewItem(reader["surname"].ToString());
                     item.SubItems.Add(reader["name"].ToString());
                     item.SubItems.Add(reader["lastname"].ToString());
+                    item.SubItems.Add(reader["age"].ToString());
                     item.SubItems.Add(reader["sex"].ToString());
 
+                    item.SubItems.Add(reader["groupnumber"].ToString());
+                    item.SubItems.Add(reader["start_year"].ToString());
+                    item.SubItems.Add(reader["faculty"].ToString());
+                    item.SubItems.Add(reader["speciality"].ToString());
                     item.Tag = reader["id"];
 
                     studentsListView.Items.Add(item);
@@ -203,7 +214,6 @@ INNER JOIN specialities ON students.speciality_id = specialities.id
     WHERE 1=1
 ";
 
-
             if (!string.IsNullOrEmpty(dateOfBirth))
             {
                 query += " AND YEAR(age) = @dateOfBirth";
@@ -271,6 +281,7 @@ INNER JOIN specialities ON students.speciality_id = specialities.id
 
             studentsListView.Items.Clear();
 
+
             using (var reader = command.ExecuteReader())
             {
                 bool hasRows = false;
@@ -281,27 +292,25 @@ INNER JOIN specialities ON students.speciality_id = specialities.id
                     ListViewItem item = new ListViewItem(reader["surname"].ToString());
                     item.SubItems.Add(reader["name"].ToString());
                     item.SubItems.Add(reader["lastname"].ToString());
+                    item.SubItems.Add(reader["age"].ToString());
                     item.SubItems.Add(reader["sex"].ToString());
-
-                    DateTime birthDate = Convert.ToDateTime(reader["age"]);
-                    int age = DateTime.Now.Year - birthDate.Year;
-                    if (birthDate > DateTime.Now.AddYears(-age)) age--;
-                    item.SubItems.Add(age.ToString());
-                    item.SubItems.Add(reader["faculty"].ToString());
-                    item.SubItems.Add(reader["speciality"].ToString());
                     item.SubItems.Add(reader["groupnumber"].ToString());
                     item.SubItems.Add(reader["start_year"].ToString());
+                    item.SubItems.Add(reader["faculty"].ToString());
+                    item.SubItems.Add(reader["speciality"].ToString());
 
                     studentsListView.Items.Add(item);
+                    item.Tag = reader["id"];
+                    int studentId = (int)item.Tag;
                 }
                 if (!hasRows)
                 {
                     ListViewItem item = new ListViewItem("Нет студентов");
                     studentsListView.Items.Add(item);
                 }
-            }
 
-            db.closeConnection();
+                db.closeConnection();
+            }
         }
 
         public void updateListView()
@@ -318,18 +327,23 @@ INNER JOIN specialities ON students.speciality_id = specialities.id
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            if (studentsListView.SelectedItems.Count > 0)
+            try
             {
-                ListViewItem item = studentsListView.SelectedItems[0];
-                int studentId = (int)item.Tag;
-
-                DialogResult dialogResult = MessageBox.Show("Вы точно хотите удалить студента?", "Подтверждение удаления", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                if (studentsListView.SelectedItems.Count > 0)
                 {
-                    DeleteStudent(studentId);
-                    studentsListView.Items.Remove(item);
+                    ListViewItem item = studentsListView.SelectedItems[0];
+                    int studentId = (int)item.Tag;
+
+                    DialogResult dialogResult = MessageBox.Show("Вы точно хотите удалить студента?", "Подтверждение удаления", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        DeleteStudent(studentId);
+                        studentsListView.Items.Remove(item);
+                    }
                 }
             }
+            catch { };
+
         }
 
         private void DeleteStudent(int studentId)
@@ -362,7 +376,17 @@ INNER JOIN specialities ON students.speciality_id = specialities.id
             this.Close();
             AddStudentForm addForm = new AddStudentForm();
             addForm.Show();
-           
+
+        }
+
+        private void closeAppBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void studentsListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -24,8 +24,7 @@ namespace MedicineDatabaseApp.PastRootForms
         private void back_to_main_button_Click(object sender, EventArgs e)
         {
             this.Close();
-            PastRootForm form = new PastRootForm();
-            form.Show();
+
         }
 
         private void initialize_students()
@@ -47,10 +46,12 @@ namespace MedicineDatabaseApp.PastRootForms
         {
             int cardId = (int)studentBox.SelectedValue;
 
-            if (string.IsNullOrWhiteSpace(typeTB.Text)) {
+            if (string.IsNullOrWhiteSpace(typeTB.Text))
+            {
                 MessageBox.Show("Заполните все поля!");
-            
-            } else
+
+            }
+            else
             {
                 DB db = new DB();
                 MySqlCommand command = new MySqlCommand("INSERT INTO vaccination (card_id, vaccination_type, vaccination_date) VALUES (@id, @vaccinationType, @vaccinationDate);", db.getConnection());
@@ -64,8 +65,7 @@ namespace MedicineDatabaseApp.PastRootForms
                     MessageBox.Show("Прививка добавлена");
 
                     this.Close();
-                    PastRootForm rootForm = new PastRootForm();
-                    rootForm.Show();
+
                 }
                 else
                 {
@@ -74,6 +74,11 @@ namespace MedicineDatabaseApp.PastRootForms
                 db.closeConnection();
 
             }
+        }
+
+        private void closeAppBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

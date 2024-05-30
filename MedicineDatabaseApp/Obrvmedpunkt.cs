@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MedicineDatabaseApp
 {
-    public partial class AddCheckoutForm : Form
+    public partial class Obrvmedpunkt : Form
     {
-        public AddCheckoutForm()
+        public Obrvmedpunkt()
         {
             InitializeComponent();
             initialize_vrach();
@@ -50,12 +50,13 @@ namespace MedicineDatabaseApp
 
             db.closeConnection();
         }
-        private void back_to_main_button_Click(object sender, EventArgs e)
+
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             int cardId = (int)comboBox1.SelectedValue;
 
@@ -67,24 +68,28 @@ namespace MedicineDatabaseApp
             else
             {
                 DB db = new DB();
-                MySqlCommand command = new MySqlCommand("INSERT INTO body_check (card_id, date_of_issue, doctor_id, group_fizkult, suitability, prichina) VALUES(@id, @date_of_issueR, @doctorR, @group_fizkultR, @suitabilityR, @prichinaR);", db.getConnection());
+                MySqlCommand command = new MySqlCommand("INSERT INTO health_visits (card_id, complaints, symptoms, body_temperature, body_pressure, diagnos, recommendations, doctor_id, visit_date, surgical_intervention) VALUES(@id, @complaintsD, @symptomsD, @body_temperatureD, @body_pressureD, @diagnosD, @recommendationsD, @doctorD, @visit_dateD, @surgical_interventionD);", db.getConnection());
                 command.Parameters.AddWithValue("@id", cardId);
-                command.Parameters.Add("@date_of_issueR", MySqlDbType.Date).Value = dateTimePicker1.Value;
-                command.Parameters.Add("@doctorR", MySqlDbType.Int32).Value = (int)comboBox2.SelectedValue;
-                command.Parameters.Add("@group_fizkultR", MySqlDbType.VarChar).Value = textBox1.Text;
-                command.Parameters.Add("@suitabilityR", MySqlDbType.VarChar).Value = textBox2.Text; 
-                command.Parameters.Add("@prichinaR", MySqlDbType.VarChar).Value = textBox3.Text;
+                command.Parameters.Add("@complaintsD", MySqlDbType.VarChar).Value = textBox1.Text;
+                command.Parameters.Add("@symptomsD", MySqlDbType.VarChar).Value = textBox2.Text;
+                command.Parameters.Add("@body_temperatureD", MySqlDbType.VarChar).Value = textBox4.Text;
+                command.Parameters.Add("@body_pressureD", MySqlDbType.VarChar).Value = textBox5.Text;
+                command.Parameters.Add("@diagnosD", MySqlDbType.VarChar).Value = textBox6.Text;
+                command.Parameters.Add("@recommendationsD", MySqlDbType.VarChar).Value = textBox7.Text;
+                command.Parameters.Add("@doctorD", MySqlDbType.Int32).Value = (int)comboBox2.SelectedValue;
+                command.Parameters.Add("@visit_dateD", MySqlDbType.Date).Value = dateTimePicker1.Value;
+                command.Parameters.Add("@surgical_interventionD", MySqlDbType.VarChar).Value = textBox8.Text;
                 db.openConnection();
 
                 if (command.ExecuteNonQuery() == 1)
                 {
-                    MessageBox.Show("Медосмотр добавлен");
+                    MessageBox.Show("Обращение добавлено");
 
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Медосмотр не добавлен");
+                    MessageBox.Show("Обращение не добавлено");
                 }
                 db.closeConnection();
 
@@ -97,3 +102,6 @@ namespace MedicineDatabaseApp
         }
     }
 }
+
+
+

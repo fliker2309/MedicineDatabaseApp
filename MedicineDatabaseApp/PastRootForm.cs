@@ -44,7 +44,7 @@ namespace MedicineDatabaseApp
             this.Close();
             AddSpecialityForm form = new AddSpecialityForm();
             form.Show();
-        }      
+        }
 
         private void closeAppBtn_MouseHover(object sender, EventArgs e)
         {
@@ -70,9 +70,33 @@ namespace MedicineDatabaseApp
 
         private void button9_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
             this.Close();
-            AddIllnessForm form = new AddIllnessForm();
+            AddCertificateForm form = new AddCertificateForm();
             form.Show();
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Obrvmedpunkt form = new Obrvmedpunkt();
+            form.Show();
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

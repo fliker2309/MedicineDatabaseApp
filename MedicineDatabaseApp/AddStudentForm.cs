@@ -28,18 +28,17 @@ namespace MedicineDatabaseApp
 
             lastname_textbox.Text = "Введите отчество";
 
-            group_textbox.Text = "Введите группу";      
-            
-                      
+            group_textbox.Text = "Введите группу";
+
             initialize_faculties();
-           
+
             initialize_specialities();
 
             initialize_ages();
 
         }
 
-    private void initialize_ages()
+        private void initialize_ages()
         {
             ComboBox startYear = new ComboBox();
             int startYear1 = 2020;
@@ -60,7 +59,7 @@ namespace MedicineDatabaseApp
             }
         }
 
-    public AddStudentForm(int studentId, SearchForm searchForm) //конструктор редактирования студента
+        public AddStudentForm(int studentId, SearchForm searchForm) //конструктор редактирования студента
         {
             _studentId = studentId;
             _searchForm = searchForm;
@@ -73,7 +72,7 @@ namespace MedicineDatabaseApp
             initialize_specialities();
 
             initialize_ages();
-         
+
         }
 
         private void AddStudentForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -102,15 +101,15 @@ WHERE students.id = @id";
                     name_textbox.Text = reader["name"].ToString();
                     lastname_textbox.Text = reader["lastname"].ToString();
 
-                    DateTime dateOfBirth = Convert.ToDateTime(reader["age"]);                  
+                    DateTime dateOfBirth = Convert.ToDateTime(reader["age"]);
                     borndate_datepicker.Value = dateOfBirth;
 
                     string sex = reader["sex"].ToString();
-                    if(sex == "Мужской")
+                    if (sex == "Мужской")
                     {
                         male_radiobutton.Checked = true;
                     }
-                    else if (sex =="Женский")
+                    else if (sex == "Женский")
                     {
                         radio_button_female.Checked = true;
                     }
@@ -120,10 +119,11 @@ WHERE students.id = @id";
                     group_textbox.Text = reader["groupnumber"].ToString();
 
                     string aducation = reader["aducation_form"].ToString();
-                    if(aducation == "Очное")
+                    if (aducation == "Очное")
                     {
-                        offline_radiobutton.Checked = true ;
-                    } else if (aducation == "Заочное")
+                        offline_radiobutton.Checked = true;
+                    }
+                    else if (aducation == "Заочное")
                     {
                         online_radiobutton.Checked = true;
                     }
@@ -144,10 +144,10 @@ WHERE students.id = @id";
             db.openConnection();
             MySqlDataReader reader = command.ExecuteReader();
             DataTable faculties = new DataTable();
-            faculties.Load(reader); 
-            facultyBox.DataSource = faculties; 
-            facultyBox.DisplayMember = "faculty"; 
-            facultyBox.ValueMember = "id"; 
+            faculties.Load(reader);
+            facultyBox.DataSource = faculties;
+            facultyBox.DisplayMember = "faculty";
+            facultyBox.ValueMember = "id";
 
             db.closeConnection();
         }
@@ -160,9 +160,9 @@ WHERE students.id = @id";
             db.openConnection();
             MySqlDataReader reader = command.ExecuteReader();
             DataTable specialities = new DataTable();
-            specialities.Load(reader); 
-            specialityBox.DataSource = specialities; 
-            specialityBox.DisplayMember = "speciality"; 
+            specialities.Load(reader);
+            specialityBox.DataSource = specialities;
+            specialityBox.DisplayMember = "speciality";
             specialityBox.ValueMember = "id";
 
             db.closeConnection();
@@ -218,9 +218,17 @@ WHERE students.id = @id";
 
         private void back_to_main_button_Click(object sender, EventArgs e)
         {
-            this.Close();
-            SearchForm form = new SearchForm();
-            form.Show();
+            if (_studentId.HasValue)
+            {
+                this.Close();
+            }
+            else
+            {
+                this.Close();
+                SearchForm searchForm = new SearchForm();
+                searchForm.Show();
+            }
+
         }
 
         private void add_info_button_Click(object sender, EventArgs e)
@@ -256,15 +264,15 @@ WHERE students.id = @id";
                 {
                     MessageBox.Show("Правки внесены");
 
-                    this.Close();                   
+                    this.Close();
                 }
                 else
                 {
                     MessageBox.Show("Правки не внесены");
                 }
 
-                db.closeConnection();           
-                            }
+                db.closeConnection();
+            }
             else
             {
                 int selectedYear = int.Parse(startYearBox.SelectedItem.ToString());
@@ -287,14 +295,16 @@ WHERE students.id = @id";
                 command.Parameters.Add("@aducationform", MySqlDbType.VarChar).Value = aducationform;
                 command.Parameters.Add("@startyear", MySqlDbType.VarChar).Value = startYearBox.Text;
                 command.Parameters.Add("@endyear", MySqlDbType.VarChar).Value = endYearBox.Text;
-             
+
                 db.openConnection();
 
                 if (command.ExecuteNonQuery() == 1)
                 {
                     MessageBox.Show("Студент добавлен");
 
-                    this.Close();                      
+                    this.Close();
+                    SearchForm form = new SearchForm();
+                    form.Show();
                 }
                 else
                 {
@@ -304,7 +314,7 @@ WHERE students.id = @id";
                 db.closeConnection();
 
                 addCardQuery();
-            }           
+            }
         }
 
         private void addCardQuery()
@@ -318,17 +328,20 @@ COMMIT;";
 
             db.openConnection();
             if (addCardCommand.ExecuteNonQuery() > 0)
-            {              
+            {
                 this.Close();
-                SearchForm form = new SearchForm();
-                form.Show();
             }
             else
             {
-                MessageBox.Show("карта не добавлена");
+                MessageBox.Show("Карта не добавлена");
             }
 
             db.closeConnection();
+        }
+
+        private void closeAppBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
